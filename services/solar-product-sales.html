@@ -254,7 +254,9 @@
     <script>
       async function fetchProducts() {
         try {
-          const response = await fetch("http://localhost:5000/api/products");
+          const response = await fetch(
+            "https://pfos-backend.onrender.com/api/products"
+          );
           const products = await response.json();
           if (!Array.isArray(products) || products.length === 0) {
             document.getElementById("product-container").innerHTML =
@@ -300,7 +302,7 @@
           description: productDescription,
         };
         localStorage.setItem("selectedProduct", JSON.stringify(product));
-        window.location.href = "/frontend/product-details.html";
+        window.location.href = "/product-details.html";
       }
 
       function updateCartCount() {
