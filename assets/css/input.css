@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+@layer base {
+  body {
+    font-family: "Urbanist", sans-serif;
+    background: #002347;
+  }
+  .padding-inline {
+    padding-inline: 119px;
+  }
+
+  .background-color {
+    background: #002347;
+  }
+
+  @media screen and (min-width: 768px) {
+    .background-color {
+      background: linear-gradient(
+        to bottom,
+        #002347 0%,
+        #002347 50%,
+        #d9e8f7 50%,
+        #d9e8f7 100%
+      );
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .padding-inline {
+      padding-inline: 30px;
+    }
+  }
+
+  .swiper-slide {
+    height: 339px;
+    content: "";
+    inset: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("/assets/images/projects1.png");
+    z-index: 1;
+    opacity: 25%;
+    border-radius: 30px;
+    padding-inline: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+  }
+
+  .swiper-slide-active {
+    transform: scale(1.1);
+    width: 330px !important;
+    height: 373px !important;
+    border-radius: 30px;
+    border: 5px solid #3c9bfe !important;
+    opacity: 100 !important;
+    border-radius: 100vw;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    background-color: #0164ca;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    background-color: #0164ca;
+  }
+
+  .swiper-button-prev svg,
+  .swiper-button-next svg {
+    width: 20px;
+    height: 20px;
+    color: white;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    display: none;
+  }
+
+  .swiper-slide:nth-child(2) {
+    background-image: url("/assets/images/projects2.png");
+  }
+  .swiper-slide:nth-child(3) {
+    background-image: url("/assets/images/projects3.png");
+  }
+
+  .swiper-slide:nth-child(4) {
+    background-image: url("/assets/images/projects4.png");
+  }
+  .swiper-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180.03deg,
+      rgba(0, 0, 0, 0) 0.03%,
+      #012347 98.21%
+    );
+    z-index: 2;
+    border-radius: 30px;
+  }
+
+  
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+#dynamic-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid;
+  animation: typing 2s steps(20, end), blink 0.75s step-end infinite;
+}

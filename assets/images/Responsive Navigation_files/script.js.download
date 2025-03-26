@@ -1,0 +1,16 @@
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("menu-mobile");
+const closeMenu = document.getElementById("close-menu");
+
+menuToggle.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+  menuToggle.setAttribute(
+    "aria-expanded",
+    mobileMenu.classList.contains("hidden") ? "false" : "true"
+  );
+});
+
+closeMenu.addEventListener("click", () => {
+  mobileMenu.classList.add("hidden");
+  menuToggle.setAttribute("aria-expanded", "false");
+});
