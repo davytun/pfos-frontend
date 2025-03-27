@@ -89,7 +89,9 @@ document
 
 async function fetchProducts() {
   try {
-    const response = await fetch("http://localhost:5000/api/products");
+    const response = await fetch(
+      "https://pfos-backend.vercel.app/api/products"
+    );
     const products = await response.json();
 
     if (!Array.isArray(products) || products.length === 0) {
