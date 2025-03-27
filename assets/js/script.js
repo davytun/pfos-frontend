@@ -90,7 +90,7 @@ document
 async function fetchProducts() {
   try {
     const response = await fetch(
-      "https://pfos-backend.vercel.app/api/products"
+      "https://pfos-backend.onrender.com/api/products"
     );
     const products = await response.json();
 
