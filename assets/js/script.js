@@ -31,61 +31,61 @@ function showNextSlide() {
 
 setInterval(showNextSlide, 2000); // Change every 2 seconds
 
-(function () {
-  emailjs.init("QxzxYdkHlSqmgwk6H"); // Initialize Email.js with your public key
-})();
+// (function () {
+//   emailjs.init("QxzxYdkHlSqmgwk6H"); // Initialize Email.js with your public key
+// })();
 
-document
-  .getElementById("quickMessageForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form from submitting normally
+// document
+//   .getElementById("quickMessageForm")
+//   .addEventListener("submit", function (event) {
+//     event.preventDefault(); // Prevent form from submitting normally
 
-    // Retrieve input values
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+//     // Retrieve input values
+//     const name = document.getElementById("name").value.trim();
+//     const email = document.getElementById("email").value.trim();
+//     const message = document.getElementById("message").value.trim();
 
-    // Basic validation: Ensure fields are not empty
-    if (!name || !email || !message) {
-      alert("All fields are required!");
-      return;
-    }
+//     // Basic validation: Ensure fields are not empty
+//     if (!name || !email || !message) {
+//       alert("All fields are required!");
+//       return;
+//     }
 
     // Prepare email.js template parameters
-    const templateParams = {
-      name: name,
-      email: email,
-      message: message,
-    };
+    // const templateParams = {
+    //   name: name,
+    //   email: email,
+    //   message: message,
+    // };
 
     // Send email via Email.js
-    emailjs.send("service_vtw0yyb", "template_pv80lnk", templateParams).then(
-      function (response) {
-        alert("Message sent successfully!");
-        console.log("Success:", response.status, response.text);
-        // Clear form fields after submission (optional)
-        document.getElementById("quickMessageForm").reset();
-      },
-      function (error) {
-        alert("Failed to send message. Please try again.");
-        console.log("Error:", error);
-      }
-    );
+  //   emailjs.send("service_vtw0yyb", "template_pv80lnk", templateParams).then(
+  //     function (response) {
+  //       alert("Message sent successfully!");
+  //       console.log("Success:", response.status, response.text);
+  //       // Clear form fields after submission (optional)
+  //       document.getElementById("quickMessageForm").reset();
+  //     },
+  //     function (error) {
+  //       alert("Failed to send message. Please try again.");
+  //       console.log("Error:", error);
+  //     }
+  //   );
+  // });
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute("href").substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    window.scrollTo({
+      top: targetElement.offsetTop,
+      behavior: "smooth",
+    });
   });
-
-// document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-//   anchor.addEventListener("click", function (e) {
-//     e.preventDefault();
-
-//     const targetId = this.getAttribute("href").substring(1);
-//     const targetElement = document.getElementById(targetId);
-
-//     window.scrollTo({
-//       top: targetElement.offsetTop,
-//       behavior: "smooth",
-//     });
-//   });
-// });
+});
 
 async function fetchProducts() {
   try {
@@ -127,3 +127,62 @@ async function fetchProducts() {
 
 // Call function when the page loads
 fetchProducts();
+
+document
+  .getElementById("quickMessageForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    // Function to show notification
+    const showNotification = (message, isSuccess = true) => {
+      const notification = document.getElementById("form-notification");
+      if (!notification) {
+        console.error("Notification element not found.");
+        return;
+      }
+      notification.textContent = message;
+      notification.className = `fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 ${
+        isSuccess ? "bg-green-500 text-white" : "bg-red-500 text-white"
+      }`;
+      notification.classList.remove("hidden");
+      notification.classList.add("show");
+      setTimeout(() => {
+        notification.classList.remove("show");
+        notification.classList.add("hidden");
+      }, 3000); // Hide after 3 seconds
+    };
+
+    if (!name || !email || !message) {
+      showNotification("All fields are required!", false);
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        "https://pfos-backend.vercel.app/api/messages",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, message }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      showNotification("Message sent successfully!");
+      document.getElementById("quickMessageForm").reset();
+    } catch (error) {
+      showNotification("Failed to send message. Please try again.", false);
+      console.error("Error:", error);
+    }
+  });
