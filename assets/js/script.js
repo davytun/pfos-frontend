@@ -90,7 +90,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 async function fetchProducts() {
   try {
     const response = await fetch(
-      "https://pfos-backend.onrender.com/api/products"
+      "https://pfos-backend.vercel.app/api/products"
     );
     const products = await response.json();
 
