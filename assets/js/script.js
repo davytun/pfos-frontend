@@ -128,66 +128,62 @@ async function fetchProducts() {
 // Call function when the page loads
 fetchProducts();
 
-document
-  .getElementById("quickMessageForm")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("quickMessageForm");
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
+  if (form) {
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
 
-    const showNotification = (message, isSuccess = true) => {
-      const notification = document.getElementById("form-notification");
-      if (!notification) {
-        console.error("Notification element not found.");
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const showNotification = (message, isSuccess = true) => {
+        const notification = document.getElementById("form-notification");
+        if (!notification) {
+          console.error("Notification element not found.");
+          return;
+        }
+        notification.textContent = message;
+        notification.className = `fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 ${
+          isSuccess ? "bg-green-500 text-white" : "bg-red-500 text-white"
+        }`;
+        notification.classList.remove("hidden");
+        setTimeout(() => {
+          notification.classList.add("hidden");
+        }, 3000);
+      };
+
+      if (!name || !email || !message) {
+        showNotification("All fields are required!", false);
         return;
       }
-      notification.textContent = message;
-      notification.className = `fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 ${
-        isSuccess ? "bg-green-500 text-white" : "bg-red-500 text-white"
-      }`;
-      notification.classList.remove("hidden");
-      notification.classList.add("show");
-      setTimeout(() => {
-        notification.classList.remove("show");
-        notification.classList.add("hidden");
-      }, 3000);
-    };
 
-    if (!name || !email || !message) {
-      showNotification("All fields are required!", false);
-      return;
-    }
+      try {
+        const url = "https://pfos-backend.vercel.app/api/messages";
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, message }),
+        });
 
-    try {
-      const url = "https://pfos-backend.vercel.app/api/messages";
-      console.log("Sending request to:", url);
-      console.log("Method:", "POST");
-      console.log("Body:", JSON.stringify({ name, email, message }));
-      console.log("Page URL:", window.location.href); // Log current page
+        const data = await response.json();
 
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message }),
-      });
+        if (!response.ok) {
+          throw new Error(data.error || "Failed to send message");
+        }
 
-      console.log("Response status:", response.status);
-      console.log("Response headers:", [...response.headers.entries()]);
-      const data = await response.json();
-      console.log("Response data:", data);
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to send message");
+        showNotification("Message sent successfully!");
+        form.reset();
+      } catch (error) {
+        showNotification("Failed to send message. Please try again.", false);
+        console.error("Error:", error);
       }
-
-      showNotification("Message sent successfully!");
-      document.getElementById("quickMessageForm").reset();
-    } catch (error) {
-      showNotification("Failed to send message. Please try again.", false);
-      console.error("Error:", error);
-    }
-  });
+    });
+  } else {
+    console.error("Form element not found");
+  }
+});
