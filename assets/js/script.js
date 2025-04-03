@@ -161,27 +161,22 @@ document
     }
 
     try {
-      console.log(
-        "Sending request to:",
-        "https://pfos-backend.vercel.app/api/messages"
-      );
+      const url = "https://pfos-backend.vercel.app/api/messages";
+      console.log("Sending request to:", url);
       console.log("Method:", "POST");
       console.log("Body:", JSON.stringify({ name, email, message }));
+      console.log("Page URL:", window.location.href); // Log current page
 
-      const response = await fetch(
-        "https://pfos-backend.vercel.app/api/messages",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name, email, message }),
-        }
-      );
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
 
       console.log("Response status:", response.status);
       console.log("Response headers:", [...response.headers.entries()]);
-
       const data = await response.json();
       console.log("Response data:", data);
 
