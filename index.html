@@ -1251,10 +1251,7 @@
             >
               SEND
             </button>
-            <div
-              id="form-notification"
-              class="hidden"
-            ></div>
+            <div id="form-notification" class="hidden"></div>
           </form>
         </div>
       </div>
@@ -1288,7 +1285,6 @@
           const email = document.getElementById("email").value.trim();
           const message = document.getElementById("message").value.trim();
 
-          // Function to show notification
           const showNotification = (message, isSuccess = true) => {
             const notification = document.getElementById("form-notification");
             if (!notification) {
@@ -1304,7 +1300,7 @@
             setTimeout(() => {
               notification.classList.remove("show");
               notification.classList.add("hidden");
-            }, 3000); // Hide after 3 seconds
+            }, 3000);
           };
 
           if (!name || !email || !message) {
@@ -1313,6 +1309,13 @@
           }
 
           try {
+            console.log(
+              "Sending request to:",
+              "https://pfos-backend.vercel.app/api/messages"
+            );
+            console.log("Method:", "POST");
+            console.log("Body:", JSON.stringify({ name, email, message }));
+
             const response = await fetch(
               "https://pfos-backend.vercel.app/api/messages",
               {
@@ -1324,7 +1327,11 @@
               }
             );
 
+            console.log("Response status:", response.status);
+            console.log("Response headers:", [...response.headers.entries()]);
+
             const data = await response.json();
+            console.log("Response data:", data);
 
             if (!response.ok) {
               throw new Error(data.error || "Failed to send message");

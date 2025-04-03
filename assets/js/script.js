@@ -51,27 +51,27 @@ setInterval(showNextSlide, 2000); // Change every 2 seconds
 //       return;
 //     }
 
-    // Prepare email.js template parameters
-    // const templateParams = {
-    //   name: name,
-    //   email: email,
-    //   message: message,
-    // };
+// Prepare email.js template parameters
+// const templateParams = {
+//   name: name,
+//   email: email,
+//   message: message,
+// };
 
-    // Send email via Email.js
-  //   emailjs.send("service_vtw0yyb", "template_pv80lnk", templateParams).then(
-  //     function (response) {
-  //       alert("Message sent successfully!");
-  //       console.log("Success:", response.status, response.text);
-  //       // Clear form fields after submission (optional)
-  //       document.getElementById("quickMessageForm").reset();
-  //     },
-  //     function (error) {
-  //       alert("Failed to send message. Please try again.");
-  //       console.log("Error:", error);
-  //     }
-  //   );
-  // });
+// Send email via Email.js
+//   emailjs.send("service_vtw0yyb", "template_pv80lnk", templateParams).then(
+//     function (response) {
+//       alert("Message sent successfully!");
+//       console.log("Success:", response.status, response.text);
+//       // Clear form fields after submission (optional)
+//       document.getElementById("quickMessageForm").reset();
+//     },
+//     function (error) {
+//       alert("Failed to send message. Please try again.");
+//       console.log("Error:", error);
+//     }
+//   );
+// });
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -137,7 +137,6 @@ document
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    // Function to show notification
     const showNotification = (message, isSuccess = true) => {
       const notification = document.getElementById("form-notification");
       if (!notification) {
@@ -153,7 +152,7 @@ document
       setTimeout(() => {
         notification.classList.remove("show");
         notification.classList.add("hidden");
-      }, 3000); // Hide after 3 seconds
+      }, 3000);
     };
 
     if (!name || !email || !message) {
@@ -162,6 +161,13 @@ document
     }
 
     try {
+      console.log(
+        "Sending request to:",
+        "https://pfos-backend.vercel.app/api/messages"
+      );
+      console.log("Method:", "POST");
+      console.log("Body:", JSON.stringify({ name, email, message }));
+
       const response = await fetch(
         "https://pfos-backend.vercel.app/api/messages",
         {
@@ -173,7 +179,11 @@ document
         }
       );
 
+      console.log("Response status:", response.status);
+      console.log("Response headers:", [...response.headers.entries()]);
+
       const data = await response.json();
+      console.log("Response data:", data);
 
       if (!response.ok) {
         throw new Error(data.error || "Failed to send message");
