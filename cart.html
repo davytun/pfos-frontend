@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="./assets/css/input.css" rel="stylesheet" />
+    <link href="./assets/css/output.css" rel="stylesheet" />
+    <title>Your Shopping Cart - SOLAR PRODUCT SALES</title>
+    <style>
+      /* Font */
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+      /* Base Styles */
+      body {
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        background: #002347;
+        color: #e5e7eb;
+      }
+
+      /* Cart Section Styles */
+      #cart-container {
+        background: #011b36;
+        padding: 2rem 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (min-width: 640px) {
+        #cart-container {
+          padding: 2.5rem 1.5rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        #cart-container {
+          padding: 3rem 2rem;
+        }
+      }
+
+      #cart-table-header {
+        display: none;
+      }
+
+      @media (min-width: 768px) {
+        #cart-table-header {
+          display: grid;
+          grid-template-columns: 5fr 2fr 2fr 1fr;
+          gap: 1rem;
+          align-items: center;
+          border-top: 1px solid #1e3a8a;
+          border-bottom: 1px solid #1e3a8a;
+          padding-bottom: 1rem;
+          padding-top: 1rem;
+          margin-bottom: 1.5rem;
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: #9ca3af;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+      }
+
+      #cart-table-header div:nth-child(1) {
+        padding-left: 5rem;
+      }
+
+      #cart-table-header div:nth-child(2),
+      #cart-table-header div:nth-child(3) {
+        text-align: center;
+      }
+
+      #cart-table-header div:nth-child(4) {
+        text-align: right;
+      }
+
+      #cart-items-list {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #cart-items-list > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+      }
+
+      @media (min-width: 768px) {
+        #cart-items-list > div {
+          display: grid;
+          grid-template-columns: 5fr 2fr 2fr 1fr;
+          gap: 1rem;
+          align-items: center;
+          padding: 1.5rem 0;
+        }
+      }
+
+      .cart-item-product {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+      }
+
+      .cart-item-product img {
+        width: 4rem;
+        height: 4rem;
+        object-fit: contain;
+        border-radius: 0.375rem;
+        background: white;
+        padding: 0.25rem;
+        flex-shrink: 0;
+      }
+
+      @media (min-width: 768px) {
+        .cart-item-product img {
+          width: 5rem;
+          height: 5rem;
+        }
+      }
+
+      .cart-item-product-details {
+        flex-grow: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .cart-item-product-details p {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #f3f4f6;
+        line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      @media (min-width: 768px) {
+        .cart-item-product-details p {
+          font-size: 1.125rem;
+        }
+      }
+
+      .cart-item-product-details .remove-item-btn {
+        font-size: 0.875rem;
+        color: #f87171;
+        transition: color 0.2s;
+        padding: 0.75rem 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .cart-item-product-details .remove-item-btn:hover,
+      .cart-item-product-details .remove-item-btn:active {
+        color: #ef4444;
+      }
+
+      .cart-item-product-details .remove-item-btn i {
+        margin-right: 0.25rem;
+      }
+
+      .cart-item-price,
+      .cart-item-quantity,
+      .cart-item-total {
+        font-size: 0.875rem;
+        color: #d1d5db;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .cart-item-price::before,
+      .cart-item-quantity::before,
+      .cart-item-total::before {
+        content: attr(data-label) ": ";
+        font-weight: 500;
+        color: #9ca3af;
+        flex-shrink: 0;
+      }
+
+      @media (min-width: 768px) {
+        .cart-item-price::before,
+        .cart-item-quantity::before,
+        .cart-item-total::before {
+          content: none;
+        }
+        .cart-item-price,
+        .cart-item-quantity {
+          justify-content: center;
+        }
+        .cart-item-total {
+          text-align: right;
+        }
+        .cart-item-price,
+        .cart-item-quantity,
+        .cart-item-total {
+          font-size: 1rem;
+        }
+      }
+
+      input[type="number"] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+        text-align: center;
+        border: 1px solid #4a5568;
+        background-color: #1e3a8a;
+        border-radius: 0.375rem;
+        padding: 0.75rem;
+        width: 3.5rem;
+        color: #e5e7eb;
+        font-size: 0.875rem;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input[type="number"]:focus {
+        outline: none;
+        border-color: #fbb610;
+        box-shadow: 0 0 0 2px rgba(251, 182, 16, 0.5);
+      }
+
+      @media (min-width: 768px) {
+        input[type="number"] {
+          width: 4.5rem;
+          font-size: 1rem;
+        }
+      }
+
+      #empty-cart-message {
+        font-style: italic;
+        text-align: center;
+        padding: 4rem 0;
+        font-size: 1.125rem;
+        color: #9ca3af;
+      }
+
+      #cart-loading {
+        text-align: center;
+        padding: 4rem 0;
+        color: #9ca3af;
+      }
+
+      #cart-loading i {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      #cart-summary {
+        border-top: 2px solid #1e3a8a;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        #cart-summary {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+
+      #cart-summary a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #fbb610;
+        font-weight: 500;
+        transition: color 0.2s;
+        font-size: 1rem;
+      }
+
+      #cart-summary a:hover,
+      #cart-summary a:active {
+        color: #e0a009;
+      }
+
+      #cart-summary a i {
+        transition: transform 0.2s;
+      }
+
+      #cart-summary a:hover i {
+        transform: translateX(-0.25rem);
+      }
+
+      #cart-summary .summary-details {
+        width: 100%;
+        margin-bottom: 0.75rem;
+      }
+
+      @media (min-width: 768px) {
+        #cart-summary .summary-details {
+          width: auto;
+          max-width: 20rem;
+          text-align: right;
+        }
+      }
+
+      #cart-subtotal {
+        font-size: 1.5rem;
+        color: white;
+      }
+
+      #cart-subtotal-label {
+        font-size: 1.25rem;
+        color: #d1d5db;
+      }
+
+      #cart-subtotal-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        #cart-subtotal-container {
+          justify-content: flex-end;
+        }
+      }
+
+      #cart-subtotal-note {
+        font-size: 0.875rem;
+        color: #9ca3af;
+      }
+
+      #proceed-to-checkout {
+        width: 100%;
+        margin-top: 1rem;
+        padding: 1rem 2rem;
+        border-radius: 0.375rem;
+        background: #fbb610;
+        color: #002347;
+        font-size: 1rem;
+        font-weight: 700;
+        transition: background-color 0.2s;
+        border: none;
+        cursor: pointer;
+      }
+
+      #proceed-to-checkout:hover,
+      #proceed-to-checkout:active {
+        background: #e0a009;
+      }
+
+      #proceed-to-checkout:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #011b36, 0 0 0 4px #fbb610;
+      }
+
+      #proceed-to-checkout:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      @media (min-width: 768px) {
+        #proceed-to-checkout {
+          width: auto;
+        }
+      }
+
+      /* Notification */
+      #form-notification {
+        position: fixed;
+        top: 1.25rem;
+        right: 1.25rem;
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.375rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10000;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body class="max-w-[1280px] mx-auto bg-[#002347] text-gray-200">
+    <header
+      class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
+    >
+      <a href="/">
+        <img src="./assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
+      </a>
+
+      <!-- Hamburger menu button -->
+      <button
+        id="menu-toggle"
+        class="text-white md:hidden focus:outline-none focus:ring-2 focus:ring-orange-500"
+        aria-expanded="false"
+        aria-controls="menu-mobile"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
+      </button>
+
+      <!-- Desktop Menu -->
+      <nav id="menu" class="hidden md:flex">
+        <ul class="text-white flex flex-row gap-8">
+          <li>
+            <a href="/" class="text-orange text-sm font-normal">Home</a>
+          </li>
+          <li>
+            <a href="/about.html" class="text-[12px] font-normal">About us</a>
+          </li>
+          <li>
+            <a href="#service" class="text-[12px] font-normal">Service</a>
+          </li>
+          <li>
+            <a href="#contact" class="text-[12px] font-normal">Contact</a>
+          </li>
+          <li>
+            <a
+              href="/cart.html"
+              class="relative text-[#ffffff]"
+              aria-label="View Cart"
+            >
+              <i class="bx bxs-cart text-3xl"></i>
+              <span
+                id="cart-count"
+                class="absolute -top-2 -right-3 bg-[#FBB610] text-[#ffffff] rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold border-2 border-[#002347]"
+                >0</span
+              >
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <nav
+        id="menu-mobile"
+        class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50 flex flex-col items-center justify-center"
+      >
+        <ul class="text-white justify-center items-center flex flex-col gap-6">
+          <li>
+            <a href="#" class="text-orange text-lg font-medium">Home</a>
+          </li>
+          <li>
+            <a href="/about.html" class="text-lg font-medium">About us</a>
+          </li>
+          <li><a href="#service" class="text-lg font-medium">Service</a></li>
+          <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
+          <li>
+            <a
+              href="/cart.html"
+              class="text-lg font-medium inline-flex items-center gap-2 bg-[#e0a009] text-[#002347] px-4 py-2 rounded-lg shadow-lg hover:bg-[#e0a009]"
+              onclick="closeMobileMenu()"
+            >
+              <i class="bx bxs-cart text-lg"></i> View Cart (<span
+                id="mobile-cart-count"
+                >0</span
+              >)
+            </a>
+          </li>
+        </ul>
+        <button
+          id="close-menu"
+          class="absolute top-6 right-6 text-white text-2xl focus:outline-none"
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
+      </nav>
+    </header>
+
+    <section class="padding-inline py-12 md:py-16 min-h-[60vh]">
+      <h2
+        class="text-white text-3xl lg:text-4xl font-bold mb-8 text-center md:text-left"
+      >
+        Your Shopping Cart
+      </h2>
+
+      <div id="cart-container">
+        <div id="cart-table-header">
+          <div>Product</div>
+          <div>Price</div>
+          <div>Quantity</div>
+          <div>Total</div>
+        </div>
+
+        <div id="cart-items-list">
+          <p id="empty-cart-message" class="hidden">
+            Your cart is currently empty.
+          </p>
+          <div id="cart-loading">
+            <i class="bx bx-loader-alt bx-spin"></i>
+            <p>Loading cart items...</p>
+          </div>
+        </div>
+
+        <div id="cart-summary" class="hidden">
+          <div>
+            <a href="/services/solar-product-sales.html">
+              <i class="bx bx-arrow-back"></i> Continue Shopping
+            </a>
+          </div>
+          <div class="summary-details">
+            <div id="cart-subtotal-container">
+              <span id="cart-subtotal-label">Subtotal:</span>
+              <span id="cart-subtotal">₦0</span>
+            </div>
+            <!-- <p id="cart-subtotal-note">
+              Shipping & taxes calculated at checkout.
+            </p> -->
+            <button id="proceed-to-checkout">Proceed to Checkout</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      id="contact"
+      class="padding-inline flex flex-col gap-8 md:gap-12 pt-16 mb-8 mt-12 border-t border-blue-900"
+    >
+      <img
+        src="./assets/images/logo.png"
+        class="w-24 md:w-32"
+        alt="PFOS Logo Footer"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+        <div class="text-white gap-5 flex flex-col">
+          <div class="flex flex-col gap-4">
+            <h4 class="font-semibold text-lg md:text-xl">Contact Info</h4>
+            <p class="font-normal text-sm md:text-base text-gray-300">
+              Get in touch via any of these platforms:
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <a
+              href="#"
+              class="flex gap-3 items-center text-sm md:text-base hover:text-[#FBB610] transition-colors"
+              ><i class="text-[#B0CFEF] text-xl bx bxl-facebook-square"></i
+              ><span>Facebook: Power from the other side</span></a
+            >
+            <a
+              href="#"
+              class="flex gap-3 items-center text-sm md:text-base hover:text-[#FBB610] transition-colors"
+              ><i class="text-[#B0CFEF] text-xl bx bxl-instagram-alt"></i
+              ><span>Instagram: @pfos_Solar</span></a
+            >
+            <a
+              href="#"
+              class="flex gap-3 items-center text-sm md:text-base hover:text-[#FBB610] transition-colors"
+              ><i class="text-[#B0CFEF] text-xl bx bxl-whatsapp-square"></i
+              ><span>WhatsApp: +234 903 276 9065</span></a
+            >
+          </div>
+        </div>
+        <div class="text-white gap-4 flex flex-col">
+          <h4 class="font-semibold text-lg md:text-xl">Send Quick Message</h4>
+          <form
+            id="quickMessageFormFooter"
+            method="post"
+            class="flex flex-col gap-4"
+          >
+            <div class="flex flex-col md:flex-row gap-4">
+              <div class="flex-1">
+                <input
+                  type="text"
+                  name="name_footer"
+                  id="name-footer"
+                  placeholder="Name"
+                  required
+                  class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out"
+                />
+              </div>
+              <div class="flex-1">
+                <input
+                  type="email"
+                  name="email_footer"
+                  id="email-footer"
+                  placeholder="Email"
+                  required
+                  class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out"
+                />
+              </div>
+            </div>
+            <div>
+              <textarea
+                name="message_footer"
+                id="message-footer"
+                placeholder="Message"
+                required
+                rows="4"
+                class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full p-3 rounded-md bg-[#B0CFEF] text-[#002347] font-semibold hover:bg-[#9cb7d5] transition-colors"
+            >
+              SEND
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
+    <section
+      class="bg-[#011B36] w-full py-6 padding-inline flex justify-center md:justify-end mt-8"
+    >
+      <p class="text-gray-400 text-xs md:text-sm">
+        PFDOS Enterprise RC: 3334515 © 2024. All Rights Reserved
+      </p>
+    </section>
+
+    <div id="form-notification" class="hidden"></div>
+
+    <script>
+      // --- Global Constants & Variables ---
+      const placeholderImage = "./assets/images/placeholder.jpg";
+
+      // --- DOM Elements ---
+      const menuToggle = document.getElementById("menu-toggle");
+      const closeMenuButton = document.getElementById("close-menu");
+      const mobileMenu = document.getElementById("menu-mobile");
+      const mobileMenuOverlay = document.getElementById("menu-mobile-overlay");
+      const cartItemsListDiv = document.getElementById("cart-items-list");
+      const cartSubtotalElement = document.getElementById("cart-subtotal");
+      const cartSummaryDiv = document.getElementById("cart-summary");
+      const emptyCartMessage = document.getElementById("empty-cart-message");
+      const cartLoadingMessage = document.getElementById("cart-loading");
+      const checkoutButton = document.getElementById("proceed-to-checkout");
+      const notificationElement = document.getElementById("form-notification");
+      const cartTableHeader = document.getElementById("cart-table-header");
+
+      // --- Utility Functions ---
+      function formatPrice(price) {
+        const numPrice = parseFloat(price);
+        return isNaN(numPrice) ? "N/A" : `₦${numPrice.toLocaleString()}`;
+      }
+
+      function showNotification(message, type = "info") {
+        if (!notificationElement) return;
+        notificationElement.textContent = message;
+        notificationElement.className =
+          "fixed top-5 right-5 px-5 py-3 rounded-lg shadow-xl text-sm font-medium z-[10000]";
+        if (type === "success")
+          notificationElement.classList.add("bg-green-600", "text-white");
+        else if (type === "error")
+          notificationElement.classList.add("bg-red-600", "text-white");
+        else notificationElement.classList.add("bg-blue-600", "text-white");
+        notificationElement.classList.remove("hidden");
+        setTimeout(() => {
+          notificationElement.classList.add("hidden");
+        }, 3000);
+      }
+
+      // --- Cart Interaction Functions ---
+      function getCart() {
+        try {
+          return JSON.parse(localStorage.getItem("cart")) || [];
+        } catch (e) {
+          console.error("Error parsing cart:", e);
+          showNotification("Error loading cart.", "error");
+          return [];
+        }
+      }
+
+      function saveCart(cart) {
+        try {
+          localStorage.setItem("cart", JSON.stringify(cart));
+          return true;
+        } catch (e) {
+          console.error("Error saving cart:", e);
+          showNotification("Error saving cart changes.", "error");
+          return false;
+        }
+      }
+
+      function updateCartItemQuantity(productId, newQuantity) {
+        const cart = getCart();
+        const itemIndex = cart.findIndex((item) => item.id === productId);
+        newQuantity = parseInt(newQuantity, 10);
+
+        if (itemIndex > -1 && !isNaN(newQuantity)) {
+          if (newQuantity <= 0) {
+            console.log(`Removing item ${productId} via quantity update`);
+            removeCartItem(productId);
+          } else {
+            cart[itemIndex].quantity = newQuantity;
+            console.log(`Updated quantity for ${productId} to ${newQuantity}`);
+            if (saveCart(cart)) {
+              renderCart();
+            }
+          }
+        } else {
+          console.warn(`Could not update quantity for product ${productId}.`);
+        }
+      }
+
+      function removeCartItem(productId) {
+        let cart = getCart();
+        const initialLength = cart.length;
+        cart = cart.filter((item) => item.id !== productId);
+        if (cart.length < initialLength) {
+          console.log(`Removed item ${productId}`);
+          if (saveCart(cart)) {
+            renderCart();
+            showNotification("Item removed from cart.", "success");
+          }
+        } else {
+          console.warn(`Item ${productId} not found for removal.`);
+        }
+      }
+
+      // --- Rendering Functions ---
+      function renderCart() {
+        const cart = getCart();
+        console.log("Rendering cart with items:", cart);
+        if (cartLoadingMessage) cartLoadingMessage.classList.add("hidden");
+        if (cartItemsListDiv) cartItemsListDiv.innerHTML = "";
+
+        if (cart.length === 0) {
+          if (emptyCartMessage) emptyCartMessage.classList.remove("hidden");
+          if (cartSummaryDiv) cartSummaryDiv.classList.add("hidden");
+          if (checkoutButton) checkoutButton.disabled = true;
+          if (cartTableHeader) cartTableHeader.classList.add("hidden");
+        } else {
+          if (emptyCartMessage) emptyCartMessage.classList.add("hidden");
+          if (cartSummaryDiv) cartSummaryDiv.classList.remove("hidden");
+          if (checkoutButton) checkoutButton.disabled = false;
+          if (cartTableHeader) cartTableHeader.classList.remove("hidden");
+
+          let currentSubtotal = 0;
+          cart.forEach((item) => {
+            if (
+              !item ||
+              item.price == null ||
+              item.quantity == null ||
+              !item.name
+            ) {
+              console.warn("Render skipping invalid item:", item);
+              return;
+            }
+            const itemTotal = item.price * item.quantity;
+            currentSubtotal += itemTotal;
+            const imageUrl =
+              item.image && item.image.startsWith("https://res.cloudinary.com")
+                ? item.image
+                : placeholderImage;
+
+            const itemRow = document.createElement("div");
+            itemRow.innerHTML = `
+            <div class="cart-item-product">
+              <img src="${imageUrl}" alt="${
+              item.name
+            }" onerror="this.onerror=null; this.src='${placeholderImage}'">
+              <div class="cart-item-product-details">
+                <p title="${item.name}">${item.name}</p>
+                <button class="remove-item-btn" data-product-id="${item.id}">
+                  <i class='bx bx-trash-alt'></i> Remove
+                </button>
+              </div>
+            </div>
+            <div class="cart-item-price" data-label="Price">${formatPrice(
+              item.price
+            )}</div>
+            <div class="cart-item-quantity" data-label="Quantity">
+              <input type="number" value="${
+                item.quantity
+              }" min="1" max="99" aria-label="Quantity for ${
+              item.name
+            }" class="quantity-input" data-product-id="${item.id}">
+            </div>
+            <div class="cart-item-total" data-label="Total">${formatPrice(
+              itemTotal
+            )}</div>
+          `;
+            cartItemsListDiv.appendChild(itemRow);
+          });
+
+          if (cartSubtotalElement)
+            cartSubtotalElement.textContent = formatPrice(currentSubtotal);
+          addCartEventListeners();
+        }
+      }
+
+      function addCartEventListeners() {
+        document.querySelectorAll(".quantity-input").forEach((input) => {
+          let debounceTimeout;
+          const handleQuantityChange = (event) => {
+            clearTimeout(debounceTimeout);
+            debounceTimeout = setTimeout(() => {
+              const productId = event.target.dataset.productId;
+              const newQuantity = event.target.value;
+              updateCartItemQuantity(productId, newQuantity);
+            }, 350);
+          };
+          input.removeEventListener("change", handleQuantityChange);
+          input.removeEventListener("input", handleQuantityChange);
+          input.addEventListener("change", handleQuantityChange);
+          input.addEventListener("input", handleQuantityChange);
+        });
+
+        document.querySelectorAll(".remove-item-btn").forEach((button) => {
+          button.replaceWith(button.cloneNode(true));
+        });
+        document.querySelectorAll(".remove-item-btn").forEach((button) => {
+          button.addEventListener("click", (event) => {
+            const buttonElement = event.currentTarget;
+            const productId = buttonElement.dataset.productId;
+            if (confirm("Are you sure you want to remove this item?")) {
+              removeCartItem(productId);
+            }
+          });
+        });
+      }
+
+      // --- Mobile Menu Toggle ---
+      function openMobileMenu() {
+        if (mobileMenu) {
+          mobileMenu.classList.remove("hidden");
+          requestAnimationFrame(() => {
+            mobileMenu.classList.remove("-translate-x-full");
+          });
+        }
+      }
+
+      function closeMobileMenu() {
+        if (mobileMenu) {
+          mobileMenu.classList.add("-translate-x-full");
+          mobileMenu.addEventListener(
+            "transitionend",
+            () => {
+              mobileMenu.classList.add("hidden");
+            },
+            {
+              once: true,
+            }
+          );
+        }
+      }
+      if (menuToggle && mobileMenu)
+        menuToggle.addEventListener("click", openMobileMenu);
+      if (closeMenuButton && mobileMenu)
+        closeMenuButton.addEventListener("click", closeMobileMenu);
+
+      // --- Prevent Pinch Zoom ---
+      document.addEventListener(
+        "touchstart",
+        (e) => {
+          if (e.touches.length > 1) {
+            e.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+
+      // --- Initialization ---
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("Cart page DOM loaded.");
+        renderCart();
+        if (checkoutButton) {
+          checkoutButton.addEventListener("click", () => {
+            const cart = getCart();
+            if (cart.length > 0) {
+              window.location.href = "./checkout.html";
+            } else {
+              showNotification("Your cart is empty.", "error");
+            }
+          });
+        } else {
+          console.error("Checkout button not found!");
+        }
+      });
+    </script>
+  </body>
+</html>

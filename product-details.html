@@ -9,11 +9,82 @@
       href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>SOLAR PRODUCT SALES</title>
     <style>
       @media (min-width: 768px) {
         .grid-template-columns {
           grid-template-columns: 1fr 2fr;
+        }
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f8fafc;
+      }
+      .product-card {
+        box-shadow: 0 10px 30px rgba(0, 35, 71, 0.1);
+        transition: transform 0.3s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+      .quantity-btn {
+        transition: all 0.2s ease;
+      }
+      .quantity-btn:hover {
+        background-color: #002347;
+        color: #fbb610;
+      }
+      .add-to-cart-btn {
+        transition: all 0.3s ease;
+      }
+      .add-to-cart-btn:hover {
+        transform: scale(1.05);
+      }
+      .buy-now-btn {
+        transition: all 0.3s ease;
+      }
+      .buy-now-btn:hover {
+        box-shadow: 0 5px 15px rgba(251, 182, 16, 0.4);
+      }
+      .contact-input {
+        transition: border-color 0.3s ease;
+      }
+      .contact-input:focus {
+        border-color: #fbb610;
+        outline: none;
+      }
+      .send-btn {
+        transition: all 0.3s ease;
+      }
+      .send-btn:hover {
+        background-color: #8fb8e6 !important;
+      }
+      .notification {
+        z-index: 1000;
+        animation: slideIn 0.5s forwards, fadeOut 0.5s 2.5s forwards;
+      }
+      @keyframes slideIn {
+        from {
+          right: -100px;
+          opacity: 0;
+        }
+        to {
+          right: 16px;
+          opacity: 1;
+        }
+      }
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
         }
       }
     </style>
@@ -23,152 +94,308 @@
     ></script>
   </head>
 
-  <body class="max-w-[1280px] mx-auto">
+  <body class="max-w-[1280px] mx-auto bg-[#002347] text-gray-200 font-sans">
     <header
-      class="top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
+      class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
     >
       <a href="/">
         <img src="./assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
       </a>
-      <nav id="menu" class="hidden md:flex relative">
+
+      <!-- Hamburger menu button -->
+      <button
+        id="menu-toggle"
+        class="text-white md:hidden focus:outline-none focus:ring-2 focus:ring-orange-500"
+        aria-expanded="false"
+        aria-controls="menu-mobile"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
+      </button>
+
+      <!-- Desktop Menu -->
+      <nav id="menu" class="hidden md:flex">
         <ul class="text-white flex flex-row gap-8">
-          <li><a href="/" class="text-sm font-normal">Home</a></li>
+          <li>
+            <a href="/" class="text-orange text-sm font-normal">Home</a>
+          </li>
           <li>
             <a href="/about.html" class="text-[12px] font-normal">About us</a>
           </li>
           <li>
-            <a href="#" class="text-orange text-[12px] font-normal">Service</a>
+            <a href="#service" class="text-[12px] font-normal">Service</a>
           </li>
           <li>
             <a href="#contact" class="text-[12px] font-normal">Contact</a>
           </li>
+          <li>
+            <a
+              href="/cart.html"
+              class="relative text-[#ffffff]"
+              aria-label="View Cart"
+            >
+              <i class="bx bxs-cart text-3xl"></i>
+              <span
+                id="cart-count"
+                class="absolute -top-2 -right-3 bg-[#FBB610] text-[#ffffff] rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold border-2 border-[#002347]"
+                >0</span
+              >
+            </a>
+          </li>
         </ul>
-        <span
-          id="cart-count"
-          class="absolute -top-2 -right-4 bg-orange text-blue rounded-full w-5 h-5 flex items-center justify-center text-xs"
-          >0</span
+      </nav>
+
+      <!-- Mobile Menu -->
+      <nav
+        id="menu-mobile"
+        class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50 flex flex-col items-center justify-center"
+      >
+        <ul class="text-white justify-center items-center flex flex-col gap-6">
+          <li>
+            <a href="#" class="text-orange text-lg font-medium">Home</a>
+          </li>
+          <li>
+            <a href="/about.html" class="text-lg font-medium">About us</a>
+          </li>
+          <li><a href="#service" class="text-lg font-medium">Service</a></li>
+          <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
+          <li>
+            <a
+              href="/cart.html"
+              class="text-lg font-medium inline-flex items-center gap-2 bg-[#e0a009] text-[#002347] px-4 py-2 rounded-lg shadow-lg hover:bg-[#e0a009]"
+              onclick="closeMobileMenu()"
+            >
+              <i class="bx bxs-cart text-lg"></i> View Cart (<span
+                id="mobile-cart-count"
+                >0</span
+              >)
+            </a>
+          </li>
+        </ul>
+        <button
+          id="close-menu"
+          class="absolute top-6 right-6 text-white text-2xl focus:outline-none"
+          aria-label="Close menu"
         >
+          &times;
+        </button>
       </nav>
     </header>
 
     <section
-      class="padding-inline grid grid-cols-1 grid-template-columns gap-5 items-center py-3 w-full"
+      class="padding-inline grid grid-cols-1 grid-template-columns gap-8 items-center py-8 md:py-12 w-full"
     >
       <div
-        class="w-[350px] md:w-[400px] h-[350px] md:h-[400px] rounded-[20px] bg-white flex items-center justify-center"
+        class="product-card w-full max-w-[400px] h-[350px] md:h-[400px] rounded-2xl bg-white flex items-center justify-center mx-auto"
       >
         <img
           id="product-image"
           src="./assets/images/solar-product1.png"
-          alt=""
-          class="px-4 w-[300px] md:w-[300px] object-contain"
+          alt="Solar Product"
+          class="px-4 w-full max-w-[300px] object-contain transition-transform duration-300 hover:scale-105"
         />
       </div>
-      <div class="flex flex-col gap-5 text-white">
-        <div class="flex flex-col gap-2">
-          <h2 id="product-price" class="font-semibold text-[32px]"></h2>
-          <h2 id="product-name" class="font-semibold text-[24px]"></h2>
-          <p id="product-description" class="font-normal text-base"></p>
+      <div class="flex flex-col gap-6 text-white">
+        <div class="flex flex-col gap-3">
+          <span class="text-[#FBB610] font-medium">Premium Solar Solution</span>
+          <h2 id="product-name" class="font-bold text-3xl md:text-4xl"></h2>
+          <h2 id="product-price" class="font-bold text-3xl text-[#FBB610]"></h2>
+          <p
+            id="product-description"
+            class="font-normal text-base text-gray-200 leading-relaxed"
+          ></p>
+          <div class="flex items-center gap-2 text-sm text-gray-300">
+            <i class="bx bx-check-circle text-[#FBB610]"></i>
+            <span>In stock: 15 units</span>
+          </div>
         </div>
-        <div class="grid grid-cols-1 grid-template-columns gap-10">
-          <button
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
             id="quantity-control"
-            class="bg-[#FBB610] font-bold text-[16px] text-blue py-2 w-full px-4 rounded flex justify-between"
+            class="bg-[#FBB610] font-bold text-[16px] text-[#002347] py-2 w-full px-4 rounded-lg flex justify-between items-center"
           >
-            <span id="decrease" class="w-6 border border-black rounded-[10px]"
+            <span
+              id="decrease"
+              class="quantity-btn w-8 h-8 border border-[#002347] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#002347] hover:text-[#FBB610]"
               >-</span
             >
-            <span id="quantity">1</span>
-            <span id="increase" class="w-6 border border-black rounded-[10px]"
+            <span id="quantity" class="font-semibold">1</span>
+            <span
+              id="increase"
+              class="quantity-btn w-8 h-8 border border-[#002347] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#002347] hover:text-[#FBB610]"
               >+</span
             >
-          </button>
+          </div>
           <button
             id="buy-now"
-            class="bg-[#FBB610] font-bold text-[16px] text-blue py-2 w-full px-4 rounded"
+            class="buy-now-btn bg-[#FBB610] font-bold text-[16px] text-[#002347] py-3 w-full px-2 rounded-lg hover:shadow-lg"
           >
             Buy Now
           </button>
         </div>
         <button
           id="add-to-cart"
-          class="py-3 w-[207px] rounded-[5px] flex justify-around border items-center text-[#FBB610] border-[#FBB610] font-bold text-[14px]"
+          class="add-to-cart-btn py-3 w-full md:w-[250px] rounded-lg flex justify-center gap-2 border-2 items-center text-[#FBB610] border-[#FBB610] font-bold text-[1rem] hover:bg-[#FBB610] hover:text-[#002347]"
         >
-          <i class="bx bx-cart-add"></i><span>Add to Cart +</span>
+          <i class="bx bx-cart-add text-xl"></i><span>Add to Cart</span>
         </button>
+
+        <div class="mt-4 border-t border-gray-600 pt-4">
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+              <i class="bx bx-check text-[#FBB610] text-xl"></i>
+              <span class="text-gray-200"
+                >Free shipping on orders over ₦100,000</span
+              >
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="bx bx-check text-[#FBB610] text-xl"></i>
+              <span class="text-gray-200">2-year warranty included</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="bx bx-check text-[#FBB610] text-xl"></i>
+              <span class="text-gray-200">24/7 customer support</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <footer class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8">
-      <img src="./assets/images/logo.png" class="w-24 md:w-32" alt="" />
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <!-- Product Features Section -->
+    <section class="padding-inline py-12 text-white">
+      <h3 class="text-2xl font-bold mb-6">Product Features</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-[#002347] p-6 rounded-xl shadow-lg">
+          <div
+            class="w-12 h-12 bg-[#FBB610] rounded-full flex items-center justify-center mb-4"
+          >
+            <i class="bx bx-sun text-[#002347] text-xl"></i>
+          </div>
+          <h4 class="font-semibold text-lg mb-2">High Efficiency</h4>
+          <p class="text-gray-300">
+            Our solar panels convert up to 22% of sunlight into usable energy,
+            outperforming standard models.
+          </p>
+        </div>
+        <div class="bg-[#002347] p-6 rounded-xl shadow-lg">
+          <div
+            class="w-12 h-12 bg-[#FBB610] rounded-full flex items-center justify-center mb-4"
+          >
+            <i class="bx bx-shield-alt-2 text-[#002347] text-xl"></i>
+          </div>
+          <h4 class="font-semibold text-lg mb-2">Durable Design</h4>
+          <p class="text-gray-300">
+            Weather-resistant construction withstands extreme conditions with a
+            25-year performance warranty.
+          </p>
+        </div>
+        <div class="bg-[#002347] p-6 rounded-xl shadow-lg">
+          <div
+            class="w-12 h-12 bg-[#FBB610] rounded-full flex items-center justify-center mb-4"
+          >
+            <i class="bx bx-coin-stack text-[#002347] text-xl"></i>
+          </div>
+          <h4 class="font-semibold text-lg mb-2">Cost Effective</h4>
+          <p class="text-gray-300">
+            Reduce your electricity bills by up to 80% with our high-performance
+            solar solutions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      id="contact"
+      class="padding-inline flex flex-col gap-8 md:gap-12 pt-16 mb-8 mt-12 border-t border-blue-900"
+    >
+      <img
+        src="./assets/images/logo.png"
+        class="w-24 md:w-32"
+        alt="PFOS Logo Footer"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
         <div class="text-white gap-5 flex flex-col">
           <div class="flex flex-col gap-4">
-            <h4 class="font-semibold text-[16px] md:text-[20px]">
-              Contact Info
-            </h4>
-            <p class="font-normal text-[12px] md:text-[16px]">
-              You can get in touch with us on any of there platforms
+            <h4 class="font-semibold text-lg md:text-xl">Contact Info</h4>
+            <p class="font-normal text-sm md:text-base text-gray-300">
+              Get in touch via any of these platforms:
             </p>
           </div>
           <div class="flex flex-col gap-4">
-            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
-              <i
-                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-facebook-square"
-              ></i>
-              <span>Facebook: Power from the other side</span>
-            </p>
-            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
-              <i
-                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-instagram-alt"
-              ></i>
-              <span>Instagram: @pfos_Solar</span>
-            </p>
-            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
-              <i
-                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-whatsapp-square"
-              ></i>
-              <span>WhatsApp: +234 903 276 9065</span>
-            </p>
+            <a
+              href="#"
+              class="flex gap-3 items-center text-sm md:text-base hover:text-[#FBB610] transition-colors"
+              ><i class="text-[#B0CFEF] text-xl bx bxl-facebook-square"></i
+              ><span>Facebook: Power from the other side</span></a
+            >
+            <a
+              href="#"
+              class="flex gap-3 items-center text-sm md:text-base hover:text-[#FBB610] transition-colors"
+              ><i class="text-[#B0CFEF] text-xl bx bxl-instagram-alt"></i
+              ><span>Instagram: @pfos_Solar</span></a
+            >
+            <a
+              href="#"
+              class="flex gap-3 items-center text-sm md:text-base hover:text-[#FBB610] transition-colors"
+              ><i class="text-[#B0CFEF] text-xl bx bxl-whatsapp-square"></i
+              ><span>WhatsApp: +234 903 276 9065</span></a
+            >
           </div>
         </div>
-        <div class="text-white gap-3 flex flex-col">
-          <h4 class="font-semibold text-lg md:text-xl text-white">
-            Send Quick Message
-          </h4>
-          <form id="quickMessageForm" method="post" class="flex flex-col gap-3">
-            <div class="flex flex-col md:flex-row gap-3">
-              <div class="mb-4">
+        <div class="text-white gap-4 flex flex-col">
+          <h4 class="font-semibold text-lg md:text-xl">Send Quick Message</h4>
+          <form
+            id="quickMessageFormFooter"
+            method="post"
+            class="flex flex-col gap-4"
+          >
+            <div class="flex flex-col md:flex-row gap-4">
+              <div class="flex-1">
                 <input
                   type="text"
-                  name="name"
-                  id="name"
+                  name="name_footer"
+                  id="name-footer"
                   placeholder="Name"
-                  class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF]"
+                  required
+                  class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out"
                 />
               </div>
-              <div class="mb-4">
+              <div class="flex-1">
                 <input
                   type="email"
-                  name="email"
-                  id="email"
+                  name="email_footer"
+                  id="email-footer"
                   placeholder="Email"
-                  class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF]"
+                  required
+                  class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out"
                 />
               </div>
             </div>
-            <div class="mb-4">
+            <div>
               <textarea
-                name="message"
-                id="message"
+                name="message_footer"
+                id="message-footer"
                 placeholder="Message"
-                class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF]"
+                required
                 rows="4"
+                class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out"
               ></textarea>
             </div>
             <button
               type="submit"
-              class="w-full p-3 rounded bg-[#B0CFEF] text-blue font-semibold hover:bg-blue-700"
+              class="w-full p-3 rounded-md bg-[#B0CFEF] text-[#002347] font-semibold hover:bg-[#9cb7d5] transition-colors"
             >
               SEND
             </button>
@@ -177,15 +404,16 @@
       </div>
     </footer>
     <section
-      class="bg-[#011B36] w-full py-8 padding-inline flex justify-center md:justify-end"
+      class="bg-[#011B36] w-full py-6 padding-inline flex justify-center md:justify-end mt-8"
     >
-      <p class="text-white text-xs md:text-sm">
-        PFDOS Enterprise RC: 3334515 C 2020. All Rights Reserved
+      <p class="text-gray-400 text-xs md:text-sm">
+        PFDOS Enterprise RC: 3334515 © 2024. All Rights Reserved
       </p>
     </section>
+
     <div
       id="form-notification"
-      class="fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg hidden"
+      class="notification fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg hidden font-semibold"
     ></div>
 
     <script>
@@ -197,10 +425,11 @@
           document.getElementById("product-image").alt = product.name;
           document.getElementById(
             "product-price"
-          ).textContent = `₦${product.price}`;
+          ).textContent = `₦${product.price.toLocaleString()}`;
           document.getElementById("product-name").textContent = product.name;
           document.getElementById("product-description").textContent =
-            product.description || "No description available.";
+            product.description ||
+            "This premium solar product delivers exceptional energy efficiency with durable construction designed for long-term performance. Perfect for residential and commercial applications.";
           updateCartCount();
         } else {
           console.error("No product found in localStorage.");
@@ -228,6 +457,16 @@
         }
         localStorage.setItem("cart", JSON.stringify(cart));
         updateCartCount();
+
+        // Show notification
+        const notification = document.getElementById("form-notification");
+        notification.textContent = `${qty} ${product.name} added to cart!`;
+        notification.className =
+          "notification fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg font-semibold bg-green-500 text-white";
+        setTimeout(() => {
+          notification.className =
+            "notification fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg font-semibold hidden";
+        }, 3000);
       }
 
       function updateCartCount() {
@@ -262,17 +501,55 @@
       document.getElementById("buy-now").addEventListener("click", () => {
         const product = JSON.parse(localStorage.getItem("selectedProduct"));
         if (product) {
-          // Only add to cart if it’s not already there
           let cart = JSON.parse(localStorage.getItem("cart")) || [];
           const existingProductIndex = cart.findIndex(
             (item) => item.id === product.id
           );
           if (existingProductIndex === -1) {
-            addProductToCart(product, quantity); // Add only if not in cart
+            addProductToCart(product, quantity);
           }
           window.location.href = "./checkout.html";
         }
       });
+
+      // Form submission handling
+      document
+        .getElementById("quickMessageForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message").value;
+
+          if (name && email && message) {
+            // Here you would typically send the form data to your server
+            // For demo purposes, we'll just show a success message
+            const notification = document.getElementById("form-notification");
+            notification.textContent =
+              "Message sent successfully! We will contact you soon.";
+            notification.className =
+              "notification fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg font-semibold bg-green-500 text-white";
+
+            // Reset form
+            this.reset();
+
+            setTimeout(() => {
+              notification.className =
+                "notification fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg font-semibold hidden";
+            }, 3000);
+          } else {
+            const notification = document.getElementById("form-notification");
+            notification.textContent = "Please fill in all fields!";
+            notification.className =
+              "notification fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg font-semibold bg-red-500 text-white";
+
+            setTimeout(() => {
+              notification.className =
+                "notification fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg font-semibold hidden";
+            }, 3000);
+          }
+        });
     </script>
 
     <script src="./assets/js/script.js"></script>
