@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Mr. Oloyede Emmanuel",
+    "position": "Secondary School Teacher",
+    "testimonial": "I am very happy with the solar installation. It works well and helps me save on fuel. My family can now read and sleep in comfort without power problems."
+  },
+  {
+    "name": "Mr. Yomi Ogunsami",
+    "position": "Civil Engineer",
+    "testimonial": "The solar system was installed quickly and works perfectly. I no longer worry about blackouts, and it powers all my tools when I work from home."
+  },
+  {
+    "name": "Mr. Femi Balogun",
+    "position": "Tailor/Fashion Designer",
+    "testimonial": "As a tailor, light is very important. Since the solar was installed, I can sew even at night. It is reliable and the battery lasts long."
+  },
+  {
+    "name": "Mr. Ajasa",
+    "position": "Trader at Kuto Market",
+    "testimonial": "This solar has helped my business. I can keep my shop lighted till late. Customers see my goods well, and I make more sales."
+  },
+  {
+    "name": "Mr. Adebayo Tosin",
+    "position": "ICT Technician",
+    "testimonial": "The installation was smooth, and the system is efficient. I now work from home with steady power for my devices. No more stress over electricity."
+  },
+  {
+    "name": "Mrs. Gbadamosi Omolara",
+    "position": "Store Owner",
+    "testimonial": "Since I got the solar, my store always has light. I don't worry about NEPA again. My customers are happy because the place is always bright."
+  },
+  {
+    "name": "Alh. Popoola Sulaiman",
+    "position": "Poultry Farmer",
+    "testimonial": "Thanks to the solar, I can run my farm smoothly. The lights and water systems for the birds now work all the time. It's a good investment."
+  },
+  {
+    "name": "Mr. Taiwo",
+    "position": "Artisan - Tiler",
+    "testimonial": "The solar helps me keep my tools charged and my home comfortable. It's reliable and saves me the cost of fueling a generator."
+  },
+  {
+    "name": "Mr. Owolabi",
+    "position": "Carpenter",
+    "testimonial": "Since the solar was installed, my workshop has steady light. I can use my tools easily without worry. Good job."
+  },
+  {
+    "name": "Mr. Uche John",
+    "position": "POS Operator",
+    "testimonial": "My POS business depends on power. Now, with solar, I operate all day without interruption. The system is strong and reliable."
+  }
+]

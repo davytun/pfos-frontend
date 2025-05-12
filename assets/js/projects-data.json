@@ -1,0 +1,37 @@
+[
+  {
+    "image": "assets/images/projects5.png",
+    "title": "Solar Street Lights",
+    "date": "May 8, 2025"
+  },
+  {
+    "image": "assets/images/projects6.png",
+    "title": "2.5kva/24v solar inverter system",
+    "date": "May 4, 2025"
+  },
+  {
+    "image": "assets/images/projects7.png",
+    "title": "1.7kva/24v solar inverter system",
+    "date": "April 10, 2025"
+  },
+  {
+    "image": "assets/images/projects1.png",
+    "title": "36KW Solar Inverter System",
+    "date": "May 30, 2021"
+  },
+  {
+    "image": "assets/images/projects2.png",
+    "title": "24KW Solar Inverter System",
+    "date": "June 15, 2021"
+  },
+  {
+    "image": "assets/images/projects3.png",
+    "title": "12KW Solar Inverter System",
+    "date": "July 10, 2021"
+  },
+  {
+    "image": "assets/images/projects4.png",
+    "title": "48KW Solar Inverter System",
+    "date": "August 5, 2021"
+  }
+]
