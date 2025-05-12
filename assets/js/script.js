@@ -1,3 +1,7 @@
+import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights';
+
+  injectSpeedInsights();
+
 const menuToggle = document.getElementById("menu-toggle");
 const mobileMenu = document.getElementById("menu-mobile");
 const closeMenu = document.getElementById("close-menu");

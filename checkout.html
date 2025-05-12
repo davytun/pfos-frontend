@@ -417,7 +417,11 @@
       class="fixed top-5 right-5 px-5 py-3 rounded-lg shadow-xl hidden z-[10000] text-sm font-medium"
     ></div>
 
-    <script>
+    <script type="module">
+  import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights';
+  injectSpeedInsights();
+
+
       // --- Global Constants & Variables ---
       const API_BASE_URL = "https://pfos-backend.vercel.app";
       const placeholderImage = "./assets/images/placeholder.jpg"; // Adjust path if needed
