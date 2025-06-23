@@ -1,511 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="assets/css/output.css" rel="stylesheet" />
-    <link href="assets/css/input.css" rel="stylesheet" />
-    <link rel="stylesheet" href="dist/css/splide.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
 
-    <style>
-      html {
-        scroll-behavior: smooth;
-        /* width: 100%; */
-        /* display: flex; */
-        /* justify-content: center; */
-        /* align-items: center; */
-      }
-      @media screen and (max-width: 768px) {
-        .hero-section {
-          background-image: url("assets/images/HEROSECTION.svg");
-          background-size: cover;
-          background-position: left 40% center !important;
-          background-repeat: no-repeat;
-        }
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/css/output.css" rel="stylesheet" />
+  <link href="assets/css/input.css" rel="stylesheet" />
+  <link rel="stylesheet" href="dist/css/splide.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-      #splide1 .splide {
-        width: 100%;
-        max-width: 900px;
-        margin: auto;
-      }
+  <style>
+    html {
+      scroll-behavior: smooth;
+      /* width: 100%; */
+      /* display: flex; */
+      /* justify-content: center; */
+      /* align-items: center; */
+    }
 
-      #splide1 .splide__slide {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: start;
-        height: 338px;
-        font-size: 1rem;
-        color: #fff;
-        border-radius: 30px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        /* transition: background-color 0.3s, height 0.3s; */
-        opacity: 25%;
-        background-repeat: no-repeat;
-        background-position: center;
+    @media screen and (max-width: 768px) {
+      .hero-section {
+        background-image: url("assets/images/HEROSECTION.svg");
         background-size: cover;
-        position: relative; /* Required for positioning the ::after pseudo-element */
+        background-position: left 40% center !important;
+        background-repeat: no-repeat;
       }
+    }
 
-      #splide1 .splide__slide::after {
-        content: ""; /* Required to create the pseudo-element */
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          180.03deg,
+    #splide1 .splide {
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    #splide1 .splide__slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: start;
+      height: 338px;
+      font-size: 1rem;
+      color: #fff;
+      border-radius: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* transition: background-color 0.3s, height 0.3s; */
+      opacity: 25%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      /* Required for positioning the ::after pseudo-element */
+    }
+
+    #splide1 .splide__slide::after {
+      content: "";
+      /* Required to create the pseudo-element */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180.03deg,
           rgba(0, 0, 0, 0) 0.03%,
-          #012347 98.21%
-        );
-        z-index: 2;
-        border-radius: 30px; /* Ensure the border-radius matches the slide */
-      }
+          #012347 98.21%);
+      z-index: 2;
+      border-radius: 30px;
+      /* Ensure the border-radius matches the slide */
+    }
 
-      #splide1 .splide__slide.center {
-        opacity: 100%;
-        height: 373px;
-        border: 5px solid #3c9bfe;
-      }
+    #splide1 .splide__slide.center {
+      opacity: 100%;
+      height: 373px;
+      border: 5px solid #3c9bfe;
+    }
 
-      #splide1 .splide__list {
-        display: flex;
-        align-items: center;
-      }
+    #splide1 .splide__list {
+      display: flex;
+      align-items: center;
+    }
 
-      #splide1 .splide__arrow {
-        background-color: #0164ca;
-        width: 50px;
-        height: 50px;
-      }
+    #splide1 .splide__arrow {
+      background-color: #0164ca;
+      width: 50px;
+      height: 50px;
+    }
 
-      #splide1 .splide__arrow svg {
-        width: 20px;
-        height: 20px;
-        fill: #ffffff;
-      }
+    #splide1 .splide__arrow svg {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+    }
 
-      /* Trust Companies Section */
-      #trust-companies {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-      }
+    /* Trust Companies Section */
+    #trust-companies {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
 
-      #trust-companies .splide__slide img {
-        width: 100px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-      }
+    #trust-companies .splide__slide img {
+      width: 100px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
 
-      #trust-companies .splide__list {
-        display: flex;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-      }
+    #trust-companies .splide__list {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+    }
 
-      #trust-companies .splide__slide {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    #trust-companies .splide__slide {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      #form-notification {
-        z-index: 1000; /* Ensure it appears above other content */
-        opacity: 0; /* Hidden by default */
-      }
+    #form-notification {
+      z-index: 1000;
+      /* Ensure it appears above other content */
+      opacity: 0;
+      /* Hidden by default */
+    }
 
-      #form-notification.show {
-        opacity: 1; /* Fade in when shown */
-      }
+    #form-notification.show {
+      opacity: 1;
+      /* Fade in when shown */
+    }
 
-      #form-notification.show {
-        animation: slideIn 0.3s ease-out forwards;
-      }
-    </style>
+    #form-notification.show {
+      animation: slideIn 0.3s ease-out forwards;
+    }
+  </style>
 
-    <style>
-      /* Testimonial Slider Styles */
-      #splide2 {
-        position: relative;
-        width: 100%;
-        max-width: 1000px;
-        marginarr: 0 auto;
-        padding-bottom: 60px; /* Space for controls */
-      }
+  <style>
+    /* Testimonial Slider Styles */
+    #splide2 {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      marginarr: 0 auto;
+      padding-bottom: 60px;
+      /* Space for controls */
+    }
 
-      #splide2 .splide__track {
-        padding: 20px 0;
-      }
+    #splide2 .splide__track {
+      padding: 20px 0;
+    }
 
+    #splide2 .splide__slide {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      background-color: #e6f0fa;
+      border-radius: 28px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      min-height: 200px;
+    }
+
+    /* Controls Container */
+    #splide2 .splide__controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+      /* Space between slider and controls */
+    }
+
+    /* Custom container for arrows and pagination */
+    #splide2 .controls-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Pagination */
+    #splide2 .splide__pagination {
+      display: flex;
+      gap: 8px;
+      padding: 0;
+    }
+
+    #splide2 .splide__pagination__page {
+      width: 10px;
+      height: 10px;
+      background: #ccc;
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+
+    #splide2 .splide__pagination__page.is-active {
+      background: #fbb610;
+      transform: scale(1.2);
+    }
+
+    /* Arrows */
+    #splide2 .splide__arrow {
+      background: #ffb800;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #splide2 .splide__arrow:hover {
+      background: #e69d00;
+    }
+
+    #splide2 .splide__arrow svg {
+      fill: white;
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
       #splide2 .splide__slide {
-        display: flex;
-        flex-direction: column;
-        padding: 30px;
-        background-color: #e6f0fa;
-        border-radius: 28px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        min-height: 200px;
+        padding: 20px;
+        min-height: 180px;
       }
 
-      /* Controls Container */
-      #splide2 .splide__controls {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        margin-top: 20px; /* Space between slider and controls */
-      }
-
-      /* Custom container for arrows and pagination */
-      #splide2 .controls-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      /* Pagination */
-      #splide2 .splide__pagination {
-        display: flex;
-        gap: 8px;
-        padding: 0;
+      #splide2 .splide__arrow {
+        width: 36px;
+        height: 36px;
       }
 
       #splide2 .splide__pagination__page {
-        width: 10px;
-        height: 10px;
-        background: #ccc;
-        border-radius: 50%;
-        transition: all 0.3s;
+        width: 8px;
+        height: 8px;
       }
 
-      #splide2 .splide__pagination__page.is-active {
-        background: #fbb610;
-        transform: scale(1.2);
+      #splide2 .controls-wrapper {
+        gap: 8px;
+      }
+    }
+  </style>
+
+  <style>
+    @keyframes slide {
+      0% {
+        transform: translateY(0);
       }
 
-      /* Arrows */
-      #splide2 .splide__arrow {
-        background: #ffb800;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        cursor: pointer;
-        transition: background 0.3s;
+      20% {
+        transform: translateY(-60px);
       }
 
-      #splide2 .splide__arrow:hover {
-        background: #e69d00;
+      40% {
+        transform: translateY(-120px);
       }
 
-      #splide2 .splide__arrow svg {
-        fill: white;
-        width: 18px;
-        height: 18px;
+      60% {
+        transform: translateY(-180px);
       }
 
-      /* Responsive Adjustments */
-      @media (max-width: 768px) {
-        #splide2 .splide__slide {
-          padding: 20px;
-          min-height: 180px;
-        }
-
-        #splide2 .splide__arrow {
-          width: 36px;
-          height: 36px;
-        }
-
-        #splide2 .splide__pagination__page {
-          width: 8px;
-          height: 8px;
-        }
-
-        #splide2 .controls-wrapper {
-          gap: 8px;
-        }
-      }
-    </style>
-
-    <style>
-      @keyframes slide {
-        0% {
-          transform: translateY(0);
-        }
-        20% {
-          transform: translateY(-60px);
-        }
-        40% {
-          transform: translateY(-120px);
-        }
-        60% {
-          transform: translateY(-180px);
-        }
-        80% {
-          transform: translateY(-240px);
-        }
-        100% {
-          transform: translateY(-300px);
-        }
+      80% {
+        transform: translateY(-240px);
       }
 
-      .text-container {
-        display: flex;
-        flex-direction: column;
-        height: 60px;
-        overflow: hidden;
-        position: relative;
+      100% {
+        transform: translateY(-300px);
+      }
+    }
+
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      height: 60px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .text-slide {
+      width: 100%;
+      animation: slide 10s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+    }
+  </style>
+  <style>
+    .logo-slider {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      width: 100%;
+      /* background: #000;  */
+      padding: 20px 0;
+    }
+
+    .logo-track {
+      display: flex;
+      gap: 2rem;
+      animation: scroll 15s linear infinite;
+      width: max-content;
+    }
+
+    .logo-track img {
+      width: 120px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
       }
 
-      .text-slide {
-        width: 100%;
-        animation: slide 10s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+      to {
+        transform: translateX(-50%);
       }
-    </style>
-    <style>
-      .logo-slider {
-        overflow: hidden;
-        white-space: nowrap;
-        position: relative;
-        width: 100%;
-        /* background: #000;  */
-        padding: 20px 0;
-      }
+    }
+  </style>
+  <style>
+    .stroke-text {
+      -webkit-text-stroke: 1px #c5c9fcd1;
+      color: transparent;
+    }
+  </style>
+  <title>Solar</title>
+</head>
 
-      .logo-track {
-        display: flex;
-        gap: 2rem;
-        animation: scroll 15s linear infinite;
-        width: max-content;
-      }
+<body class="max-w-[1280px] mx-auto">
+  <!-- Start Header -->
+  <header
+    class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5">
+    <a href="/">
+      <img src="assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
+    </a>
 
-      .logo-track img {
-        width: 120px;
-        height: auto;
-        object-fit: contain;
-      }
+    <!-- Hamburger menu button -->
+    <button id="menu-toggle" class="text-white md:hidden focus:outline-none focus:ring-2 focus:ring-orange-500"
+      aria-expanded="false" aria-controls="menu-mobile">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
 
-      @keyframes scroll {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-50%);
-        }
-      }
-    </style>
-    <style>
-      .stroke-text {
-        -webkit-text-stroke: 1px #c5c9fcd1;
-        color: transparent;
-      }
-    </style>
-    <title>Solar</title>
-  </head>
-
-  <body class="max-w-[1280px] mx-auto">
-    <!-- Start Header -->
-    <header
-      class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
-    >
-      <a href="/">
-        <img src="assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
-      </a>
-
-      <!-- Hamburger menu button -->
-      <button
-        id="menu-toggle"
-        class="text-white md:hidden focus:outline-none focus:ring-2 focus:ring-orange-500"
-        aria-expanded="false"
-        aria-controls="menu-mobile"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"
-          />
-        </svg>
-      </button>
-
-      <!-- Desktop Menu -->
-      <nav id="menu" class="hidden md:flex">
-        <ul class="text-white flex flex-row gap-8">
-          <li>
-            <a href="/" class="text-orange text-sm font-normal">Home</a>
-          </li>
-          <li>
-            <a href="/about.html" class="text-[12px] font-normal">About us</a>
-          </li>
-          <li>
-            <a href="#service" class="text-[12px] font-normal">Service</a>
-          </li>
-          <li>
-            <a href="#contact" class="text-[12px] font-normal">Contact</a>
-          </li>
-          <li>
-            <a href="#" class="text-[12px] font-normal"
-              ><button
-                style="
+    <!-- Desktop Menu -->
+    <nav id="menu" class="hidden md:flex">
+      <ul class="text-white flex flex-row gap-8">
+        <li>
+          <a href="/" class="text-orange text-sm font-normal">Home</a>
+        </li>
+        <li>
+          <a href="/about.html" class="text-[12px] font-normal">About us</a>
+        </li>
+        <li>
+          <a href="#service" class="text-[12px] font-normal">Service</a>
+        </li>
+        <li>
+          <a href="#contact" class="text-[12px] font-normal">Contact</a>
+        </li>
+        <li>
+          <a href="#" class="text-[12px] font-normal"><button style="
                   border-radius: 5px;
                   border: 1px solid #fbb610;
                   padding-inline: 18px;
                   padding-block: 8px;
-                "
-              >
-                Request a Quote
-              </button></a
-            >
-          </li>
-        </ul>
-      </nav>
+                ">
+              Request a Quote
+            </button></a>
+        </li>
+      </ul>
+    </nav>
 
-      <!-- Mobile Menu -->
-      <nav
-        id="menu-mobile"
-        class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50 flex flex-col items-center justify-center"
-      >
-        <ul class="text-white justify-center items-center flex flex-col gap-6">
-          <li>
-            <a href="#" class="text-orange text-lg font-medium">Home</a>
-          </li>
-          <li>
-            <a href="/about.html" class="text-lg font-medium">About us</a>
-          </li>
-          <li><a href="#service" class="text-lg font-medium">Service</a></li>
-          <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
-          <li
-            class="text-lg font-medium w-[132px] h-[32px] py-2 px-4 gap-[14.38px] rounded-tl-[5px] opacity-0 border border-[#FBB610]"
-          >
-            <a href="#" class="border border-[#FBB610]"> Request a Quote </a>
-          </li>
-        </ul>
-        <button
-          id="close-menu"
-          class="absolute top-6 right-6 text-white text-2xl focus:outline-none"
-          aria-label="Close menu"
-        >
-          &times;
-        </button>
-      </nav>
-    </header>
-    <!-- end Header -->
+    <!-- Mobile Menu -->
+    <nav id="menu-mobile"
+      class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50 flex flex-col items-center justify-center">
+      <ul class="text-white justify-center items-center flex flex-col gap-6">
+        <li>
+          <a href="#" class="text-orange text-lg font-medium">Home</a>
+        </li>
+        <li>
+          <a href="/about.html" class="text-lg font-medium">About us</a>
+        </li>
+        <li><a href="#service" class="text-lg font-medium">Service</a></li>
+        <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
+        <li
+          class="text-lg font-medium w-[132px] h-[32px] py-2 px-4 gap-[14.38px] rounded-tl-[5px] opacity-0 border border-[#FBB610]">
+          <a href="#" class="border border-[#FBB610]"> Request a Quote </a>
+        </li>
+      </ul>
+      <button id="close-menu" class="absolute top-6 right-6 text-white text-2xl focus:outline-none"
+        aria-label="Close menu">
+        &times;
+      </button>
+    </nav>
+  </header>
+  <!-- end Header -->
 
-    <!-- Hero Section -->
-    <main
-      class="hero-section padding-inline py-10"
-      style="
+  <!-- Hero Section -->
+  <main class="hero-section padding-inline py-10" style="
         background-image: url('assets/images/HEROSECTION.svg');
         background-size: cover;
         background-position: left -1px center;
         background-repeat: no-repeat;
-      "
-    >
-      <!-- hero left -->
-      <div
-        class="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-20"
-      >
-        <div class="flex flex-col gap-4 md:gap-6 items-start">
-          <div class="flex items-center gap-6">
-            <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-            <span class="font-normal text-sm md:text-xl text-white">
-              POWER FROM THE OTHER SIDE
-            </span>
-          </div>
-          <div class="text-white flex flex-col gap-1">
-            <h2 class="text-[58px] md:text-[64px] font-bold">
-              Power with Solar
-            </h2>
-            <h4 class="text-[36px] md:text-[48px] font-bold">
-              Best Electricity Source.
-            </h4>
-          </div>
-
-          <!-- Ensure text animation aligns properly -->
-          <div
-            class="relative h-[60px] md:h-[82px] overflow-hidden text-[36px] md:text-[48px] font-bold text-white flex items-center justify-center"
-          >
-            <div class="text-container">
-              <div class="text-slide">Clean Energy</div>
-              <div class="text-slide">Off Grid</div>
-              <div class="text-slide">No Generators</div>
-              <div class="text-slide">Renewable Energy</div>
-            </div>
-          </div>
-
-          <p class="text-[14px] md:text-[16px] text-white">
-            Say goodbye to noise, fumes, and rising fuel costs—embrace reliable,
-            eco-friendly solar solutions today!
-          </p>
-          <a href="/services/solar-product-sales.html">
-            <button
-              class="bg-orange hover:bg-border-color text-[14px] md:text-[16px] mt-5 font-bold text-blue w-28 h-10 md:w-36 md:h-12 rounded-md"
-            >
-              Go Solar Today
-            </button></a
-          >
+      ">
+    <!-- hero left -->
+    <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-20">
+      <div class="flex flex-col gap-4 md:gap-6 items-start">
+        <div class="flex items-center gap-6">
+          <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+          <span class="font-normal text-sm md:text-xl text-white">
+            POWER FROM THE OTHER SIDE
+          </span>
+        </div>
+        <div class="text-white flex flex-col gap-1">
+          <h2 class="text-[58px] md:text-[64px] font-bold">
+            Power with Solar
+          </h2>
+          <h4 class="text-[36px] md:text-[48px] font-bold">
+            Best Electricity Source.
+          </h4>
         </div>
 
-        <!-- end hero left -->
-
-        <!-- hero right -->
-        <div class="hidden md:block">
-          <img src="assets/images/bulb.png" alt="" />
+        <!-- Ensure text animation aligns properly -->
+        <div
+          class="relative h-[60px] md:h-[82px] overflow-hidden text-[36px] md:text-[48px] font-bold text-white flex items-center justify-center">
+          <div class="text-container">
+            <div class="text-slide">Clean Energy</div>
+            <div class="text-slide">Off Grid</div>
+            <div class="text-slide">No Generators</div>
+            <div class="text-slide">Renewable Energy</div>
+          </div>
         </div>
-        <!-- end hero right -->
+
+        <p class="text-[14px] md:text-[16px] text-white">
+          Say goodbye to noise, fumes, and rising fuel costs—embrace reliable,
+          eco-friendly solar solutions today!
+        </p>
+        <a href="/services/solar-product-sales.html">
+          <button
+            class="bg-orange hover:bg-border-color text-[14px] md:text-[16px] mt-5 font-bold text-blue w-28 h-10 md:w-36 md:h-12 rounded-md">
+            Go Solar Today
+          </button></a>
       </div>
 
-      <div class="logo-slider">
-        <div class="logo-track">
-          <img src="assets/images/hero1.png" alt="Company 1" />
-          <img src="assets/images/hero2.png" alt="Company 2" />
-          <img src="assets/images/hero4.png" alt="Company 4" />
-          <img src="assets/images/hero5.png" alt="Company 5" />
-          <img src="assets/images/hero6.png" alt="Company 6" />
-          <!-- Duplicate logos to create seamless effect -->
-          <img src="assets/images/hero1.png" alt="Company 1" />
-          <img src="assets/images/hero2.png" alt="Company 2" />
-          <img src="assets/images/hero4.png" alt="Company 4" />
-          <img src="assets/images/hero5.png" alt="Company 5" />
-          <img src="assets/images/hero6.png" alt="Company 6" />
-        </div>
-      </div>
+      <!-- end hero left -->
 
-      <!-- <swiper-container
+      <!-- hero right -->
+      <div class="hidden md:block">
+        <img src="assets/images/bulb.png" alt="" />
+      </div>
+      <!-- end hero right -->
+    </div>
+
+    <div class="logo-slider">
+      <div class="logo-track">
+        <img src="assets/images/hero1.png" alt="Company 1" />
+        <img src="assets/images/hero2.png" alt="Company 2" />
+        <img src="assets/images/hero4.png" alt="Company 4" />
+        <img src="assets/images/hero5.png" alt="Company 5" />
+        <img src="assets/images/hero6.png" alt="Company 6" />
+        <!-- Duplicate logos to create seamless effect -->
+        <img src="assets/images/hero1.png" alt="Company 1" />
+        <img src="assets/images/hero2.png" alt="Company 2" />
+        <img src="assets/images/hero4.png" alt="Company 4" />
+        <img src="assets/images/hero5.png" alt="Company 5" />
+        <img src="assets/images/hero6.png" alt="Company 6" />
+      </div>
+    </div>
+
+    <!-- <swiper-container
         class="mySwiper"
         slides-per-view="3"
         space-between="30"
@@ -530,749 +498,809 @@
           <img src="assets/images/hero6.png" alt="" />
         </swiper-slide>
       </swiper-container> -->
-    </main>
-    <!--End Hero Section -->
+  </main>
+  <!--End Hero Section -->
 
-    <!-- About Section -->
-    <section class="mt-10 padding-inline">
-      <div
-        class="flex gap-10 items-center flex-col md:items-stretch md:flex-row"
-      >
-        <!-- about left -->
-        <img src="assets/images/about.png" alt="" class="w-[570px] h-full" />
-        <!-- about left -->
-        <div class="text-white flex flex-col justify-center py-3 gap-6">
-          <div class="flex items-center gap-6">
-            <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-            <span class="font-normal text-sm md:text-xl">ABOUT US</span>
-          </div>
-          <h3
-            class="font-semibold text-[40px] leading-[35px] md:text-[52px] md:leading-[62.4px]"
-          >
-            We Are Power <br />From the Other Side
-          </h3>
-          <ul
-            class="font-normal text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] flex flex-col gap-2"
-          >
-            <li>
-              Welcome to Power From the Other Side, a leading solar company in
-              Abeokuta, Nigeria. We're passionate about harnessing the power of
-              the sun to energize homes, businesses, and communities across the
-              country.
-            </li>
-            <li>
-              Our mission is simple: to provide reliable, sustainable energy
-              solutions that eradicate the need for generators and promote a
-              cleaner, greener environment.
-            </li>
-
-            <li>
-              At Power From the Other Side, we're committed to making a positive
-              impact on Nigeria's energy landscape. We believe that access to
-              reliable energy is a fundamental right, and we're dedicated to
-              providing innovative solar solutions that meet the needs of our
-              customers
-            </li>
-            <li>
-              Our team of experts has years of experience in the solar industry,
-              and we're passionate about providing detailed training in solar
-              installation to our able Nigerian youths.
-            </li>
-          </ul>
-          <div class="gap-5 hidden md:flex">
-            <div class="flex gap-2">
-              <p class="text-[30.34px] md:text-[2rem]">4+</p>
-              <p class="text-[14px] md:text-[16.63px]">
-                Years of <br />
-                Experience
-              </p>
-            </div>
-            <div class="flex gap-2">
-              <p class="text-[30.34px] md:text-[2rem]">100+</p>
-              <p class="text-[14px] md:text-[16.63px]">
-                Complete <br />Projects
-              </p>
-            </div>
-            <div class="flex gap-2">
-              <p class="text-[30.34px] md:text-[2rem]">1000+</p>
-              <p class="text-[14px] md:text-[16.63px]">
-                Happy <br />Beneficiaries
-              </p>
-            </div>
-          </div>
-
-          <a href="about.html"
-            ><button
-              class="bg-orange text-[14px] md:text-[16px] mt-5 font-bold text-blue w-28 h-10 md:w-36 md:h-12 rounded-md"
-            >
-              View More
-            </button></a
-          >
-        </div>
-
-        <!-- about right -->
-      </div>
-    </section>
-    <!-- About Section End-->
-
-    <!-- OUR STRENGTH -->
-    <section class="my-10 padding-inline flex flex-col gap-9">
-      <div class="flex items-center gap-6">
-        <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-        <span class="font-normal text-white text-sm md:text-xl"
-          >OUR STRENGTH</span
-        >
-      </div>
-      <div
-        class="grid gap-2 px-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-      >
-        <div class="flex flex-col gap-3">
-          <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
-            RESPONSIBILITY
-          </h4>
-          <p class="text-[13px] text-white md:text-[16px] font-normal">
-            We’re accountable to team, customers, subcontractors, suppliers,
-            engineers, and communities
-          </p>
-        </div>
-        <div class="flex flex-col gap-3">
-          <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
-            TRUST
-          </h4>
-          <p class="text-[13px] text-white md:text-[16px] font-normal">
-            Trust is central with customers, subcontractors, suppliers,
-            engineers and team members.
-          </p>
-        </div>
-        <div class="flex flex-col gap-3">
-          <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
-            TEAM WORK
-          </h4>
-          <p class="text-[13px] text-white md:text-[16px] font-normal">
-            Strength lies in PFOS’s collaborative approach with customers and
-            partners.
-          </p>
-        </div>
-        <div class="flex flex-col gap-3">
-          <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
-            SAFETY
-          </h4>
-          <p class="text-[13px] text-white md:text-[16px] font-normal">
-            We’re dedicated to zero worker injuries. Safety is our top priority
-            to everyone involved.
-          </p>
-        </div>
-      </div>
-    </section>
-    <!-- End OUR STRENGTH -->
-
-    <!-- Our Service -->
-    <section id="service" class="my-10 padding-inline flex flex-col gap-16">
-      <div class="flex flex-col items-center justify-center gap-2">
-        <div class="flex items-center gap-4">
-          <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-          <span class="font-normal text-white text-sm md:text-xl"
-            >OUR STRENGTH</span
-          >
-        </div>
-        <h3
-          class="font-semibold text-white text-[30px] md:text-[52px] text-center"
-        >
-          WHAT WE OFFER
-        </h3>
-      </div>
-      <!-- our service child -->
-      <div class="flex flex-col items-center gap-1">
-        <hr class="w-full border-t border-[#B0CFEF]" />
-        <div class="flex flex-col md:flex-row items-center gap-6">
-          <img
-            src="assets/images/projects3.png"
-            class="w-[400px] md:w-[500px]"
-            alt=""
-          />
-          <div>
-            <div class="flex gap-4 flex-row items-center">
-              <h1 class="text-[100px] font-bold text-transparent stroke-text">
-                01
-              </h1>
-
-              <div>
-                <p
-                  class="font-normal text-[16px] md:text-[20px] leading-[24px] md:leading-[24px] text-white"
-                >
-                  OUR <br />SERVICES
-                </p>
-                <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-              </div>
-            </div>
-            <h4 class="font-semibold text-2xl md:text-[32px] text-white">
-              INSTALLATIONS & MAINTENANCE
-            </h4>
-            <div class="font-normal text-[14px] md:text-[16px] text-white">
-              <p class="">
-                We provide suiting service in inverter system installation and
-                maintenance, solar energy system installation and maintenance,
-                and solar security lighting.
-              </p>
-            </div>
-            <a href="services/installations-maintenance.html">
-              <button
-                class="bg-orange text-[14px] md:text-[16px] mt-5 font-bold text-blue w-28 h-10 md:w-36 md:h-12 rounded-md"
-              >
-                View More
-              </button></a
-            >
-          </div>
-        </div>
-        <hr class="w-full border-t border-[#B0CFEF]" />
-      </div>
-      <!-- end  our service child -->
-
-      <!-- our service child -->
-      <div class="flex flex-col items-center gap-1">
-        <hr class="w-full border-t border-[#B0CFEF]" />
-        <div class="flex flex-col-reverse md:flex-row items-center gap-6">
-          <div>
-            <div class="flex gap-4 flex-row items-center">
-              <h1 class="text-[100px] font-bold text-transparent stroke-text">
-                02
-              </h1>
-              <div>
-                <p
-                  class="font-normal text-[16px] md:text-[20px] leading-[24px] md:leading-[24px] text-white"
-                >
-                  OUR <br />SERVICES
-                </p>
-                <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-              </div>
-            </div>
-            <h4
-              class="font-semibold text-nowrap text-2xl md:text-[32px] text-white"
-            >
-              SOLAR PRODUCT SALES
-            </h4>
-            <div class="font-normal text-[14px] md:text-[16px] text-white">
-              <p>
-                Inverters, charge controllers, tubular & dry cell batteries,
-                solar panels, solar fan, digital accessories, solar iron, wire,
-                rechargeable bulb, panels and rack
-              </p>
-            </div>
-            <a href="services/solar-product-sales.html">
-              <button
-                class="bg-orange text-[14px] md:text-[16px] mt-5 font-bold text-blue w-28 h-10 md:w-36 md:h-12 rounded-md"
-              >
-                View More
-              </button></a
-            >
-          </div>
-          <img
-            src="assets/images/projects4.png"
-            class="w-[400px] md:w-[500px]"
-            alt=""
-          />
-        </div>
-        <hr class="w-full border-t border-[#B0CFEF]" />
-      </div>
-      <!-- end  our service child -->
-
-      <!-- our service child -->
-      <div class="flex flex-col items-center gap-1">
-        <hr class="w-full border-t border-[#B0CFEF]" />
-
-        <div class="flex flex-col md:flex-row items-center gap-6">
-          <img
-            src="assets/images/our_service3.png"
-            class="w-[400px] md:w-[500px]"
-            alt=""
-          />
-          <div>
-            <div class="flex gap-4 flex-row items-center">
-              <h1 class="text-[100px] font-bold text-transparent stroke-text">
-                03
-              </h1>
-              <div>
-                <p
-                  class="font-normal text-[16px] md:text-[20px] leading-[24px] md:leading-[24px] text-white"
-                >
-                  OUR <br />SERVICES
-                </p>
-                <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-              </div>
-            </div>
-            <h4
-              class="font-semibold text-nowrap text-2xl md:text-[32px] text-white"
-            >
-              SOLAR ACADEMY
-            </h4>
-            <div class="font-normal text-[14px] md:text-[16px] text-white">
-              <p>
-                We work harmoniously with Nigerian youth to make themselves
-                reliant through comprehensive training. Become a solar expert
-                today!
-              </p>
-            </div>
-
-            <a href="services/solar-academy.html">
-              <button
-                class="bg-orange text-[14px] md:text-[16px] mt-5 font-bold text-blue w-28 h-10 md:w-36 md:h-12 rounded-md"
-              >
-                View More
-              </button></a
-            >
-          </div>
-        </div>
-        <hr class="w-full border-t border-[#B0CFEF]" />
-      </div>
-      <!-- end  our service child -->
-
-      <!-- our service child -->
-      <div class="flex flex-col items-center gap-1">
-        <hr class="w-full border-t border-[#B0CFEF]" />
-        <div class="flex flex-col-reverse md:flex-row items-center gap-6">
-          <div>
-            <div class="flex gap-4 flex-row items-center">
-              <h1 class="text-[100px] font-bold text-transparent stroke-text">
-                04
-              </h1>
-              <div>
-                <p
-                  class="font-normal text-[16px] md:text-[20px] leading-[24px] md:leading-[24px] text-white"
-                >
-                  OUR <br />SERVICES
-                </p>
-                <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-              </div>
-            </div>
-            <h4
-              class="font-semibold text-nowrap text-2xl md:text-[32px] text-white"
-            >
-              CONSULTANCY
-            </h4>
-            <div class="font-normal text-[14px] md:text-[16px] text-white">
-              <p>
-                We do consults for Homes, Organizations and firms like malls,
-                bank, schools, gas stations, corporate & religious outlets,
-                government pastorals,
-              </p>
-            </div>
-            <a href="services/consultancy.html">
-              <button
-                class="bg-orange text-[14px] md:text-[16px] mt-5 font-bold text-blue w-28 h-10 md:w-36 md:h-12 rounded-md"
-              >
-                View More
-              </button></a
-            >
-          </div>
-
-          <img
-            src="assets/images/our_service4.png"
-            class="w-[400px] md:w-[500px]"
-            alt=""
-          />
-        </div>
-        <hr class="w-full border-t border-[#B0CFEF]" />
-      </div>
-      <!-- end  our service child -->
-    </section>
-    <!-- End Our Service -->
-
-    <!-- Our Projects -->
-    <section
-      class="bg-[#E4E9F0] top-10 flex flex-col gap-10 pt-5 px-20"
-      style="border-top: 0.3px solid #ffffff"
-    >
-      <div class="text-blue text-center flex flex-col gap-1">
-        <h2 class="font-bold text-[36px] md:text-[52px]">OUR PROJECTS</h2>
-        <p class="font-normal text-[12px] md:text-[16px]">
-          Discover reliable, sustainable energy solutions designed to power your
-          home.
-        </p>
-      </div>
-      <div class="splide py-10" id="splide1">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <!-- Project slides will be dynamically loaded from JSON -->
-          </ul>
-        </div>
-      </div>
-    </section>
-    <!-- Our Projects -->
-    <section class="padding-inline flex flex-col items-center gap-16 py-8">
-      <div class="flex flex-col items-center justify-center gap-1">
-        <div class="flex items-center gap-4">
-          <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-          <span class="font-normal text-white text-sm md:text-xl"
-            >TESTIMONIAL</span
-          >
-        </div>
-        <h3
-          class="font-semibold text-white text-[30px] md:text-[52px] text-center"
-        >
-          WHAT OUR CLIENTS SAY
-        </h3>
-        <p
-          class="font-normal text-white text-[12px] md:text-[16px] text-center"
-        >
-          We are fortunate to have formed excellent partnership with many of our
-          clients.
-        </p>
-      </div>
-      <div id="splide2" class="splide w-full flex justify-center items-center">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <!-- Testimonials will be loaded dynamically from JSON -->
-          </ul>
-        </div>
-        <div class="splide__controls">
-          <div class="controls-wrapper">
-            <div class="splide__arrows"></div>
-            <ul class="splide__pagination"></ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Our Team -->
-    <section class="flex flex-col items-center gap-16 pt-10">
-      <div class="flex flex-col items-center justify-center gap-1">
-        <div class="flex items-center gap-4">
-          <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-          <span class="font-normal text-white text-sm md:text-xl"
-            >OUR TEAM</span
-          >
-        </div>
-        <h3
-          class="font-semibold text-white text-[30px] md:text-[52px] text-center"
-        >
-          MEET THE EXPERTS
-        </h3>
-        <p
-          class="font-normal text-white text-[12px] md:text-[16px] text-center"
-        >
-          Our prospect on creating awesome projects.
-        </p>
-      </div>
-      <div
-        class="padding-inline background-color w-full flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16"
-      >
-        <div class="flex flex-col items-start gap-8 mb-10 md:mb-12">
-          <img src="assets/images/team3.png" />
-          <div class="flex flex-col gap-1 w-30 md:w-48">
-            <p
-              class="text-white md:text-[#014B98] font-semibold text-[24px] md:text-[28px]"
-            >
-              Oluwatobiloba O Timothy
-            </p>
-            <p class="font-medium text-[] md:text-2xl text-orange">
-              Lead Engineer
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Our Team -->
-
-    <!-- CONTACT US -->
-    <section
-      id="contact"
-      class="padding-inline py-40 flex flex-col md:flex-row gap-24"
-    >
-      <div class="flex flex-col gap-5 md:w-[50%]">
+  <!-- About Section -->
+  <section class="mt-10 padding-inline">
+    <div class="flex gap-10 items-center flex-col md:items-stretch md:flex-row">
+      <!-- about left -->
+      <img src="assets/images/about.png" alt="" class="w-[570px] h-full" />
+      <!-- about left -->
+      <div class="text-white flex flex-col justify-center py-3 gap-6">
         <div class="flex items-center gap-6">
           <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-          <span class="text-white font-normal text-sm md:text-xl"
-            >CONTACT US</span
-          >
+          <span class="font-normal text-sm md:text-xl">ABOUT US</span>
         </div>
-        <h2 class="font-semibold text-[40px] md:text-[52px] text-white">
-          GET IN TOUCH
-        </h2>
-        <p class="font-normal text-[14px] md:text-[16px] text-white">
-          You can get in touch with us on any of these platforms.
-        </p>
+        <h3 class="font-semibold text-[40px] leading-[35px] md:text-[52px] md:leading-[62.4px]">
+          We Are Power <br />From the Other Side
+        </h3>
+        <ul class="font-normal text-[14px] leading-[20px] md:text-[16px] md:leading-[26px] flex flex-col gap-2">
+          <li>
+            Welcome to Power From the Other Side, a leading solar company in
+            Abeokuta, Nigeria. We're passionate about harnessing the power of
+            the sun to energize homes, businesses, and communities across the
+            country.
+          </li>
+          <li>
+            Our mission is simple: to provide reliable, sustainable energy
+            solutions that eradicate the need for generators and promote a
+            cleaner, greener environment.
+          </li>
+
+          <li>
+            At Power From the Other Side, we're committed to making a positive
+            impact on Nigeria's energy landscape. We believe that access to
+            reliable energy is a fundamental right, and we're dedicated to
+            providing innovative solar solutions that meet the needs of our
+            customers
+          </li>
+          <li>
+            Our team of experts has years of experience in the solar industry,
+            and we're passionate about providing detailed training in solar
+            installation to our able Nigerian youths.
+          </li>
+        </ul>
+        <div class="gap-5 hidden md:flex">
+          <div class="flex gap-2">
+            <p class="text-[30.34px] md:text-[2rem]">4+</p>
+            <p class="text-[14px] md:text-[16.63px]">
+              Years of <br />
+              Experience
+            </p>
+          </div>
+          <div class="flex gap-2">
+            <p class="text-[30.34px] md:text-[2rem]">100+</p>
+            <p class="text-[14px] md:text-[16.63px]">
+              Complete <br />Projects
+            </p>
+          </div>
+          <div class="flex gap-2">
+            <p class="text-[30.34px] md:text-[2rem]">1000+</p>
+            <p class="text-[14px] md:text-[16.63px]">
+              Happy <br />Beneficiaries
+            </p>
+          </div>
+        </div>
+
+        <a href="about.html"><button
+            class="bg-orange text-[14px] md:text-[16px] mt-5 font-bold text-blue w-28 h-10 md:w-36 md:h-12 rounded-md">
+            View More
+          </button></a>
       </div>
-      <div class="text-white flex flex-col gap-8 md:w-[50%]">
-        <p class="flex items-center gap-4">
-          <i class="bx bx-phone font-normal text-[22px] md:text-[26px]"></i>
-          <span class="font-normal text-[12px] md:text-[16px]"
-            >09032769065</span
-          >
-        </p>
-        <p class="flex items-center gap-4">
-          <i class="bx bx-envelope font-normal text-[22px] md:text-[26px]"></i>
-          <span class="font-normal text-[12px] md:text-[16px]"
-            >pfos76@gmail.com
-          </span>
-        </p>
-        <p class="flex items-center gap-4">
-          <i class="bx bx-map font-normal text-[22px] md:text-[26px]"></i>
-          <span class="font-normal text-[12px] md:text-[16px]">
-            Ground floor, Anike house behind Zenith bank, Isale Igbein Abeokuta
-          </span>
-        </p>
-        <button
-          class="bg-orange text-[14px] md:text-[16px] font-bold text-white w-24 h-10 md:w-32 md:h-12 rounded-md"
-        >
-          Contact Us
+
+      <!-- about right -->
+    </div>
+  </section>
+  <!-- About Section End-->
+
+  <!-- Successful Solar Installations Section -->
+  <section class="relative bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-16 px-4 sm:px-8">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-5xl font-extrabold mb-4">
+        <span id="counter" class="text-orange">0</span>+ Successful Solar Installations
+      </h2>
+      <p class="text-lg sm:text-xl mb-8">
+        Powering homes, businesses, schools & industries across Nigeria.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left text-white">
+        <div class="flex items-start space-x-4 bg-white bg-opacity-10 p-4 rounded-xl shadow">
+          <svg class="w-8 h-8 text-orange" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 0a10 10 0 1010 10A10 10 0 0010 0zm1 15H9v-2h2zm0-4H9V5h2z" />
+          </svg>
+          <div>
+            <h4 class="text-lg font-semibold">Nationwide Reach</h4>
+            <p class="text-sm">Installations across 25+ states and cities in Nigeria.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4 bg-white bg-opacity-10 p-4 rounded-xl shadow">
+          <svg class="w-8 h-8 text-orange" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M4 3a2 2 0 00-2 2v12a1 1 0 001.447.894L10 15l6.553 2.894A1 1 0 0018 17V5a2 2 0 00-2-2H4z" />
+          </svg>
+          <div>
+            <h4 class="text-lg font-semibold">Proven Reliability</h4>
+            <p class="text-sm">Over 230 systems running non-stop with client satisfaction.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4 bg-white bg-opacity-10 p-4 rounded-xl shadow">
+          <svg class="w-8 h-8 text-orange" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10 18a8 8 0 118-8 8 8 0 01-8 8zM7.293 9.293l2.707 2.707 4.707-4.707 1.414 1.414L10 14.828 5.879 10.707z" />
+          </svg>
+          <div>
+            <h4 class="text-lg font-semibold">Trusted & Certified</h4>
+            <p class="text-sm">Backed by certified engineers and top-grade materials.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Successful Solar Installations Section -->
+
+  <!-- Solar Installation Packages Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900">Our Solar Installation Packages</h2>
+        <p class="mt-4 text-lg text-gray-600">Choose a package that suits your energy needs and budget.</p>
+      </div>
+
+      <div id="packagesContainer" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+      <div class="text-center mt-10">
+        <button id="loadMoreBtn"
+          class="inline-flex items-center gap-2 px-6 py-2 bg-blue-600 text-white text-base font-medium rounded-lg shadow bg-orange hover:bg-blue transition duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7H5" />
+          </svg>
+          Show More
         </button>
       </div>
-    </section>
-    <!-- END CONTACT US -->
 
-    <!-- Map -->
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d198.884231907672!2d3.3416923930056064!3d7.146135675437602!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103a4bbbe9f75657%3A0xc628ec480d6ebbb1!2sPOWER%20FROM%20THE%20OTHER%20SIDE!5e1!3m2!1sen!2sng!4v1741081612484!5m2!1sen!2sng"
-      width="100%"
-      height="400"
-      style="border: 0"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-    <!-- End Map -->
+    </div>
+  </section>
+  <!-- End Solar Installation Packages -->
 
-    <!-- Footer -->
-    <footer class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8">
-      <img src="assets/images/logo.png" class="w-24 md:w-32" alt="" />
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div class="text-white gap-5 flex flex-col">
-          <div class="flex flex-col gap-4">
-            <h4 class="font-semibold text-[16px] md:text-[20px]">
-              Contact Info
-            </h4>
-            <p class="font-normal text-[12px] md:text-[16px]">
-              You can get in touch with us on any of there platforms
-            </p>
+  <!-- OUR STRENGTH -->
+  <section class="my-10 padding-inline flex flex-col gap-9">
+    <div class="flex items-center gap-6">
+      <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+      <span class="font-normal text-white text-sm md:text-xl">OUR STRENGTH</span>
+    </div>
+    <div class="grid gap-2 px-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div class="flex flex-col gap-3">
+        <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
+          RESPONSIBILITY
+        </h4>
+        <p class="text-[13px] text-white md:text-[16px] font-normal">
+          We’re accountable to team, customers, subcontractors, suppliers,
+          engineers, and communities
+        </p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
+          TRUST
+        </h4>
+        <p class="text-[13px] text-white md:text-[16px] font-normal">
+          Trust is central with customers, subcontractors, suppliers,
+          engineers and team members.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
+          TEAM WORK
+        </h4>
+        <p class="text-[13px] text-white md:text-[16px] font-normal">
+          Strength lies in PFOS’s collaborative approach with customers and
+          partners.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
+          SAFETY
+        </h4>
+        <p class="text-[13px] text-white md:text-[16px] font-normal">
+          We’re dedicated to zero worker injuries. Safety is our top priority
+          to everyone involved.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- End OUR STRENGTH -->
+
+  <!-- Our Service -->
+  <section id="service" class="my-10 padding-inline flex flex-col gap-16">
+    <div class="flex flex-col items-center justify-center gap-2">
+      <div class="flex items-center gap-4">
+        <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+        <span class="font-normal text-white text-sm md:text-xl">OUR STRENGTH</span>
+      </div>
+      <h3 class="font-semibold text-white text-[30px] md:text-[52px] text-center">
+        WHAT WE OFFER
+      </h3>
+    </div>
+    <!-- our service child -->
+    <div class="flex flex-col items-center gap-1">
+      <hr class="w-full border-t border-[#B0CFEF]" />
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <img src="assets/images/projects3.png" class="w-[400px] md:w-[500px]" alt="" />
+        <div>
+          <div class="flex gap-4 flex-row items-center">
+            <h1 class="text-[100px] font-bold text-transparent stroke-text">
+              01
+            </h1>
+
+            <div>
+              <p class="font-normal text-[16px] md:text-[20px] leading-[24px] md:leading-[24px] text-white">
+                OUR <br />SERVICES
+              </p>
+              <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+            </div>
           </div>
-          <div class="flex flex-col gap-4">
-            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
-              <i
-                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-facebook-square"
-              ></i>
-              <span>Facebook: Power from the other side</span>
-            </p>
-            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
-              <i
-                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-instagram-alt"
-              ></i>
-              <span>Instagram: @pfos_Solar</span>
-            </p>
-            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
-              <i
-                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-whatsapp-square"
-              ></i>
-              <span>WhatsApp: +234 903 276 9065</span>
-            </p>
-          </div>
-        </div>
-        <div class="text-white gap-3 flex flex-col">
-          <h4 class="font-semibold text-lg md:text-xl text-white">
-            Send Quick Message
+          <h4 class="font-semibold text-2xl md:text-[32px] text-white">
+            INSTALLATIONS & MAINTENANCE
           </h4>
-          <form action="" id="quickMessageForm" class="flex flex-col gap-3">
-            <div class="flex flex-col md:flex-row gap-3">
-              <div class="mb-4">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Name"
-                  class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]"
-                />
-              </div>
-              <div class="mb-4">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email"
-                  class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]"
-                />
-              </div>
-            </div>
-            <div class="mb-4">
-              <textarea
-                name="message"
-                id="message"
-                placeholder="Message"
-                class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]"
-                rows="4"
-              ></textarea>
-            </div>
+          <div class="font-normal text-[14px] md:text-[16px] text-white">
+            <p class="">
+              We provide suiting service in inverter system installation and
+              maintenance, solar energy system installation and maintenance,
+              and solar security lighting.
+            </p>
+          </div>
+          <a href="services/installations-maintenance.html">
             <button
-              type="submit"
-              class="w-full p-3 rounded bg-[#B0CFEF] text-blue font-semibold hover:bg-blue-700"
-            >
-              SEND
-            </button>
-            <div id="form-notification" class="hidden"></div>
-          </form>
+              class="bg-orange text-[14px] md:text-[16px] mt-5 font-bold text-blue w-28 h-10 md:w-36 md:h-12 rounded-md">
+              View More
+            </button></a>
         </div>
       </div>
-    </footer>
+      <hr class="w-full border-t border-[#B0CFEF]" />
+    </div>
+    <!-- end  our service child -->
 
-    <!-- End Footer -->
+    <!-- our service child -->
+    <div class="flex flex-col items-center gap-1">
+      <hr class="w-full border-t border-[#B0CFEF]" />
+      <div class="flex flex-col-reverse md:flex-row items-center gap-6">
+        <div>
+          <div class="flex gap-4 flex-row items-center">
+            <h1 class="text-[100px] font-bold text-transparent stroke-text">
+              02
+            </h1>
+            <div>
+              <p class="font-normal text-[16px] md:text-[20px] leading-[24px] md:leading-[24px] text-white">
+                OUR <br />SERVICES
+              </p>
+              <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+            </div>
+          </div>
+          <h4 class="font-semibold text-nowrap text-2xl md:text-[32px] text-white">
+            SOLAR PRODUCT SALES
+          </h4>
+          <div class="font-normal text-[14px] md:text-[16px] text-white">
+            <p>
+              Inverters, charge controllers, tubular & dry cell batteries,
+              solar panels, solar fan, digital accessories, solar iron, wire,
+              rechargeable bulb, panels and rack
+            </p>
+          </div>
+          <a href="services/solar-product-sales.html">
+            <button
+              class="bg-orange text-[14px] md:text-[16px] mt-5 font-bold text-blue w-28 h-10 md:w-36 md:h-12 rounded-md">
+              View More
+            </button></a>
+        </div>
+        <img src="assets/images/projects4.png" class="w-[400px] md:w-[500px]" alt="" />
+      </div>
+      <hr class="w-full border-t border-[#B0CFEF]" />
+    </div>
+    <!-- end  our service child -->
 
-    <section
-      class="bg-[#011B36] w-full py-8 padding-inline flex justify-center md:justify-end"
-    >
-      <p class="text-white text-xs md:text-sm">
-        PFDOS Enterprise RC: 3334515 C 2020. All Rights Reserved
+    <!-- our service child -->
+    <div class="flex flex-col items-center gap-1">
+      <hr class="w-full border-t border-[#B0CFEF]" />
+
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <img src="assets/images/our_service3.png" class="w-[400px] md:w-[500px]" alt="" />
+        <div>
+          <div class="flex gap-4 flex-row items-center">
+            <h1 class="text-[100px] font-bold text-transparent stroke-text">
+              03
+            </h1>
+            <div>
+              <p class="font-normal text-[16px] md:text-[20px] leading-[24px] md:leading-[24px] text-white">
+                OUR <br />SERVICES
+              </p>
+              <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+            </div>
+          </div>
+          <h4 class="font-semibold text-nowrap text-2xl md:text-[32px] text-white">
+            SOLAR ACADEMY
+          </h4>
+          <div class="font-normal text-[14px] md:text-[16px] text-white">
+            <p>
+              We work harmoniously with Nigerian youth to make themselves
+              reliant through comprehensive training. Become a solar expert
+              today!
+            </p>
+          </div>
+
+          <a href="services/solar-academy.html">
+            <button
+              class="bg-orange text-[14px] md:text-[16px] mt-5 font-bold text-blue w-28 h-10 md:w-36 md:h-12 rounded-md">
+              View More
+            </button></a>
+        </div>
+      </div>
+      <hr class="w-full border-t border-[#B0CFEF]" />
+    </div>
+    <!-- end  our service child -->
+
+    <!-- our service child -->
+    <div class="flex flex-col items-center gap-1">
+      <hr class="w-full border-t border-[#B0CFEF]" />
+      <div class="flex flex-col-reverse md:flex-row items-center gap-6">
+        <div>
+          <div class="flex gap-4 flex-row items-center">
+            <h1 class="text-[100px] font-bold text-transparent stroke-text">
+              04
+            </h1>
+            <div>
+              <p class="font-normal text-[16px] md:text-[20px] leading-[24px] md:leading-[24px] text-white">
+                OUR <br />SERVICES
+              </p>
+              <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+            </div>
+          </div>
+          <h4 class="font-semibold text-nowrap text-2xl md:text-[32px] text-white">
+            CONSULTANCY
+          </h4>
+          <div class="font-normal text-[14px] md:text-[16px] text-white">
+            <p>
+              We do consults for Homes, Organizations and firms like malls,
+              bank, schools, gas stations, corporate & religious outlets,
+              government pastorals,
+            </p>
+          </div>
+          <a href="services/consultancy.html">
+            <button
+              class="bg-orange text-[14px] md:text-[16px] mt-5 font-bold text-blue w-28 h-10 md:w-36 md:h-12 rounded-md">
+              View More
+            </button></a>
+        </div>
+
+        <img src="assets/images/our_service4.png" class="w-[400px] md:w-[500px]" alt="" />
+      </div>
+      <hr class="w-full border-t border-[#B0CFEF]" />
+    </div>
+    <!-- end  our service child -->
+  </section>
+  <!-- End Our Service -->
+
+  <!-- Our Projects -->
+  <section class="bg-[#E4E9F0] top-10 flex flex-col gap-10 pt-5 px-20" style="border-top: 0.3px solid #ffffff">
+    <div class="text-blue text-center flex flex-col gap-1">
+      <h2 class="font-bold text-[36px] md:text-[52px]">OUR PROJECTS</h2>
+      <p class="font-normal text-[12px] md:text-[16px]">
+        Discover reliable, sustainable energy solutions designed to power your
+        home.
       </p>
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="assets/typed.js/typed.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-    <script type="module">
-      import swiper from "https://cdn.jsdelivr.net/npm/swiper@11.2.0/+esm";
-    </script>
+    </div>
+    <div class="splide py-10" id="splide1">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <!-- Project slides will be dynamically loaded from JSON -->
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- Our Projects -->
 
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
-    <script type="text/javascript">
-      document
-        .getElementById("quickMessageForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault();
+  <!-- Testimonials -->
+  <section class="padding-inline flex flex-col items-center gap-16 py-8">
+    <div class="flex flex-col items-center justify-center gap-1">
+      <div class="flex items-center gap-4">
+        <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+        <span class="font-normal text-white text-sm md:text-xl">TESTIMONIAL</span>
+      </div>
+      <h3 class="font-semibold text-white text-[30px] md:text-[52px] text-center">
+        WHAT OUR CLIENTS SAY
+      </h3>
+      <p class="font-normal text-white text-[12px] md:text-[16px] text-center">
+        We are fortunate to have formed excellent partnership with many of our
+        clients.
+      </p>
+    </div>
+    <div id="splide2" class="splide w-full flex justify-center items-center">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <!-- Testimonials will be loaded dynamically from JSON -->
+        </ul>
+      </div>
+      <div class="splide__controls">
+        <div class="controls-wrapper">
+          <div class="splide__arrows"></div>
+          <ul class="splide__pagination"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Testimonials -->
 
-          const name = document.getElementById("name").value.trim();
-          const email = document.getElementById("email").value.trim();
-          const message = document.getElementById("message").value.trim();
+  <!-- Indemnity Clause on Solar Installation -->
+  <section class="mt-20 px-4 sm:px-6 lg:px-8">
+    <div
+      class="max-w-5xl mx-auto bg-gradient-to-br from-yellow-50 to-white border-l-4 border-yellow-400 shadow-lg rounded-xl p-6 sm:p-10">
+      <div class="flex items-start mb-6">
+        <div class="flex-shrink-0">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 text-yellow-600">
+            ⚠️
+          </div>
+        </div>
+        <div class="ml-4">
+          <h2 class="text-2xl font-extrabold text-gray-800 mb-2">Important Indemnity Notice</h2>
+          <p class="text-sm text-gray-600 italic">Please read carefully before proceeding with installation.</p>
+        </div>
+      </div>
+      <div class="text-gray-800 text-base space-y-4">
+        <p>1. A solar surge protector is not mandatory but strongly recommended. It is billed separately from the
+          installation fee.</p>
+        <p>2. Customers are fully responsible for the upkeep and replacement of tubular batteries.</p>
+        <p>3. After a successful installation, ownership of the system transfers to the customer. No retrievals are
+          permitted.</p>
+        <p>4. In the event of lightning damage, the customer bears the inverter repair cost. To avoid this, we advise
+          turning off the inverter when it's about to rain.</p>
+        <p>5. Maintenance after installation attracts a logistics fee, payable by the customer.</p>
+        <p>6. Installations outside Abeokuta require the customer to cover logistics and transportation fees.</p>
+      </div>
+    </div>
+  </section>
+  <!-- End Indemnity Clause on Solar Installation -->
 
-          const showNotification = (message, isSuccess = true) => {
-            const notification = document.getElementById("form-notification");
-            if (!notification) {
-              console.error("Notification element not found.");
-              return;
-            }
-            notification.textContent = message;
-            notification.className = `fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 ${
-              isSuccess ? "bg-green-500 text-white" : "bg-red-500 text-white"
-            }`;
-            notification.classList.remove("hidden");
-            notification.classList.add("show");
-            setTimeout(() => {
-              notification.classList.remove("show");
-              notification.classList.add("hidden");
-            }, 3000);
-          };
+  <!-- Our Team -->
+  <section class="flex flex-col items-center gap-16 pt-10">
+    <div class="flex flex-col items-center justify-center gap-1">
+      <div class="flex items-center gap-4">
+        <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+        <span class="font-normal text-white text-sm md:text-xl">OUR TEAM</span>
+      </div>
+      <h3 class="font-semibold text-white text-[30px] md:text-[52px] text-center">
+        MEET THE EXPERTS
+      </h3>
+      <p class="font-normal text-white text-[12px] md:text-[16px] text-center">
+        Our prospect on creating awesome projects.
+      </p>
+    </div>
+    <div
+      class="padding-inline background-color w-full flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
+      <div class="flex flex-col items-start gap-8 mb-10 md:mb-12">
+        <img src="assets/images/team3.png" />
+        <div class="flex flex-col gap-1 w-30 md:w-48">
+          <p class="text-white md:text-[#014B98] font-semibold text-[24px] md:text-[28px]">
+            Oluwatobiloba O Timothy
+          </p>
+          <p class="font-medium text-[] md:text-2xl text-orange">
+            Lead Engineer
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Our Team -->
 
-          if (!name || !email || !message) {
-            showNotification("All fields are required!", false);
+  <!-- CONTACT US -->
+  <section id="contact" class="padding-inline py-40 flex flex-col md:flex-row gap-24">
+    <div class="flex flex-col gap-5 md:w-[50%]">
+      <div class="flex items-center gap-6">
+        <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+        <span class="text-white font-normal text-sm md:text-xl">CONTACT US</span>
+      </div>
+      <h2 class="font-semibold text-[40px] md:text-[52px] text-white">
+        GET IN TOUCH
+      </h2>
+      <p class="font-normal text-[14px] md:text-[16px] text-white">
+        You can get in touch with us on any of these platforms.
+      </p>
+    </div>
+    <div class="text-white flex flex-col gap-8 md:w-[50%]">
+      <p class="flex items-center gap-4">
+        <i class="bx bx-phone font-normal text-[22px] md:text-[26px]"></i>
+        <span class="font-normal text-[12px] md:text-[16px]">09032769065</span>
+      </p>
+      <p class="flex items-center gap-4">
+        <i class="bx bx-envelope font-normal text-[22px] md:text-[26px]"></i>
+        <span class="font-normal text-[12px] md:text-[16px]">pfos76@gmail.com
+        </span>
+      </p>
+      <p class="flex items-center gap-4">
+        <i class="bx bx-map font-normal text-[22px] md:text-[26px]"></i>
+        <span class="font-normal text-[12px] md:text-[16px]">
+          Ground floor, Anike house behind Zenith bank, Isale Igbein Abeokuta
+        </span>
+      </p>
+      <button class="bg-orange text-[14px] md:text-[16px] font-bold text-white w-24 h-10 md:w-32 md:h-12 rounded-md">
+        Contact Us
+      </button>
+    </div>
+  </section>
+  <!-- END CONTACT US -->
+
+  <!-- Map -->
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d198.884231907672!2d3.3416923930056064!3d7.146135675437602!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103a4bbbe9f75657%3A0xc628ec480d6ebbb1!2sPOWER%20FROM%20THE%20OTHER%20SIDE!5e1!3m2!1sen!2sng!4v1741081612484!5m2!1sen!2sng"
+    width="100%" height="400" style="border: 0" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- End Map -->
+
+  <!-- Footer -->
+  <footer class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8">
+    <img src="assets/images/logo.png" class="w-24 md:w-32" alt="" />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="text-white gap-5 flex flex-col">
+        <div class="flex flex-col gap-4">
+          <h4 class="font-semibold text-[16px] md:text-[20px]">
+            Contact Info
+          </h4>
+          <p class="font-normal text-[12px] md:text-[16px]">
+            You can get in touch with us on any of there platforms
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
+            <i class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-facebook-square"></i>
+            <span>Facebook: Power from the other side</span>
+          </p>
+          <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
+            <i class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-instagram-alt"></i>
+            <span>Instagram: @pfos_Solar</span>
+          </p>
+          <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
+            <i class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-whatsapp-square"></i>
+            <span>WhatsApp: +234 903 276 9065</span>
+          </p>
+        </div>
+      </div>
+      <div class="text-white gap-3 flex flex-col">
+        <h4 class="font-semibold text-lg md:text-xl text-white">
+          Send Quick Message
+        </h4>
+        <form action="" id="quickMessageForm" class="flex flex-col gap-3">
+          <div class="flex flex-col md:flex-row gap-3">
+            <div class="mb-4">
+              <input type="text" name="name" id="name" placeholder="Name"
+                class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]" />
+            </div>
+            <div class="mb-4">
+              <input type="email" name="email" id="email" placeholder="Email"
+                class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]" />
+            </div>
+          </div>
+          <div class="mb-4">
+            <textarea name="message" id="message" placeholder="Message"
+              class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]"
+              rows="4"></textarea>
+          </div>
+          <button type="submit" class="w-full p-3 rounded bg-[#B0CFEF] text-blue font-semibold hover:bg-blue-700">
+            SEND
+          </button>
+          <div id="form-notification" class="hidden"></div>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <!-- End Footer -->
+
+  <section
+    class="bg-[#011B36] w-full py-8 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between md:justify-between gap-4 text-white text-xs md:text-sm">
+    <p>PFDOS Enterprise RC: 3334515 © 2020. All Rights Reserved.</p>
+    <a href="/terms.html" class="underline hover:text-orange transition">Terms & Conditions</a>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="assets/typed.js/typed.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  <script type="module">
+    import swiper from "https://cdn.jsdelivr.net/npm/swiper@11.2.0/+esm";
+  </script>
+
+  <script>
+    let allPackages = [];
+    let currentIndex = 0;
+    const BATCH_SIZE = 3;
+
+    const container = document.getElementById('packagesContainer');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+    function renderNextBatch() {
+      const nextItems = allPackages.slice(currentIndex, currentIndex + BATCH_SIZE);
+
+      nextItems.forEach(pkg => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-xl shadow p-6 border border-blue-100 hover:shadow-lg transition';
+        card.innerHTML = `
+  <div class="flex flex-col h-full">
+    <div class="flex-1">
+      <h3 class="text-2xl font-bold text-blue mb-2">${pkg.title}</h3>
+      <p class="text-gray-700 text-sm mb-3">${pkg.description}</p>
+      <ul class="text-sm text-gray-600 space-y-1 mb-4">
+        ${pkg.features.map(f => `
+          <li class="flex items-start">
+            <span class="text-orange mr-2">✓</span>
+            <span>${f}</span>
+          </li>
+        `).join('')}
+      </ul>
+    </div>
+    <div class="mt-auto pt-2">
+      <p class="text-lg font-semibold text-orange mb-2">${pkg.price}</p>
+    </div>
+  </div>
+`;
+
+        container.appendChild(card);
+      });
+
+      currentIndex += BATCH_SIZE;
+      if (currentIndex >= allPackages.length) {
+        loadMoreBtn.style.display = 'none';
+      }
+    }
+
+    // Load packages from JSON file
+    fetch('assets/js/installation-packages.json')
+      .then(res => res.json())
+      .then(data => {
+        allPackages = data;
+        renderNextBatch(); // Render first 3
+      });
+
+    loadMoreBtn.addEventListener('click', renderNextBatch);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+  <script type="text/javascript">
+    document
+      .getElementById("quickMessageForm")
+      .addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        const showNotification = (message, isSuccess = true) => {
+          const notification = document.getElementById("form-notification");
+          if (!notification) {
+            console.error("Notification element not found.");
             return;
           }
+          notification.textContent = message;
+          notification.className = `fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 ${isSuccess ? "bg-green-500 text-white" : "bg-red-500 text-white"
+            }`;
+          notification.classList.remove("hidden");
+          notification.classList.add("show");
+          setTimeout(() => {
+            notification.classList.remove("show");
+            notification.classList.add("hidden");
+          }, 3000);
+        };
 
-          try {
-            const url = "https://pfos-backend.vercel.app/api/messages";
-            console.log("Sending request to:", url);
-            console.log("Method:", "POST");
-            console.log("Body:", JSON.stringify({ name, email, message }));
-            console.log("Page URL:", window.location.href); // Log current page
+        if (!name || !email || !message) {
+          showNotification("All fields are required!", false);
+          return;
+        }
 
-            const response = await fetch(url, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ name, email, message }),
-            });
+        try {
+          const url = "https://pfos-backend.vercel.app/api/messages";
+          console.log("Sending request to:", url);
+          console.log("Method:", "POST");
+          console.log("Body:", JSON.stringify({ name, email, message }));
+          console.log("Page URL:", window.location.href); // Log current page
 
-            console.log("Response status:", response.status);
-            console.log("Response headers:", [...response.headers.entries()]);
-            const data = await response.json();
-            console.log("Response data:", data);
-
-            if (!response.ok) {
-              throw new Error(data.error || "Failed to send message");
-            }
-
-            showNotification("Message sent successfully!");
-            document.getElementById("quickMessageForm").reset();
-          } catch (error) {
-            showNotification(
-              "Failed to send message. Please try again.",
-              false
-            );
-            console.error("Error:", error);
-          }
-        });
-    </script>
-
-    <script>
-      // Load projects data from JSON and initialize Splide 1
-      fetch("assets/js/projects-data.json")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((projectsData) => {
-          // Get the slider list element
-          const sliderList = document.querySelector("#splide1 .splide__list");
-
-          // Create slides from JSON data
-          projectsData.forEach((project) => {
-            const slide = document.createElement("li");
-            slide.className = "splide__slide pl-[28px] pb-[20px]";
-            slide.style.backgroundImage = `url(${project.image})`;
-
-            const title = document.createElement("p");
-            title.className = "z-10 font-bold text-[15px] md:text-[18px]";
-            title.textContent = project.title;
-
-            const date = document.createElement("p");
-            date.className = "z-10 font-medium text-[12px] md:text-[16px]";
-            date.textContent = project.date;
-
-            slide.appendChild(title);
-            slide.appendChild(date);
-            sliderList.appendChild(slide);
-          });
-
-          // Initialize Splide after adding slides
-          var splide1 = new Splide("#splide1", {
-            type: "loop",
-            perPage: 3,
-            focus: "center",
-            pagination: false,
-            drag: false,
-            gap: "1rem",
-            breakpoints: {
-              640: {
-                perPage: 1,
-                gap: "0.5rem",
-              },
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
             },
+            body: JSON.stringify({ name, email, message }),
           });
 
-          // Highlight center slide
-          splide1.on("mounted", function () {
-            highlightCenterSlide(splide1);
-          });
+          console.log("Response status:", response.status);
+          console.log("Response headers:", [...response.headers.entries()]);
+          const data = await response.json();
+          console.log("Response data:", data);
 
-          splide1.on("move", function () {
-            highlightCenterSlide(splide1);
-          });
-
-          function highlightCenterSlide(splide) {
-            document
-              .querySelectorAll("#splide1 .splide__slide")
-              .forEach((slide) => slide.classList.remove("center"));
-
-            const centerIndex = splide.index;
-            const centerSlide = splide.Components.Slides.getAt(centerIndex);
-            if (centerSlide) {
-              centerSlide.slide.classList.add("center");
-            }
+          if (!response.ok) {
+            throw new Error(data.error || "Failed to send message");
           }
 
-          splide1.mount();
-        })
-        .catch((error) => {
-          console.error("Error loading projects data:", error);
-          // Fallback to static HTML if JSON loading fails
-          document.querySelector("#splide1 .splide__list").innerHTML = `
+          showNotification("Message sent successfully!");
+          document.getElementById("quickMessageForm").reset();
+        } catch (error) {
+          showNotification(
+            "Failed to send message. Please try again.",
+            false
+          );
+          console.error("Error:", error);
+        }
+      });
+  </script>
+
+  <script>
+    let counter = document.getElementById("counter");
+    let count = 0;
+    let target = 230;
+    let speed = 15;
+
+    let interval = setInterval(() => {
+      if (count < target) {
+        count++;
+        counter.innerText = count;
+      } else {
+        clearInterval(interval);
+      }
+    }, speed);
+  </script>
+
+  <script>
+    // Load projects data from JSON and initialize Splide 1
+    fetch("assets/js/projects-data.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((projectsData) => {
+        // Get the slider list element
+        const sliderList = document.querySelector("#splide1 .splide__list");
+
+        // Create slides from JSON data
+        projectsData.forEach((project) => {
+          const slide = document.createElement("li");
+          slide.className = "splide__slide pl-[28px] pb-[20px]";
+          slide.style.backgroundImage = `url(${project.image})`;
+
+          const title = document.createElement("p");
+          title.className = "z-10 font-bold text-[15px] md:text-[18px]";
+          title.textContent = project.title;
+
+          const date = document.createElement("p");
+          date.className = "z-10 font-medium text-[12px] md:text-[16px]";
+          date.textContent = project.date;
+
+          slide.appendChild(title);
+          slide.appendChild(date);
+          sliderList.appendChild(slide);
+        });
+
+        // Initialize Splide after adding slides
+        var splide1 = new Splide("#splide1", {
+          type: "loop",
+          perPage: 3,
+          focus: "center",
+          pagination: false,
+          drag: false,
+          gap: "1rem",
+          breakpoints: {
+            640: {
+              perPage: 1,
+              gap: "0.5rem",
+            },
+          },
+        });
+
+        // Highlight center slide
+        splide1.on("mounted", function () {
+          highlightCenterSlide(splide1);
+        });
+
+        splide1.on("move", function () {
+          highlightCenterSlide(splide1);
+        });
+
+        function highlightCenterSlide(splide) {
+          document
+            .querySelectorAll("#splide1 .splide__slide")
+            .forEach((slide) => slide.classList.remove("center"));
+
+          const centerIndex = splide.index;
+          const centerSlide = splide.Components.Slides.getAt(centerIndex);
+          if (centerSlide) {
+            centerSlide.slide.classList.add("center");
+          }
+        }
+
+        splide1.mount();
+      })
+      .catch((error) => {
+        console.error("Error loading projects data:", error);
+        // Fallback to static HTML if JSON loading fails
+        document.querySelector("#splide1 .splide__list").innerHTML = `
             <li class="splide__slide pl-[28px] pb-[20px]" style="background-image: url(assets/images/projects1.png)">
               <p class="z-10 font-bold text-[15px] md:text-[18px]">36KW Solar Inverter System</p>
               <p class="z-10 font-medium text-[12px] md:text-[16px]">May 30, 2021</p>
@@ -1291,133 +1319,133 @@
             </li>
           `;
 
-          // Initialize Splide with fallback HTML
-          var splide1 = new Splide("#splide1", {
-            type: "loop",
-            perPage: 3,
-            focus: "center",
-            pagination: false,
-            drag: false,
-            gap: "1rem",
+        // Initialize Splide with fallback HTML
+        var splide1 = new Splide("#splide1", {
+          type: "loop",
+          perPage: 3,
+          focus: "center",
+          pagination: false,
+          drag: false,
+          gap: "1rem",
+          breakpoints: {
+            640: {
+              perPage: 1,
+              gap: "0.5rem",
+            },
+          },
+        });
+
+        splide1.on("mounted", function () {
+          highlightCenterSlide(splide1);
+        });
+
+        splide1.on("move", function () {
+          highlightCenterSlide(splide1);
+        });
+
+        function highlightCenterSlide(splide) {
+          document
+            .querySelectorAll("#splide1 .splide__slide")
+            .forEach((slide) => slide.classList.remove("center"));
+
+          const centerIndex = splide.index;
+          const centerSlide = splide.Components.Slides.getAt(centerIndex);
+          if (centerSlide) {
+            centerSlide.slide.classList.add("center");
+          }
+        }
+
+        splide1.mount();
+      });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("assets/js/testimonials-data.json")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((testimonialsData) => {
+          const sliderList = document.querySelector("#splide2 .splide__list");
+
+          testimonialsData.forEach((testimonial) => {
+            const slide = document.createElement("li");
+            slide.className =
+              "splide__slide flex flex-col py-10 px-10 bg-[#E6F0FA] rounded-2xl";
+
+            const contentDiv = document.createElement("div");
+            contentDiv.className = "text-blue";
+
+            const headerDiv = document.createElement("div");
+            headerDiv.className = "mb-4";
+
+            const name = document.createElement("h2");
+            name.className = "font-bold text-[24px]";
+            name.textContent = testimonial.name;
+
+            const position = document.createElement("h4");
+            position.className = "font-normal text-[18px]";
+            position.textContent = testimonial.position;
+
+            const testimonialText = document.createElement("p");
+            testimonialText.className = "font-normal text-[16px]";
+            testimonialText.textContent = testimonial.testimonial;
+
+            headerDiv.appendChild(name);
+            headerDiv.appendChild(position);
+            contentDiv.appendChild(headerDiv);
+            contentDiv.appendChild(testimonialText);
+            slide.appendChild(contentDiv);
+            sliderList.appendChild(slide);
+          });
+
+          const splide2 = new Splide("#splide2", {
+            perPage: 2,
+            gap: "3rem",
+            rewind: true,
+            pagination: true,
+            arrows: true,
+            speed: 600,
+            easing: "cubic-bezier(0.25, 0.8, 0.25, 1)",
+            drag: true,
             breakpoints: {
               640: {
                 perPage: 1,
-                gap: "0.5rem",
+                gap: "1rem",
               },
             },
           });
 
-          splide1.on("mounted", function () {
-            highlightCenterSlide(splide1);
+          // Restructure the DOM after Splide mounts
+          splide2.on("mounted", function () {
+            const controlsWrapper = document.querySelector(
+              "#splide2 .controls-wrapper"
+            );
+            const arrows = document.querySelectorAll(
+              "#splide2 .splide__arrow"
+            );
+            const pagination = document.querySelector(
+              "#splide2 .splide__pagination"
+            );
+
+            if (arrows.length === 2 && pagination) {
+              // Clear the controls wrapper
+              controlsWrapper.innerHTML = "";
+
+              // Append left arrow, pagination, then right arrow
+              controlsWrapper.appendChild(arrows[0]); // Left arrow
+              controlsWrapper.appendChild(pagination); // Pagination
+              controlsWrapper.appendChild(arrows[1]); // Right arrow
+            }
           });
 
-          splide1.on("move", function () {
-            highlightCenterSlide(splide1);
-          });
-
-          function highlightCenterSlide(splide) {
-            document
-              .querySelectorAll("#splide1 .splide__slide")
-              .forEach((slide) => slide.classList.remove("center"));
-
-            const centerIndex = splide.index;
-            const centerSlide = splide.Components.Slides.getAt(centerIndex);
-            if (centerSlide) {
-              centerSlide.slide.classList.add("center");
-            }
-          }
-
-          splide1.mount();
-        });
-
-      document.addEventListener("DOMContentLoaded", function () {
-        fetch("assets/js/testimonials-data.json")
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.json();
-          })
-          .then((testimonialsData) => {
-            const sliderList = document.querySelector("#splide2 .splide__list");
-
-            testimonialsData.forEach((testimonial) => {
-              const slide = document.createElement("li");
-              slide.className =
-                "splide__slide flex flex-col py-10 px-10 bg-[#E6F0FA] rounded-2xl";
-
-              const contentDiv = document.createElement("div");
-              contentDiv.className = "text-blue";
-
-              const headerDiv = document.createElement("div");
-              headerDiv.className = "mb-4";
-
-              const name = document.createElement("h2");
-              name.className = "font-bold text-[24px]";
-              name.textContent = testimonial.name;
-
-              const position = document.createElement("h4");
-              position.className = "font-normal text-[18px]";
-              position.textContent = testimonial.position;
-
-              const testimonialText = document.createElement("p");
-              testimonialText.className = "font-normal text-[16px]";
-              testimonialText.textContent = testimonial.testimonial;
-
-              headerDiv.appendChild(name);
-              headerDiv.appendChild(position);
-              contentDiv.appendChild(headerDiv);
-              contentDiv.appendChild(testimonialText);
-              slide.appendChild(contentDiv);
-              sliderList.appendChild(slide);
-            });
-
-            const splide2 = new Splide("#splide2", {
-              perPage: 2,
-              gap: "3rem",
-              rewind: true,
-              pagination: true,
-              arrows: true,
-              speed: 600,
-              easing: "cubic-bezier(0.25, 0.8, 0.25, 1)",
-              drag: true,
-              breakpoints: {
-                640: {
-                  perPage: 1,
-                  gap: "1rem",
-                },
-              },
-            });
-
-            // Restructure the DOM after Splide mounts
-            splide2.on("mounted", function () {
-              const controlsWrapper = document.querySelector(
-                "#splide2 .controls-wrapper"
-              );
-              const arrows = document.querySelectorAll(
-                "#splide2 .splide__arrow"
-              );
-              const pagination = document.querySelector(
-                "#splide2 .splide__pagination"
-              );
-
-              if (arrows.length === 2 && pagination) {
-                // Clear the controls wrapper
-                controlsWrapper.innerHTML = "";
-
-                // Append left arrow, pagination, then right arrow
-                controlsWrapper.appendChild(arrows[0]); // Left arrow
-                controlsWrapper.appendChild(pagination); // Pagination
-                controlsWrapper.appendChild(arrows[1]); // Right arrow
-              }
-            });
-
-            splide2.mount();
-          })
-          .catch((error) => {
-            console.error("Error loading testimonials data:", error);
-            const sliderList = document.querySelector("#splide2 .splide__list");
-            sliderList.innerHTML = `
+          splide2.mount();
+        })
+        .catch((error) => {
+          console.error("Error loading testimonials data:", error);
+          const sliderList = document.querySelector("#splide2 .splide__list");
+          sliderList.innerHTML = `
         <li class="splide__slide flex flex-col py-10 px-10 bg-[#E6F0FA] rounded-2xl">
           <div class="text-blue">
             <div class="mb-4">
@@ -1442,51 +1470,52 @@
         </li>
       `;
 
-            const splide2 = new Splide("#splide2", {
-              perPage: 2,
-              gap: "3rem",
-              rewind: true,
-              pagination: true,
-              arrows: true,
-              speed: 600,
-              easing: "cubic-bezier(0.25, 0.8, 0.25, 1)",
-              drag: true,
-              breakpoints: {
-                640: {
-                  perPage: 1,
-                  gap: "1rem",
-                },
+          const splide2 = new Splide("#splide2", {
+            perPage: 2,
+            gap: "3rem",
+            rewind: true,
+            pagination: true,
+            arrows: true,
+            speed: 600,
+            easing: "cubic-bezier(0.25, 0.8, 0.25, 1)",
+            drag: true,
+            breakpoints: {
+              640: {
+                perPage: 1,
+                gap: "1rem",
               },
-            });
-
-            // Restructure the DOM after Splide mounts (for fallback)
-            splide2.on("mounted", function () {
-              const controlsWrapper = document.querySelector(
-                "#splide2 .controls-wrapper"
-              );
-              const arrows = document.querySelectorAll(
-                "#splide2 .splide__arrow"
-              );
-              const pagination = document.querySelector(
-                "#splide2 .splide__pagination"
-              );
-
-              if (arrows.length === 2 && pagination) {
-                // Clear the controls wrapper
-                controlsWrapper.innerHTML = "";
-
-                // Append left arrow, pagination, then right arrow
-                controlsWrapper.appendChild(arrows[0]); // Left arrow
-                controlsWrapper.appendChild(pagination); // Pagination
-                controlsWrapper.appendChild(arrows[1]); // Right arrow
-              }
-            });
-
-            splide2.mount();
+            },
           });
-      });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script type="module" src="assets/js/script.js"></script>
-  </body>
+
+          // Restructure the DOM after Splide mounts (for fallback)
+          splide2.on("mounted", function () {
+            const controlsWrapper = document.querySelector(
+              "#splide2 .controls-wrapper"
+            );
+            const arrows = document.querySelectorAll(
+              "#splide2 .splide__arrow"
+            );
+            const pagination = document.querySelector(
+              "#splide2 .splide__pagination"
+            );
+
+            if (arrows.length === 2 && pagination) {
+              // Clear the controls wrapper
+              controlsWrapper.innerHTML = "";
+
+              // Append left arrow, pagination, then right arrow
+              controlsWrapper.appendChild(arrows[0]); // Left arrow
+              controlsWrapper.appendChild(pagination); // Pagination
+              controlsWrapper.appendChild(arrows[1]); // Right arrow
+            }
+          });
+
+          splide2.mount();
+        });
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="assets/js/script.js"></script>
+</body>
+
 </html>

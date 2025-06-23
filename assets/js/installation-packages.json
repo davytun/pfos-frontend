@@ -1,0 +1,158 @@
+[
+  {
+    "title": "200W (0.2kva)",
+    "description": "Lights 5-20W, DC Fan (24W) Laptop (50W)",
+    "features": [
+      "150W Mono Solar Panel",
+      "1 Unit of 20A Charge Controller",
+      "1 Unit of 40AH SMF Battery",
+      "1 Unit of 200W Inverter",
+      "100W Maximum Load"
+    ],
+    "price": "₦370,000"
+  },
+  {
+    "title": "500W (0.5kva) (Upgradable to 1kva)",
+    "description": "Lights 30W, Fan, Laptop, Decoder 19 - 32\" TV",
+    "features": [
+      "300W Mono Solar Panel",
+      "1 Unit of 30A Charge Controller",
+      "1 Unit of 100AH SMF Battery",
+      "1 Unit of 1kva PSW Inverter",
+      "200W Maximum Load"
+    ],
+    "price": "₦680,000"
+  },
+  {
+    "title": "1kva",
+    "description": "Lights 80W, Fan, Laptop, Decoder 19-44\" TV, Sound System Blender/Mixer, Small Fridge Inkjet Printer, Solar Iron",
+    "features": [
+      "600W Mono Solar Panel",
+      "1 Unit of 50A Charge Controller",
+      "1 Unit of 200AH SMF Battery",
+      "1 Unit of 1kva PSW Inverter",
+      "400W Maximum Load"
+    ],
+    "price": "₦980,000"
+  },
+  {
+    "title": "1.5kva/24volt",
+    "description": "Lights, Fan, Laptop, Decoder 19 - 55\" TV, Sound System Blender/Mixer, Refrigerator Inkjet Printer, Solar Iron",
+    "features": [
+      "1200W Mono Solar Panel",
+      "2 Unit of 50A Charge Controller",
+      "2 Units of 200AH SMF Battery",
+      "1 Unit of 1.5kva PSW Inverter",
+      "700W Maximum Load"
+    ],
+    "price": "₦1,680,000"
+  },
+  {
+    "title": "1.5kva/12volt",
+    "description": "Lights, Fan, Laptop, Decoder 19 - 55\" TV, Sound System Blender/Mixer, Refrigerator Inkjet Printer, Solar Iron",
+    "features": [
+      "1200W Mono Solar Panel",
+      "2 Unit of 50A Charge Controller",
+      "2 Units of 200AH SMF Battery",
+      "1 Unit of 1.5kva PSW Inverter",
+      "700W Maximum Load"
+    ],
+    "price": "₦1,200,000"
+  },
+  {
+    "title": "2kva",
+    "description": "Lights, Fan, Laptop, Decoder, 55\" TV Inkjet Printer, Solar Iron, 1HP AC 1HP Pump, Washing Machine, Sound System, Blender, Refrigerator",
+    "features": [
+      "1200W Mono Solar Panel",
+      "2 Unit of 50A Charge Controller",
+      "2 Units of 200AH SMF Battery",
+      "1 Unit of 2kva PSW Inverter",
+      "1,000W Maximum Load"
+    ],
+    "price": "₦1,750,000"
+  },
+  {
+    "title": "2.5kva",
+    "description": "Lights, Fan, Laptop, Water Dispenser Decoder, 55\" TV, Sound System Inkjet Printer, Solar Iron, 1HP AC, 1HP Water Pump, Refrigerator, Washing Machine, Blender",
+    "features": [
+      "1,200W Mono Solar Panel",
+      "2 Unit of 50A Charge Controller",
+      "2 Units of 200AH SMF Battery",
+      "1 Unit of 2.5kva PSW Inverter",
+      "1,500W Maximum Load"
+    ],
+    "price": "₦1,850,000"
+  },
+  {
+    "title": "3.5kva",
+    "description": "Lights, Fan, Laptop, Decoder, TV Sound System, Blender/Mixer, Iron Refrigerator, Printer, 2HP AC, 2HP Water Pump, Water Dispenser, Cooker, Heater, Washing Machine,",
+    "features": [
+      "2,400W Mono Solar Panel",
+      "60A MPPT Charge Controller",
+      "4 Units of 200AH SMF Battery",
+      "1 Unit of 3.5kva PSW Inverter",
+      "2,500W Maximum Load"
+    ],
+    "price": "₦3,600,000"
+  },
+  {
+    "title": "4kva",
+    "description": "Lights, Fan, Laptop, Decoder, TV, Iron Sound System, Blender/Mixer, Cooker Refrigerator, PrinterWater , Dispenser Washing Machine, 2.5HP AC, 2.5HP Water Pump, Cooker",
+    "features": [
+      "2,400W Mono Solar Panel",
+      "60A MPPT Charge Controller",
+      "4 Units of 200AH SMF Battery",
+      "1 Unit of 4kva PSW Inverter",
+      "3,000W Maximum Load"
+    ],
+    "price": "₦3,800,000"
+  },
+  {
+    "title": "5kva",
+    "description": "Lights, Fan, Laptop, Decoder, TV Sound System, Blender/Mixer, 3 HP AC Refrigerator, Iron, Microwave Oven, Washing Machine, 3 HP AC, Printer, 3 HP Water Pump, Cooker, Heater",
+    "features": [
+      "2,400W Mono Solar Panel",
+      "60A MPPT Charge Controller",
+      "4 Units of 200AH SMF Battery",
+      "1 Unit of 5kva PSW Inverter",
+      "3,700W Maximum Load"
+    ],
+    "price": "₦3,900,000"
+  },
+  {
+    "title": "5kva Max",
+    "description": "Lights, Fan, Laptop, Decoder, TV Sound System, Blender/Mixer, Refrigerator, Printer, Iron, Washing Machine, 3 HP AC, 3 HP Water Pump, Cooker Heater, Water Dispenser, Microwave Oven",
+    "features": [
+      "4,800W Mono Solar Panel",
+      "2 Units of 60A MPPT Controller",
+      "8 Units of 200AH SMF Battery",
+      "1 Unit of 5kva PSW Inverter",
+      "3,700W Maximum Load"
+    ],
+    "price": "₦6,680,000"
+  },
+  {
+    "title": "7.5kva/120v",
+    "description": "Lights, Fan, Laptop, Decoder, TV, Sound System, Blender/Mixer, Refrigerator, Printer, Iron, 5HP AC, 1 Ton AC, 5HP Water Pump, Heater, Washing Machine, Water Dispenser, Cooker Microwave Oven",
+    "features": [
+      "6,000W Mono Solar Panel",
+      "3 Units of 60A MPPT Controller",
+      "10 Units of 200AH SMF Battery",
+      "1 Unit of 7.5kva PSW Inverter",
+      "6,000W Maximum Load"
+    ],
+    "price": "₦7,790,000"
+  },
+  {
+    "title": "10kva/120v",
+    "description": "Lights, Fan, Laptop, Decoder, TV, Sound System, Blender/Mixer, Refrigerator, Printer, Iron, 7HP AC, 1.5 Ton AC, 7HP Water Pump, HeaterWashing , Machine, Water Dispenser, Cooker Microwave Oven",
+    "features": [
+      "7,200W Mono Solar Panel",
+      "3 Units of 60A MPPT Controller",
+      "10 Units of 200AH SMF Battery",
+      "1 Unit of 10kva PSW Inverter",
+      "8,000W Maximum Load"
+    ],
+    "price": "₦8,350,000"
+  }
+]

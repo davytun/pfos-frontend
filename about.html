@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="assets/css/output.css" rel="stylesheet" />
-    <link href="assets/css/input.css" rel="stylesheet" />
-    <link rel="stylesheet" href="dist/css/splide.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
-    />
-    <title>About</title>
-    <!-- <style>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/css/output.css" rel="stylesheet" />
+  <link href="assets/css/input.css" rel="stylesheet" />
+  <link rel="stylesheet" href="dist/css/splide.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+  <title>About</title>
+  <!-- <style>
       /* Trust Companies Section */
       #trust-companies {
         width: 100%;
@@ -43,295 +41,237 @@
       }
     </style> -->
 
-    <style>
-      html {
-        scroll-behavior: smooth;
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .logo-slider {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      width: 100%;
+      /* background: #000;  */
+      padding: 20px 0;
+    }
+
+    .logo-track {
+      display: flex;
+      gap: 2rem;
+      animation: scroll 15s linear infinite;
+      width: max-content;
+    }
+
+    .logo-track img {
+      width: 120px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
       }
-      .logo-slider {
-        overflow: hidden;
-        white-space: nowrap;
-        position: relative;
-        width: 100%;
-        /* background: #000;  */
-        padding: 20px 0;
+
+      to {
+        transform: translateX(-50%);
       }
+    }
+  </style>
+</head>
 
-      .logo-track {
-        display: flex;
-        gap: 2rem;
-        animation: scroll 15s linear infinite;
-        width: max-content;
-      }
+<body class="max-w-[1200px] mx-auto">
+  <!-- Start Header -->
+  <header
+    class="top-0 left-0 sticky z-50 padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5">
+    <a href="/">
+      <img src="assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
+    </a>
 
-      .logo-track img {
-        width: 120px;
-        height: auto;
-        object-fit: contain;
-      }
+    <!-- Hamburger menu button -->
+    <button id="menu-toggle" class="text-white md:hidden focus:outline-none focus:ring-2 focus:ring-orange-500"
+      aria-expanded="false" aria-controls="menu-mobile">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
 
-      @keyframes scroll {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-50%);
-        }
-      }
-    </style>
-  </head>
+    <!-- Desktop Menu -->
+    <nav id="menu" class="hidden md:flex">
+      <ul class="text-white flex flex-row gap-8">
+        <li>
+          <a href="/" class="text-sm font-normal">Home</a>
+        </li>
+        <li>
+          <a href="/about.html" class="text-orange text-[12px] font-normal">About us</a>
+        </li>
+        <li>
+          <a href="#competence" class="text-[12px] font-normal">Our Competence</a>
+        </li>
+        <li>
+          <a href="#our-team" class="text-[12px] font-normal"> Our Team </a>
+        </li>
+        <li>
+          <a href="#contact" class="text-[12px] font-normal">Contact</a>
+        </li>
+      </ul>
+    </nav>
 
-  <body class="max-w-[1200px] mx-auto">
-    <!-- Start Header -->
-    <header
-      class="top-0 left-0 sticky z-50 padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
-    >
-      <a href="/">
-        <img src="assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
-      </a>
-
-      <!-- Hamburger menu button -->
-      <button
-        id="menu-toggle"
-        class="text-white md:hidden focus:outline-none focus:ring-2 focus:ring-orange-500"
-        aria-expanded="false"
-        aria-controls="menu-mobile"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"
-          />
-        </svg>
-      </button>
-
-      <!-- Desktop Menu -->
-      <nav id="menu" class="hidden md:flex">
-        <ul class="text-white flex flex-row gap-8">
-          <li>
-            <a href="/" class="text-sm font-normal">Home</a>
-          </li>
-          <li>
-            <a href="/about.html" class="text-orange text-[12px] font-normal"
-              >About us</a
-            >
-          </li>
-          <li>
-            <a href="#competence" class="text-[12px] font-normal"
-              >Our Competence</a
-            >
-          </li>
-          <li>
-            <a href="#our-team" class="text-[12px] font-normal"> Our Team </a>
-          </li>
-          <li>
-            <a href="#contact" class="text-[12px] font-normal">Contact</a>
-          </li>
-        </ul>
-      </nav>
-
-      <!-- Mobile Menu -->
-      <nav
-        id="menu-mobile"
-        class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50 flex flex-col items-center justify-center"
-      >
-        <ul class="text-white justify-center items-center flex flex-col gap-6">
-          <li>
-            <a href="/" class="text-orange text-lg font-medium">Home</a>
-          </li>
-          <li>
-            <a href="/about.html" class="text-lg font-medium">About us</a>
-          </li>
-          <li>
-            <a href="/index.html#service" class="text-lg font-medium"
-              >Service</a
-            >
-          </li>
-          <li>
-            <a href="/index.html#contact" class="text-lg font-medium"
-              >Contact</a
-            >
-          </li>
-          <li
-            class="text-lg font-medium w-[132px] h-[32px] py-2 px-4 gap-[14.38px] rounded-tl-[5px] opacity-0 border border-[#FBB610]"
-          >
-            <a href="#" class="border border-[#FBB610]"
-              ><a href="#" class="text-[12px] font-normal"
-                ><button
-                  style="
+    <!-- Mobile Menu -->
+    <nav id="menu-mobile"
+      class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50 flex flex-col items-center justify-center">
+      <ul class="text-white justify-center items-center flex flex-col gap-6">
+        <li>
+          <a href="/" class="text-orange text-lg font-medium">Home</a>
+        </li>
+        <li>
+          <a href="/about.html" class="text-lg font-medium">About us</a>
+        </li>
+        <li>
+          <a href="/index.html#service" class="text-lg font-medium">Service</a>
+        </li>
+        <li>
+          <a href="/index.html#contact" class="text-lg font-medium">Contact</a>
+        </li>
+        <li
+          class="text-lg font-medium w-[132px] h-[32px] py-2 px-4 gap-[14.38px] rounded-tl-[5px] opacity-0 border border-[#FBB610]">
+          <a href="#" class="border border-[#FBB610]"><a href="#" class="text-[12px] font-normal"><button style="
                     border-radius: 5px;
                     border: 1px solid #fbb610;
                     padding-inline: 18px;
                     padding-block: 8px;
-                  "
-                >
-                  Request a Quote
-                </button></a
-              ></a
-            >
-          </li>
-        </ul>
-        <button
-          id="close-menu"
-          class="absolute top-6 right-6 text-white text-2xl focus:outline-none"
-          aria-label="Close menu"
-        >
-          &times;
-        </button>
-      </nav>
-    </header>
-    <!-- end Header -->
+                  ">
+                Request a Quote
+              </button></a></a>
+        </li>
+      </ul>
+      <button id="close-menu" class="absolute top-6 right-6 text-white text-2xl focus:outline-none"
+        aria-label="Close menu">
+        &times;
+      </button>
+    </nav>
+  </header>
+  <!-- end Header -->
 
-    <!-- Hero Section -->
-    <main
-      class="padding-inline py-20 hero-section"
-      style="
+  <!-- Hero Section -->
+  <main class="padding-inline py-20 hero-section" style="
         background-image: url('assets/images/HEROSECTION.svg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-      "
-    >
-      <!-- hero left -->
-      <div class="flex items-center justify-center flex-col gap-3 md:gap-20">
-        <h1 class="text-white text-4xl md:text-[75px] font-bold">About Us</h1>
-        <p
-          class="text-white text-[16px] md:text-[20px] font-normal text-center"
-        >
+      ">
+    <!-- hero left -->
+    <div class="flex items-center justify-center flex-col gap-3 md:gap-20">
+      <h1 class="text-white text-4xl md:text-[75px] font-bold">About Us</h1>
+      <p class="text-white text-[16px] md:text-[20px] font-normal text-center">
+        Welcome to Power from the other side, your trusted partner for solar
+        energy solutions in <br class="hidden md:block" />
+        Abeokuta and across Nigeria. As a leading
+      </p>
+    </div>
+  </main>
+  <!--End Hero Section -->
+
+  <!-- About Section -->
+  <section class="mt-10 padding-inline">
+    <div class="flex gap-10 items-center flex-col md:items-stretch md:flex-row">
+      <!-- about left -->
+      <img src="assets/images/about.png" alt="" class="w-[527px] md:w-[627px] :h-[350px] md:h-[407px]" />
+      <!-- about left -->
+      <div class="text-white flex flex-col justify-center py-3 gap-6">
+        <div class="flex items-center gap-6">
+          <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+          <span class="font-normal text-sm md:text-xl">POWER FROM THE OTHER SIDE</span>
+        </div>
+
+        <p class="font-normal text-[14px] leading-[20px] md:text-[16px] md:leading-[26px]">
           Welcome to Power from the other side, your trusted partner for solar
-          energy solutions in <br class="hidden md:block" />
-          Abeokuta and across Nigeria. As a leading
+          energy solutions in Abeokuta and across Nigeria. As a leading
+          provider of solar installation services, solar equipment sales, and
+          professional training, we are committed to bringing sustainable
+          energy solutions to homes, businesses, and communities throughout
+          the country.
+          <br />
+          Founded with the vision of reducing Nigeria’s dependence on
+          unreliable power grids and advancing the adoption of clean,
+          renewable energy, Power from the other side has become a key player
+          in Nigeria's solar energy sector. Our team is passionate about
+          delivering high-quality solar solutions that are tailored to meet
+          the specific energy needs of our clients, ensuring a brighter,
+          greener, and more sustainable future for all.
         </p>
       </div>
-    </main>
-    <!--End Hero Section -->
 
-    <!-- About Section -->
-    <section class="mt-10 padding-inline">
-      <div
-        class="flex gap-10 items-center flex-col md:items-stretch md:flex-row"
-      >
-        <!-- about left -->
-        <img
-          src="assets/images/about.png"
-          alt=""
-          class="w-[527px] md:w-[627px] :h-[350px] md:h-[407px]"
-        />
-        <!-- about left -->
-        <div class="text-white flex flex-col justify-center py-3 gap-6">
-          <div class="flex items-center gap-6">
-            <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-            <span class="font-normal text-sm md:text-xl"
-              >POWER FROM THE OTHER SIDE</span
-            >
-          </div>
+      <!-- about right -->
+    </div>
+  </section>
+  <!-- About Section End-->
 
-          <p
-            class="font-normal text-[14px] leading-[20px] md:text-[16px] md:leading-[26px]"
-          >
-            Welcome to Power from the other side, your trusted partner for solar
-            energy solutions in Abeokuta and across Nigeria. As a leading
-            provider of solar installation services, solar equipment sales, and
-            professional training, we are committed to bringing sustainable
-            energy solutions to homes, businesses, and communities throughout
-            the country.
-            <br />
-            Founded with the vision of reducing Nigeria’s dependence on
-            unreliable power grids and advancing the adoption of clean,
-            renewable energy, Power from the other side has become a key player
-            in Nigeria's solar energy sector. Our team is passionate about
-            delivering high-quality solar solutions that are tailored to meet
-            the specific energy needs of our clients, ensuring a brighter,
-            greener, and more sustainable future for all.
-          </p>
-        </div>
-
-        <!-- about right -->
-      </div>
-    </section>
-    <!-- About Section End-->
-
-    <!-- OUR STRENGTH -->
-    <section class="my-10 padding-inline flex flex-col gap-9">
-      <div class="flex items-center gap-6">
-        <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-        <span class="font-normal text-white text-sm md:text-xl"
-          >OUR STRENGTH</span
-        >
-      </div>
-      <div
-        class="grid gap-2 px-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-      >
-        <div class="flex flex-col gap-3">
-          <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
-            RESPONSIBILITY
-          </h4>
-          <p class="text-[13px] text-white md:text-[16px] font-normal">
-            We’re accountable to team, customers, subcontractors, suppliers,
-            engineers, and communities
-          </p>
-        </div>
-        <div class="flex flex-col gap-3">
-          <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
-            TRUST
-          </h4>
-          <p class="text-[13px] text-white md:text-[16px] font-normal">
-            Trust is central with customers, subcontractors, suppliers,
-            engineers and team members.
-          </p>
-        </div>
-        <div class="flex flex-col gap-3">
-          <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
-            TEAM WORK
-          </h4>
-          <p class="text-[13px] text-white md:text-[16px] font-normal">
-            Strength lies in PFOS’s collaborative approach with customers and
-            partners.
-          </p>
-        </div>
-        <div class="flex flex-col gap-3">
-          <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
-            SAFETY
-          </h4>
-          <p class="text-[13px] text-white md:text-[16px] font-normal">
-            We’re dedicated to zero worker injuries. Safety is our top priority
-            to everyone involved.
-          </p>
-        </div>
-      </div>
-    </section>
-    <!-- End OUR STRENGTH -->
-
-    <!-- Our Vision -->
-    <section
-      class="padding-inline flex flex-col gap-12 justify-center items-center mb-[118px]"
-    >
-      <p class="w-full h-[1px] bg-white"></p>
-      <div class="flex flex-col gap-3 items-center">
+  <!-- OUR STRENGTH -->
+  <section class="my-10 padding-inline flex flex-col gap-9">
+    <div class="flex items-center gap-6">
+      <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+      <span class="font-normal text-white text-sm md:text-xl">OUR STRENGTH</span>
+    </div>
+    <div class="grid gap-2 px-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div class="flex flex-col gap-3">
         <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
-          OUR VISION
+          RESPONSIBILITY
         </h4>
         <p class="text-[13px] text-white md:text-[16px] font-normal">
-          Our vision: to liberate all Nigerians from all oppression that comes
-          from epileptic power supply.
+          We’re accountable to team, customers, subcontractors, suppliers,
+          engineers, and communities
         </p>
       </div>
-      <p class="w-full h-[1px] bg-white"></p>
-    </section>
-    <!-- End Our Vision -->
+      <div class="flex flex-col gap-3">
+        <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
+          TRUST
+        </h4>
+        <p class="text-[13px] text-white md:text-[16px] font-normal">
+          Trust is central with customers, subcontractors, suppliers,
+          engineers and team members.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
+          TEAM WORK
+        </h4>
+        <p class="text-[13px] text-white md:text-[16px] font-normal">
+          Strength lies in PFOS’s collaborative approach with customers and
+          partners.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
+          SAFETY
+        </h4>
+        <p class="text-[13px] text-white md:text-[16px] font-normal">
+          We’re dedicated to zero worker injuries. Safety is our top priority
+          to everyone involved.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- End OUR STRENGTH -->
 
-    <!-- COMPETENCE -->
-    <section
-      id="competence"
-      class="padding-inline flex flex-col justify-center items-center py-14 gap-9"
-      style="
+  <!-- Our Vision -->
+  <section class="padding-inline flex flex-col gap-12 justify-center items-center mb-[118px]">
+    <p class="w-full h-[1px] bg-white"></p>
+    <div class="flex flex-col gap-3 items-center">
+      <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
+        OUR VISION
+      </h4>
+      <p class="text-[13px] text-white md:text-[16px] font-normal">
+        Our vision: to liberate all Nigerians from all oppression that comes
+        from epileptic power supply.
+      </p>
+    </div>
+    <p class="w-full h-[1px] bg-white"></p>
+  </section>
+  <!-- End Our Vision -->
+
+  <!-- COMPETENCE -->
+  <section id="competence" class="padding-inline flex flex-col justify-center items-center py-14 gap-9" style="
         background: #7f7fd5; /* fallback for old browsers */
         background: -webkit-linear-gradient(
           to right,
@@ -345,245 +285,193 @@
           #86a8e7,
           #7f7fd5
         ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      "
-    >
-      <div class="flex justify-center items-center flex-col gap-1">
-        <h4 class="text-black font-semibold text-[36px] md:text-[52px]">
-          OUR COMPETENCE
-        </h4>
-        <p
-          class="text-black text-[12px] md:text-[16px] font-normal text-center"
-        >
-          Discover reliable, sustainable energy solutions
-          <br class="block md:hidden" />
-          designed to power your home or
+      ">
+    <div class="flex justify-center items-center flex-col gap-1">
+      <h4 class="text-black font-semibold text-[36px] md:text-[52px]">
+        OUR COMPETENCE
+      </h4>
+      <p class="text-black text-[12px] md:text-[16px] font-normal text-center">
+        Discover reliable, sustainable energy solutions
+        <br class="block md:hidden" />
+        designed to power your home or
+      </p>
+    </div>
+
+    <div class="flex gap-5 flex-col md:flex-row text-white">
+      <div class="flex gap-4 items-center flex-col py-[61px] px-[47px] bg-[#204D88] rounded-[16px]">
+        <div class="text-white flex gap-4 items-center">
+          <p class="text-[36px] md:text-[50px] font-bold text-orange">4+</p>
+          <p class="text-[16px] md:text-[19px]">Years of Experience</p>
+        </div>
+        <p class="text-[10px] md:text-[12px]">
+          Welcome to Power from the other side, your trusted partner for solar
+          energy solutions in Abeokuta and across Nigeria. As a leading
+          provider of solar installation services, solar equipment sales, and
+          professional training,
         </p>
       </div>
-
-      <div class="flex gap-5 flex-col md:flex-row text-white">
-        <div
-          class="flex gap-4 items-center flex-col py-[61px] px-[47px] bg-[#204D88] rounded-[16px]"
-        >
-          <div class="text-white flex gap-4 items-center">
-            <p class="text-[36px] md:text-[50px] font-bold text-orange">4+</p>
-            <p class="text-[16px] md:text-[19px]">Years of Experience</p>
-          </div>
-          <p class="text-[10px] md:text-[12px]">
-            Welcome to Power from the other side, your trusted partner for solar
-            energy solutions in Abeokuta and across Nigeria. As a leading
-            provider of solar installation services, solar equipment sales, and
-            professional training,
-          </p>
+      <div class="flex gap-4 items-center flex-col py-[61px] px-[47px] bg-[#204D88] rounded-[16px]">
+        <div class="text-white flex gap-4 items-center">
+          <p class="text-[36px] md:text-[50px] font-bold text-orange">38+</p>
+          <p class="text-[16px] md:text-[19px]">Complete Projects</p>
         </div>
-        <div
-          class="flex gap-4 items-center flex-col py-[61px] px-[47px] bg-[#204D88] rounded-[16px]"
-        >
-          <div class="text-white flex gap-4 items-center">
-            <p class="text-[36px] md:text-[50px] font-bold text-orange">38+</p>
-            <p class="text-[16px] md:text-[19px]">Complete Projects</p>
-          </div>
-          <p class="text-[10px] md:text-[12px]">
-            Welcome to Power from the other side, your trusted partner for solar
-            energy solutions in Abeokuta and across Nigeria. As a leading
-            provider of solar installation services, solar equipment sales, and
-            professional training,
-          </p>
-        </div>
-        <div
-          class="flex gap-4 items-center flex-col py-[61px] px-[47px] bg-[#204D88] rounded-[16px]"
-        >
-          <div class="text-white flex gap-4 items-center">
-            <p class="text-[36px] md:text-[50px] font-bold text-orange">120+</p>
-            <p class="text-[16px] md:text-[19px]">Happy Beneficiaries</p>
-          </div>
-          <p class="text-[10px] md:text-[12px]">
-            Welcome to Power from the other side, your trusted partner for solar
-            energy solutions in Abeokuta and across Nigeria. As a leading
-            provider of solar installation services, solar equipment sales, and
-            professional training,
-          </p>
-        </div>
+        <p class="text-[10px] md:text-[12px]">
+          Welcome to Power from the other side, your trusted partner for solar
+          energy solutions in Abeokuta and across Nigeria. As a leading
+          provider of solar installation services, solar equipment sales, and
+          professional training,
+        </p>
       </div>
-    </section>
-    <!--END COMPETENCE -->
-    <div class="padding-inline py-10">
-      <div class="logo-slider">
-        <div class="logo-track">
-          <img src="assets/images/hero1.png" alt="Company 1" />
-          <img src="assets/images/hero2.png" alt="Company 2" />
-          <img src="assets/images/hero4.png" alt="Company 4" />
-          <img src="assets/images/hero5.png" alt="Company 5" />
-          <img src="assets/images/hero6.png" alt="Company 6" />
-          <!-- Duplicate logos to create seamless effect -->
-          <img src="assets/images/hero1.png" alt="Company 1" />
-          <img src="assets/images/hero2.png" alt="Company 2" />
-          <img src="assets/images/hero4.png" alt="Company 4" />
-          <img src="assets/images/hero5.png" alt="Company 5" />
-          <img src="assets/images/hero6.png" alt="Company 6" />
+      <div class="flex gap-4 items-center flex-col py-[61px] px-[47px] bg-[#204D88] rounded-[16px]">
+        <div class="text-white flex gap-4 items-center">
+          <p class="text-[36px] md:text-[50px] font-bold text-orange">120+</p>
+          <p class="text-[16px] md:text-[19px]">Happy Beneficiaries</p>
+        </div>
+        <p class="text-[10px] md:text-[12px]">
+          Welcome to Power from the other side, your trusted partner for solar
+          energy solutions in Abeokuta and across Nigeria. As a leading
+          provider of solar installation services, solar equipment sales, and
+          professional training,
+        </p>
+      </div>
+    </div>
+  </section>
+  <!--END COMPETENCE -->
+  <div class="padding-inline py-10">
+    <div class="logo-slider">
+      <div class="logo-track">
+        <img src="assets/images/hero1.png" alt="Company 1" />
+        <img src="assets/images/hero2.png" alt="Company 2" />
+        <img src="assets/images/hero4.png" alt="Company 4" />
+        <img src="assets/images/hero5.png" alt="Company 5" />
+        <img src="assets/images/hero6.png" alt="Company 6" />
+        <!-- Duplicate logos to create seamless effect -->
+        <img src="assets/images/hero1.png" alt="Company 1" />
+        <img src="assets/images/hero2.png" alt="Company 2" />
+        <img src="assets/images/hero4.png" alt="Company 4" />
+        <img src="assets/images/hero5.png" alt="Company 5" />
+        <img src="assets/images/hero6.png" alt="Company 6" />
+      </div>
+    </div>
+  </div>
+  <!-- Our Team -->
+  <section id="our-team" class="flex flex-col items-center gap-16 mb-[107px]">
+    <div class="flex flex-col items-center justify-center gap-1">
+      <div class="flex items-center gap-4">
+        <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
+        <span class="font-normal text-white text-sm md:text-xl">OUR TEAM</span>
+      </div>
+      <h3 class="font-semibold text-white text-[30px] md:text-[52px] text-center">
+        MEET THE EXPERTS
+      </h3>
+      <p class="font-normal text-white text-[12px] md:text-[16px] text-center">
+        Our prospect on creating awesome projects.
+      </p>
+    </div>
+    <div
+      class="padding-inline background-color w-full flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
+      <div class="flex flex-col items-start gap-8 mb-10 md:mb-12">
+        <img src="assets/images/team3.png" />
+        <div class="flex flex-col gap-1 w-30 md:w-48">
+          <p class="text-white md:text-[#014B98] font-semibold text-[24px] md:text-[28px] text-nowrap">
+            Oluwatobiloba O Timothy
+          </p>
+          <p class="font-medium text-[] md:text-2xl text-orange">
+            Lead Engineer
+          </p>
         </div>
       </div>
     </div>
-    <!-- Our Team -->
-    <section id="our-team" class="flex flex-col items-center gap-16 mb-[107px]">
-      <div class="flex flex-col items-center justify-center gap-1">
-        <div class="flex items-center gap-4">
-          <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
-          <span class="font-normal text-white text-sm md:text-xl"
-            >OUR TEAM</span
-          >
-        </div>
-        <h3
-          class="font-semibold text-white text-[30px] md:text-[52px] text-center"
-        >
-          MEET THE EXPERTS
-        </h3>
-        <p
-          class="font-normal text-white text-[12px] md:text-[16px] text-center"
-        >
-          Our prospect on creating awesome projects.
-        </p>
-      </div>
-      <div
-        class="padding-inline background-color w-full flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16"
-      >
-        <div class="flex flex-col items-start gap-8 mb-10 md:mb-12">
-          <img src="assets/images/team3.png" />
-          <div class="flex flex-col gap-1 w-30 md:w-48">
-            <p
-              class="text-white md:text-[#014B98] font-semibold text-[24px] md:text-[28px] text-nowrap"
-            >
-              Oluwatobiloba O Timothy
-            </p>
-            <p class="font-medium text-[] md:text-2xl text-orange">
-              Lead Engineer
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Our Team -->
+  </section>
+  <!-- End Our Team -->
 
-    <!-- Map -->
+  <!-- Map -->
 
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d198.884231907672!2d3.3416923930056064!3d7.146135675437602!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103a4bbbe9f75657%3A0xc628ec480d6ebbb1!2sPOWER%20FROM%20THE%20OTHER%20SIDE!5e1!3m2!1sen!2sng!4v1741081612484!5m2!1sen!2sng"
-      width="100%"
-      height="400"
-      style="border: 0"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-    <!-- End Map -->
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d198.884231907672!2d3.3416923930056064!3d7.146135675437602!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103a4bbbe9f75657%3A0xc628ec480d6ebbb1!2sPOWER%20FROM%20THE%20OTHER%20SIDE!5e1!3m2!1sen!2sng!4v1741081612484!5m2!1sen!2sng"
+    width="100%" height="400" style="border: 0" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- End Map -->
 
-    <!-- Footer -->
-    <footer
-      id="contact"
-      class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8"
-    >
-      <img src="assets/images/logo.png" class="w-24 md:w-32" alt="" />
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div class="text-white gap-5 flex flex-col">
-          <div class="flex flex-col gap-4">
-            <h4 class="font-semibold text-[16px] md:text-[20px]">
-              Contact Info
-            </h4>
-            <p class="font-normal text-[12px] md:text-[16px]">
-              You can get in touch with us on any of there platforms
-            </p>
-          </div>
-          <div class="flex flex-col gap-4">
-            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
-              <i
-                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-facebook-square"
-              ></i>
-              <span>Facebook: Power from the other side</span>
-            </p>
-            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
-              <i
-                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-instagram-alt"
-              ></i>
-              <span>Instagram: @pfos_Solar</span>
-            </p>
-            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
-              <i
-                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-whatsapp-square"
-              ></i>
-              <span>WhatsApp: +234 903 276 9065</span>
-            </p>
-          </div>
-        </div>
-        <div class="text-white gap-3 flex flex-col">
-          <h4 class="font-semibold text-lg md:text-xl text-white">
-            Send Quick Message
+  <!-- Footer -->
+  <footer id="contact" class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8">
+    <img src="assets/images/logo.png" class="w-24 md:w-32" alt="" />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="text-white gap-5 flex flex-col">
+        <div class="flex flex-col gap-4">
+          <h4 class="font-semibold text-[16px] md:text-[20px]">
+            Contact Info
           </h4>
-          <form id="quickMessageForm" method="post" class="flex flex-col gap-3">
-            <div class="flex flex-col md:flex-row gap-3">
-              <div class="mb-4">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Name"
-                  class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]"
-                />
-              </div>
-              <div class="mb-4">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email"
-                  class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]"
-                />
-              </div>
+          <p class="font-normal text-[12px] md:text-[16px]">
+            You can get in touch with us on any of there platforms
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
+            <i class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-facebook-square"></i>
+            <span>Facebook: Power from the other side</span>
+          </p>
+          <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
+            <i class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-instagram-alt"></i>
+            <span>Instagram: @pfos_Solar</span>
+          </p>
+          <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
+            <i class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-whatsapp-square"></i>
+            <span>WhatsApp: +234 903 276 9065</span>
+          </p>
+        </div>
+      </div>
+      <div class="text-white gap-3 flex flex-col">
+        <h4 class="font-semibold text-lg md:text-xl text-white">
+          Send Quick Message
+        </h4>
+        <form id="quickMessageForm" method="post" class="flex flex-col gap-3">
+          <div class="flex flex-col md:flex-row gap-3">
+            <div class="mb-4">
+              <input type="text" name="name" id="name" placeholder="Name"
+                class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]" />
             </div>
             <div class="mb-4">
-              <textarea
-                name="message"
-                id="message"
-                placeholder="Message"
-                class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]"
-                rows="4"
-              ></textarea>
+              <input type="email" name="email" id="email" placeholder="Email"
+                class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]" />
             </div>
-            <button
-              type="submit"
-              class="w-full p-3 rounded bg-[#B0CFEF] text-blue font-semibold hover:bg-blue-700"
-            >
-              SEND
-            </button>
-          </form>
-        </div>
+          </div>
+          <div class="mb-4">
+            <textarea name="message" id="message" placeholder="Message"
+              class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]"
+              rows="4"></textarea>
+          </div>
+          <button type="submit" class="w-full p-3 rounded bg-[#B0CFEF] text-blue font-semibold hover:bg-blue-700">
+            SEND
+          </button>
+        </form>
       </div>
-    </footer>
-    <div
-      id="form-notification"
-      class="fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg hidden"
-    ></div>
-    <!-- End Footer -->
+    </div>
+  </footer>
+  <div id="form-notification" class="fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg hidden"></div>
+  <!-- End Footer -->
 
-    <section
-      class="bg-[#011B36] w-full py-8 padding-inline flex justify-center md:justify-end"
-    >
-      <p class="text-white text-xs md:text-sm">
-        PFDOS Enterprise RC: 3334515 C 2020. All Rights Reserved
-      </p>
-    </section>
-    <script>
-      new Splide("#trust-companies", {
-        type: "loop",
-        perPage: 5,
-        autoplay: true,
-        interval: 2000,
-        speed: 1500,
-        gap: "1rem",
-        pagination: false,
-        arrows: false,
-        pauseOnHover: false,
-      }).mount();
-    </script>
+  <section
+    class="bg-[#011B36] w-full py-8 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between md:justify-between gap-4 text-white text-xs md:text-sm">
+    <p>PFDOS Enterprise RC: 3334515 © 2020. All Rights Reserved.</p>
+    <a href="/terms.html" class="underline hover:text-orange transition">Terms & Conditions</a>
+  </section>
 
-    <script type="module" src="assets/js/script.js"></script>
-  </body>
+  <script>
+    new Splide("#trust-companies", {
+      type: "loop",
+      perPage: 5,
+      autoplay: true,
+      interval: 2000,
+      speed: 1500,
+      gap: "1rem",
+      pagination: false,
+      arrows: false,
+      pauseOnHover: false,
+    }).mount();
+  </script>
+
+  <script type="module" src="assets/js/script.js"></script>
+</body>
+
 </html>
