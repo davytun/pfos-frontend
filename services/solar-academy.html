@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../assets/css/output.css" rel="stylesheet" />
+    <link href="../assets/css/input.css" rel="stylesheet" />
+    <title>INSTALLATIONS & MAINTENANCE</title>
+  </head>
+
+  <body class="max-w-[1280px] mx-auto">
+    <!-- Start Header -->
+    <header
+      class="top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
+    >
+      <a href="/">
+        <img
+          src="../assets/images/logo.png"
+          class="w-[126px] h-12"
+          alt="logo"
+        />
+      </a>
+
+      <!-- Hamburger menu button -->
+      <button
+        id="menu-toggle"
+        class="text-white md:hidden focus:outline-none focus:ring-2 focus:ring-orange-500"
+        aria-expanded="false"
+        aria-controls="menu-mobile"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
+      </button>
+
+      <!-- Desktop Menu -->
+      <nav id="menu" class="hidden md:flex">
+        <ul class="text-white flex flex-row gap-8">
+          <li>
+            <a href="/" class="text-sm font-normal">Home</a>
+          </li>
+          <li>
+            <a href="/about.html" class="text-[12px] font-normal">About us</a>
+          </li>
+          <li>
+            <a href="#" class="text-orange text-[12px] font-normal">Service</a>
+          </li>
+          <li>
+            <a href="#contact" class="text-[12px] font-normal">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <nav
+        id="menu-mobile"
+        class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50 flex flex-col items-center justify-center"
+      >
+        <ul class="text-white justify-center items-center flex flex-col gap-6">
+          <li>
+            <a href="/" class="text-lg font-medium">Home</a>
+          </li>
+          <li>
+            <a href="/about.html" class="text-lg font-medium">About us</a>
+          </li>
+          <li>
+            <a href="#" class="text-orange text-lg font-medium">Service</a>
+          </li>
+          <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
+          <li
+            class="text-lg font-medium w-[132px] h-[32px] py-2 px-4 gap-[14.38px] rounded-tl-[5px] opacity-0 border border-[#FBB610]"
+          >
+            <a href="#" class="border border-[#FBB610]"> Request a Quote </a>
+          </li>
+        </ul>
+        <button
+          id="close-menu"
+          class="absolute top-6 right-6 text-white text-2xl focus:outline-none"
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
+      </nav>
+    </header>
+    <!-- end Header -->
+
+    <!-- Hero Section -->
+    <main
+      class="padding-inline py-20 hero-section"
+      style="
+        background-image: url('../assets/images/HEROSECTION.svg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      "
+    >
+      <!-- hero left -->
+      <div class="flex items-center justify-center flex-col gap-4">
+        <h1 class="text-white text-4xl md:text-[75px] font-bold">SERVICES</h1>
+        <p
+          class="text-white text-[28px] md:text-[32px] text-center font-semibold"
+        >
+          SOLAR ACADEMY
+        </p>
+      </div>
+    </main>
+    <!--End Hero Section -->
+
+    <!-- About Section -->
+    <section class="mt-10 padding-inline pt-[58px] pb-[82px]">
+      <div
+        class="flex gap-10 items-center flex-col md:items-stretch md:flex-row w-full"
+      >
+        <!-- about left -->
+        <div class="md:w-[50%]">
+          <img
+            src="../assets/images/SOLAR_ACADEMY.png"
+            alt=""
+            class="w-[400px] md:w-[598px] :h-[300px] md:h-[352px]"
+          />
+        </div>
+        <!-- about left -->
+        <div class="flex flex-col justify-center gap-6 md:w-[50%] text-white">
+          <h4 class="font-semibold text-[28px] md:text-[32px]">
+            SOLAR ACADEMY
+          </h4>
+          <p class="text-[14px] md:text-[16px]">
+            Solar Academy is your gateway to mastering solar energy. Whether
+            you’re an aspiring professional, a homeowner looking to transition
+            to green energy, or an entrepreneur, our courses and resources are
+            designed to illuminate your path to success. We work harmoniously
+            with Nigerian youth to make themselves reliant through comprehensive
+            training. Become a solar expert today!.
+          </p>
+          <button
+            class="bg-orange text-[14px] md:text-[16px] font-bold text-blue w-24 h-11 md:w-32 md:h-14 rounded-md"
+          >
+            Join the Academy
+          </button>
+        </div>
+
+        <!-- about right -->
+      </div>
+    </section>
+    <!-- About Section End-->
+
+    <!-- OUR SOLAR ACADEMY OFFERS -->
+    <section class="padding-inline my-[80px] flex flex-col gap-[76px]">
+      <div>
+        <div>
+          <h2 class="font-semibold text-[48px] md:text-[56px] text-[#E6F0FA]">
+            OUR SOLAR ACADEMY OFFERS
+          </h2>
+        </div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[20px] items-center justify-center"
+        >
+          <div class="p-7 bg-[#E6F0FA] rounded-2xl gap-4 flex flex-col">
+            <div class="flex gap-4 items-center">
+              <img src="../assets/images/bulb.svg" alt="" />
+              <p class="text-[22px] md:text-[27px] text-blue">
+                Annual <br />Inspections:
+              </p>
+            </div>
+            <p class="text-[12px] md:text-[14px] text-blue">
+              We recommend scheduling an annual inspection to monitor the
+              overall health of your solar system. This inspection covers all
+              components.
+            </p>
+          </div>
+          <div class="p-7 bg-[#E6F0FA] rounded-2xl gap-4 flex flex-col">
+            <div class="flex gap-4 items-center">
+              <img src="../assets/images/bulb.svg" alt="" />
+              <p class="text-[22px] md:text-[27px] text-blue">
+                Annual <br />Inspections:
+              </p>
+            </div>
+            <p class="text-[12px] md:text-[14px] text-blue">
+              We recommend scheduling an annual inspection to monitor the
+              overall health of your solar system. This inspection covers all
+              components.
+            </p>
+          </div>
+          <div class="p-7 bg-[#E6F0FA] rounded-2xl gap-4 flex flex-col">
+            <div class="flex gap-4 items-center">
+              <img src="../assets/images/bulb.svg" alt="" />
+              <p class="text-[22px] md:text-[27px] text-blue">
+                Annual <br />Inspections:
+              </p>
+            </div>
+            <p class="text-[12px] md:text-[14px] text-blue">
+              We recommend scheduling an annual inspection to monitor the
+              overall health of your solar system. This inspection covers all
+              components.
+            </p>
+          </div>
+          <div class="p-7 bg-[#E6F0FA] rounded-2xl gap-4 flex flex-col">
+            <div class="flex gap-4 items-center">
+              <img src="../assets/images/bulb.svg" alt="" />
+              <p class="text-[22px] md:text-[27px] text-blue">
+                Annual <br />Inspections:
+              </p>
+            </div>
+            <p class="text-[12px] md:text-[14px] text-blue">
+              We recommend scheduling an annual inspection to monitor the
+              overall health of your solar system. This inspection covers all
+              components.
+            </p>
+          </div>
+          <div class="p-7 bg-[#E6F0FA] rounded-2xl gap-4 flex flex-col">
+            <div class="flex gap-4 items-center">
+              <img src="../assets/images/bulb.svg" alt="" />
+              <p class="text-[22px] md:text-[27px] text-blue">
+                Annual <br />Inspections:
+              </p>
+            </div>
+            <p class="text-[12px] md:text-[14px] text-blue">
+              We recommend scheduling an annual inspection to monitor the
+              overall health of your solar system. This inspection covers all
+              components.
+            </p>
+          </div>
+          <div class="p-7 bg-[#E6F0FA] rounded-2xl gap-4 flex flex-col">
+            <div class="flex gap-4 items-center">
+              <img src="../assets/images/bulb.svg" alt="" />
+              <p class="text-[22px] md:text-[27px] text-blue">
+                Annual <br />Inspections:
+              </p>
+            </div>
+            <p class="text-[12px] md:text-[14px] text-blue">
+              We recommend scheduling an annual inspection to monitor the
+              overall health of your solar system. This inspection covers all
+              components.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- OUR SOLAR ACADEMY OFFERS -->
+
+    <!-- Footer -->
+    <footer
+      id="contact"
+      class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8"
+    >
+      <img src="assets/images/logo.png" class="w-24 md:w-32" alt="" />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="text-white gap-5 flex flex-col">
+          <div class="flex flex-col gap-4">
+            <h4 class="font-semibold text-[16px] md:text-[20px]">
+              Contact Info
+            </h4>
+            <p class="font-normal text-[12px] md:text-[16px]">
+              You can get in touch with us on any of there platforms
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
+              <i
+                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-facebook-square"
+              ></i>
+              <span>Facebook: Power from the other side</span>
+            </p>
+            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
+              <i
+                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-instagram-alt"
+              ></i>
+              <span>Instagram: @pfos_Solar</span>
+            </p>
+            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
+              <i
+                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-whatsapp-square"
+              ></i>
+              <span>WhatsApp: +234 903 276 9065</span>
+            </p>
+          </div>
+        </div>
+        <div class="text-white gap-3 flex flex-col">
+          <h4 class="font-semibold text-lg md:text-xl text-white">
+            Send Quick Message
+          </h4>
+          <form id="quickMessageForm" method="post" class="flex flex-col gap-3">
+            <div class="flex flex-col md:flex-row gap-3">
+              <div class="mb-4">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Name"
+                  class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]"
+                />
+              </div>
+              <div class="mb-4">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]"
+                />
+              </div>
+            </div>
+            <div class="mb-4">
+              <textarea
+                name="message"
+                id="message"
+                placeholder="Message"
+                class="w-full py-3 px-7 rounded bg-[#002347] text-white border border-[#B0CFEF] focus:bg-[#011B36] focus:border-[#B0CFEF] focus:text-white focus:outline-none focus:ring-0 focus:ring-[#B0CFEF]"
+                rows="4"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full p-3 rounded bg-[#B0CFEF] text-blue font-semibold hover:bg-blue-700"
+            >
+              SEND
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
+
+    <!-- End Footer -->
+
+    <section
+      class="bg-[#011B36] w-full py-8 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between md:justify-between gap-4 text-white text-xs md:text-sm"
+    >
+      <p>PFDOS Enterprise RC: 3334515 © 2020. All Rights Reserved.</p>
+      <a href="/terms.html" class="underline hover:text-orange transition"
+        >Terms & Conditions</a
+      >
+    </section>
+
+    <div
+      id="form-notification"
+      class="fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg hidden"
+    ></div>
+
+    <script type="module" src="../assets/js/script.js"></script>
+  </body>
+</html>

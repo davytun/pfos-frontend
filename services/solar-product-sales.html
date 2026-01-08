@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../assets/css/output.css" rel="stylesheet" />
+    <link href="../assets/css/input.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>SOLAR PRODUCT SALES - Services</title>
+    <style>
+      #loading-container {
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Style the product grid */
+      #product-container.grid {
+        display: grid;
+      }
+
+      #product-container.hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body class="max-w-[1280px] mx-auto bg-[#002347]">
+    <header
+      class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
+    >
+      <a href="/">
+        <img
+          src="./../assets/images/logo.png"
+          class="w-[126px] h-12"
+          alt="logo"
+        />
+      </a>
+
+      <!-- Hamburger menu button -->
+      <button
+        id="menu-toggle"
+        class="text-white md:hidden focus:outline-none focus:ring-2 focus:ring-orange-500"
+        aria-expanded="false"
+        aria-controls="menu-mobile"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
+      </button>
+
+      <!-- Desktop Menu -->
+      <nav id="menu" class="hidden md:flex">
+        <ul class="text-white flex flex-row gap-8">
+          <li>
+            <a href="/" class="text-orange text-sm font-normal">Home</a>
+          </li>
+          <li>
+            <a href="/about.html" class="text-[12px] font-normal">About us</a>
+          </li>
+          <li>
+            <a href="#service" class="text-[12px] font-normal">Service</a>
+          </li>
+          <li>
+            <a href="#contact" class="text-[12px] font-normal">Contact</a>
+          </li>
+          <li>
+            <a
+              href="/cart.html"
+              class="relative text-[#ffffff]"
+              aria-label="View Cart"
+            >
+              <i class="bx bxs-cart text-3xl"></i>
+              <span
+                id="cart-count"
+                class="absolute -top-2 -right-3 bg-[#FBB610] text-[#ffffff] rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold border-2 border-[#002347]"
+                >0</span
+              >
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <nav
+        id="menu-mobile"
+        class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50 flex flex-col items-center justify-center"
+      >
+        <ul class="text-white justify-center items-center flex flex-col gap-6">
+          <li>
+            <a href="#" class="text-orange text-lg font-medium">Home</a>
+          </li>
+          <li>
+            <a href="/about.html" class="text-lg font-medium">About us</a>
+          </li>
+          <li><a href="#service" class="text-lg font-medium">Service</a></li>
+          <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
+          <li>
+            <a
+              href="/cart.html"
+              class="text-lg font-medium inline-flex items-center gap-2 bg-[#e0a009] text-[#002347] px-4 py-2 rounded-lg shadow-lg hover:bg-[#e0a009]"
+              onclick="closeMobileMenu()"
+            >
+              <i class="bx bxs-cart text-lg"></i> View Cart (<span
+                id="mobile-cart-count"
+                >0</span
+              >)
+            </a>
+          </li>
+        </ul>
+        <button
+          id="close-menu"
+          class="absolute top-6 right-6 text-white text-4xl focus:outline-none"
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
+      </nav>
+    </header>
+
+    <main
+      class="padding-inline py-20 hero-section"
+      style="
+        background-image: url('../assets/images/HEROSECTION.svg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      "
+    >
+      <div class="flex items-center justify-center flex-col gap-4">
+        <h1 class="text-white text-4xl md:text-[75px] font-bold text-center">
+          SERVICES
+        </h1>
+        <p
+          class="text-white text-[28px] md:text-[32px] text-center font-semibold"
+        >
+          SOLAR PRODUCT SALES
+        </p>
+      </div>
+    </main>
+    <section class="mt-10 padding-inline pt-[58px] pb-[82px]">
+      <div
+        class="flex gap-10 items-center flex-col md:items-stretch md:flex-row w-full"
+      >
+        <div class="md:w-[50%] flex justify-center items-center">
+          <img
+            src="../assets/images/solor.png"
+            alt="Solar Panel Setup"
+            class="w-[300px] md:w-[500px] h-auto md:max-h-[372px] object-contain"
+          />
+        </div>
+        <div class="flex flex-col justify-center gap-6 md:w-[50%] text-white">
+          <h4 class="font-semibold text-[28px] md:text-[32px]">
+            SOLAR PRODUCT SALES
+          </h4>
+          <p class="text-[14px] md:text-[16px]">
+            You can conveniently purchase all our solar products directly from
+            this website. From high-quality panels and inverters to complete
+            solar kits, our online store offers everything you need to start
+            your solar journey. With secure payment options and fast delivery,
+            going solar has never been easier!
+          </p>
+        </div>
+      </div>
+    </section>
+    <section
+      id="products"
+      class="padding-inline py-[77px] bg-[#E6F0FA] flex flex-col items-center gap-10"
+    >
+      <div
+        class="flex flex-col items-center gap-3 text-blue w-full max-w-4xl mx-auto"
+      >
+        <div class="flex items-center gap-6">
+          <p class="bg-orange h-[2px] w-[60px] md:w-[80px]"></p>
+          <span class="font-normal text-sm md:text-xl">OUR PRODUCTS</span>
+          <p class="bg-orange h-[2px] w-[60px] md:w-[80px]"></p>
+        </div>
+        <h2 class="font-semibold text-center text-[36px] md:text-[52px]">
+          GET AFFORDABLE SOLAR PRODUCTS
+        </h2>
+        <p class="text-[12px] md:text-[16px] text-center">
+          We are fortunate to have formed excellent partnership with many of our
+          clients.
+        </p>
+      </div>
+
+      <div id="loading-container" class="w-full">
+        <div id="loading" class="flex items-center justify-center my-10">
+          <div
+            class="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-[#FBB610]"
+          ></div>
+          <p class="text-[#002347] text-lg ml-4">Loading Products...</p>
+        </div>
+        <div
+          class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[20px] justify-items-center w-full"
+          id="product-container"
+        ></div>
+      </div>
+    </section>
+
+    <!-- Indemnity Clause on Solar Installation -->
+    <section class="mt-20 px-4 sm:px-6 lg:px-8">
+      <div
+        class="max-w-5xl mx-auto bg-gradient-to-br from-yellow-50 to-white border-l-4 border-yellow-400 shadow-lg rounded-xl p-6 sm:p-10"
+      >
+        <div class="flex items-start mb-6">
+          <div class="flex-shrink-0">
+            <div
+              class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 text-yellow-600"
+            >
+              ⚠️
+            </div>
+          </div>
+          <div class="ml-4">
+            <h2 class="text-2xl font-extrabold text-gray-800 mb-2">
+              Important Indemnity Notice
+            </h2>
+            <p class="text-sm text-gray-600 italic">
+              Please read carefully before proceeding with installation.
+            </p>
+          </div>
+        </div>
+        <div class="text-gray-800 text-base space-y-4">
+          <p>
+            1. A solar surge protector is not mandatory but strongly
+            recommended. It is billed separately from the installation fee.
+          </p>
+          <p>
+            2. Customers are fully responsible for the upkeep and replacement of
+            tubular batteries.
+          </p>
+          <p>
+            3. After a successful installation, ownership of the system
+            transfers to the customer. No retrievals are permitted.
+          </p>
+          <p>
+            4. In the event of lightning damage, the customer bears the inverter
+            repair cost. To avoid this, we advise turning off the inverter when
+            it's about to rain.
+          </p>
+          <p>
+            5. Maintenance after installation attracts a logistics fee, payable
+            by the customer.
+          </p>
+          <p>
+            6. Installations outside Abeokuta require the customer to cover
+            logistics and transportation fees.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- End Indemnity Clause on Solar Installation -->
+
+    <footer
+      id="contact"
+      class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8"
+    >
+      <img
+        src="../assets/images/logo.png"
+        class="w-24 md:w-32"
+        alt="PFOS Logo Footer"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="text-white gap-5 flex flex-col">
+          <div class="flex flex-col gap-4">
+            <h4 class="font-semibold text-[16px] md:text-[20px]">
+              Contact Info
+            </h4>
+            <p class="font-normal text-[12px] md:text-[16px]">
+              You can get in touch with us on any of these platforms:
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
+              <i
+                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-facebook-square"
+              ></i
+              ><span>Facebook: Power from the other side</span>
+            </p>
+            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
+              <i
+                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-instagram-alt"
+              ></i
+              ><span>Instagram: @pfos_Solar</span>
+            </p>
+            <p class="flex gap-3 items-center text-[14px] md:text-[16px]">
+              <i
+                class="text-[#B0CFEF] text-[16px] md:text-[20px] bx bxl-whatsapp-square"
+              ></i
+              ><span>WhatsApp: +234 903 276 9065</span>
+            </p>
+          </div>
+        </div>
+        <div class="text-white gap-3 flex flex-col">
+          <h4 class="font-semibold text-lg md:text-xl text-white">
+            Send Quick Message
+          </h4>
+          <form id="quickMessageForm" method="post" class="flex flex-col gap-3">
+            <div class="flex flex-col md:flex-row gap-3">
+              <div class="mb-4 md:flex-1">
+                <input
+                  type="text"
+                  name="name"
+                  id="form-name"
+                  placeholder="Name"
+                  required
+                  class="w-full py-3 px-7 rounded bg-[#011B36] text-white border border-[#B0CFEF] focus:border-orange focus:ring-orange focus:outline-none"
+                />
+              </div>
+              <div class="mb-4 md:flex-1">
+                <input
+                  type="email"
+                  name="email"
+                  id="form-email"
+                  placeholder="Email"
+                  required
+                  class="w-full py-3 px-7 rounded bg-[#011B36] text-white border border-[#B0CFEF] focus:border-orange focus:ring-orange focus:outline-none"
+                />
+              </div>
+            </div>
+            <div class="mb-4">
+              <textarea
+                name="message"
+                id="form-message"
+                placeholder="Message"
+                required
+                rows="4"
+                class="w-full py-3 px-7 rounded bg-[#011B36] text-white border border-[#B0CFEF] focus:border-orange focus:ring-orange focus:outline-none"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full p-3 rounded bg-[#B0CFEF] text-blue font-semibold hover:bg-[#9cb7d5] transition-colors"
+            >
+              SEND
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
+    <section
+      class="bg-[#011B36] w-full py-8 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between md:justify-between gap-4 text-white text-xs md:text-sm"
+    >
+      <p>PFDOS Enterprise RC: 3334515 © 2020. All Rights Reserved.</p>
+      <a href="/terms.html" class="underline hover:text-orange transition"
+        >Terms & Conditions</a
+      >
+    </section>
+
+    <div id="floating-cart" class="fixed bottom-4 right-4 z-50">
+      <button
+        id="cart-toggle"
+        class="bg-[#FBB610] text-[#002347] rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-[#e0a009] transition-colors relative"
+      >
+        <i class="bx bx-cart text-xl"></i>
+        <span
+          id="floating-cart-count"
+          class="absolute -top-1 -right-1 bg-[#002347] text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold"
+          >0</span
+        >
+      </button>
+      <div
+        id="cart-dropdown"
+        class="hidden absolute bottom-16 right-0 bg-[#011B36] border border-[#B0CFEF] rounded-lg shadow-lg w-64 p-4"
+      >
+        <h4 class="text-white font-semibold mb-2">Your Cart</h4>
+        <div
+          id="cart-preview"
+          class="flex flex-col gap-2 max-h-48 overflow-y-auto mb-2"
+        >
+          <p class="text-gray-400 text-sm">Your cart is empty</p>
+        </div>
+        <p class="text-white font-semibold mt-2 border-t border-gray-700 pt-2">
+          Total: <span id="cart-total">₦0</span>
+        </p>
+        <a
+          href="/cart.html"
+          id="checkout-button"
+          class="block mt-2 w-full py-2 text-center rounded bg-[#FBB610] text-[#002347] font-semibold hover:bg-[#e0a009] transition-colors opacity-50 cursor-not-allowed"
+          >Checkout</a
+        >
+      </div>
+    </div>
+
+    <div
+      id="form-notification"
+      class="fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg hidden z-[60]"
+    ></div>
+
+    <script>
+      // --- Global Constants ---
+      const API_BASE_URL = "https://pfos-backend.vercel.app";
+      const placeholderImage = "../assets/images/placeholder.jpg"; // Define placeholder path
+
+      // --- DOM Elements (defined globally for access) ---
+      const loadingIndicator = document.getElementById("loading");
+      const productContainer = document.getElementById("product-container");
+      const headerCartCount = document.getElementById("cart-count");
+      const floatingCartCount = document.getElementById("floating-cart-count");
+      const cartPreview = document.getElementById("cart-preview");
+      const cartTotalElement = document.getElementById("cart-total");
+      const checkoutButton = document.getElementById("checkout-button");
+
+      // --- fetchProducts Function (with detailed logging and checks) ---
+      async function fetchProducts() {
+        console.log("[fetchProducts] FUNCTION HAS STARTED EXECUTION."); // <-- VERY FIRST LOG
+
+        // Check if critical elements exist RIGHT AWAY
+        if (!loadingIndicator) {
+          console.error(
+            "[fetchProducts] CRITICAL ERROR: HTML element with id='loading' not found!"
+          );
+          alert(
+            "Page Error: Loading indicator element is missing. Cannot proceed."
+          );
+          return; // Stop execution
+        }
+        if (!productContainer) {
+          console.error(
+            "[fetchProducts] CRITICAL ERROR: HTML element with id='product-container' not found!"
+          );
+          loadingIndicator.style.display = "none"; // Hide loader if possible
+          alert(
+            "Page Error: Product container element is missing. Cannot display products."
+          );
+          return; // Stop execution
+        }
+        console.log(
+          "[fetchProducts] DOM elements ('loading' and 'product-container') obtained successfully."
+        );
+
+        // Set initial state: Show loader, hide/clear container
+        loadingIndicator.style.display = "flex";
+        productContainer.classList.add("hidden");
+        productContainer.innerHTML = "";
+        console.log(
+          "[fetchProducts] Initial state set (loader visible, container hidden/cleared)."
+        );
+
+        try {
+          console.log(
+            "[fetchProducts] Inside try block, checking for order success param..."
+          );
+          const urlParams = new URLSearchParams(window.location.search);
+          if (urlParams.get("order") === "success") {
+            console.log(
+              "[fetchProducts] Order success parameter found. Displaying success message."
+            );
+            productContainer.innerHTML = `
+            <div class="text-center py-16 col-span-full text-[#002347]">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4">Order Received!</h2>
+              <p class="text-lg md:text-xl mb-6">Your order has been received, and a generated invoice will be sent to your email shortly.</p>
+              <a href="/" class="inline-block py-3 px-6 rounded bg-[#FBB610] text-[#002347] font-semibold hover:bg-[#e0a009] transition-colors">Return to Home</a>
+            </div>`;
+            productContainer.classList.remove("hidden");
+            history.replaceState(null, "", window.location.pathname);
+            console.log(
+              "[fetchProducts] Success message displayed, returning."
+            );
+            // Still need to hide loader in this case
+            loadingIndicator.style.display = "none";
+            return;
+          }
+
+          console.log(
+            `[fetchProducts] Before fetch to: ${API_BASE_URL}/api/products`
+          );
+          const response = await fetch(`${API_BASE_URL}/api/products`, {
+            cache: "no-store",
+          });
+          console.log(
+            `[fetchProducts] Fetch response received. Status: ${response.status}`
+          );
+
+          if (!response.ok) {
+            console.error(
+              `[fetchProducts] Response not OK. Status: ${response.status}`
+            );
+            // Try to read error text from response if possible
+            let errorText = `HTTP error! status: ${response.status}`;
+            try {
+              const text = await response.text();
+              console.error("[fetchProducts] Error response body:", text);
+              // You might want to display a more user-friendly message based on 'text'
+              errorText = `API Error (${response.status}): ${text.substring(
+                0,
+                100
+              )}`; // Show first 100 chars
+            } catch (textError) {
+              console.error(
+                "[fetchProducts] Could not read error response body:",
+                textError
+              );
+            }
+            throw new Error(errorText);
+          }
+
+          console.log("[fetchProducts] Before response.json()...");
+          const products = await response.json();
+          console.log(
+            "[fetchProducts] After response.json(). Products received (first 5):",
+            products ? products.slice(0, 5) : "NULL/UNDEFINED"
+          );
+
+          if (!Array.isArray(products)) {
+            console.error(
+              "[fetchProducts] API did not return an array:",
+              products
+            );
+            throw new Error("Invalid data format received from API.");
+          }
+
+          if (products.length === 0) {
+            console.log(
+              "[fetchProducts] No products found. Displaying message."
+            );
+            productContainer.innerHTML =
+              "<p class='text-blue text-center col-span-full'>No products found at the moment.</p>";
+            productContainer.classList.remove("hidden");
+            // Hide loader when no products are found
+            loadingIndicator.style.display = "none";
+            return;
+          }
+
+          console.log(
+            `[fetchProducts] Starting product loop for ${products.length} products...`
+          );
+          let productHTML = "";
+          products.forEach((product, index) => {
+            console.log(
+              `[fetchProducts] Processing product index ${index}: ${
+                product ? product.name : "INVALID PRODUCT"
+              }`
+            );
+            if (
+              !product ||
+              !product._id ||
+              !product.name ||
+              product.price == null
+            ) {
+              console.warn(
+                `[fetchProducts] Skipping product index ${index} due to missing essential data:`,
+                product
+              );
+              return;
+            }
+            const imageUrl =
+              product.image &&
+              typeof product.image === "string" &&
+              product.image.startsWith("https://res.cloudinary.com")
+                ? product.image
+                : placeholderImage;
+            const description = product.description || "";
+            const escapedName = product.name
+              .replace(/'/g, "\\'")
+              .replace(/"/g, "&quot;");
+            const escapedImage = imageUrl.replace(/'/g, "\\'");
+            const escapedDescription = description
+              .replace(/'/g, "\\'")
+              .replace(/"/g, "&quot;");
+
+            productHTML += `
+                <div class="flex flex-col items-start bg-white p-4 rounded-lg shadow-md max-w-[340px] w-full">
+                    <div class="w-full h-[290px] md:h-[300px] rounded-[10px] bg-gray-200 flex items-center justify-center overflow-hidden mb-3">
+                        <img src="${imageUrl}" alt="${escapedName}" class="w-full h-full object-contain" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}'; console.log('Failed to load image: ${imageUrl}')"/>
+                    </div>
+                    <h4 class="font-bold text-[20px] md:text-[22px] text-blue mt-1 mb-1 truncate w-full" title="${escapedName}">${escapedName}</h4>
+                    <p class="text-orange text-[20px] md:text-[24px] font-semibold mb-2">₦${parseFloat(
+                      product.price
+                    ).toLocaleString()}</p>
+                    <button onclick="addToCart('${
+                      product._id
+                    }', '${escapedName}', '${
+              product.price
+            }', '${escapedImage}', '${escapedDescription}')" class="bg-orange text-[14px] md:text-[16px] font-bold text-blue w-full h-10 md:h-12 rounded-md mt-auto hover:bg-[#e0a009] transition-colors">
+                        Select Product
+                    </button>
+                </div>
+            `;
+          }); // End of forEach loop
+          console.log("[fetchProducts] Finished product loop.");
+
+          console.log(
+            "[fetchProducts] Before setting productContainer.innerHTML..."
+          );
+          productContainer.innerHTML = productHTML;
+          productContainer.classList.remove("hidden");
+          console.log(
+            "[fetchProducts] After setting productContainer.innerHTML."
+          );
+        } catch (error) {
+          console.error("[fetchProducts] Error caught in try block:", error);
+          productContainer.innerHTML = `<p class='text-red-500 text-center col-span-full'>Error: ${error.message}. Failed to load products.</p>`;
+          productContainer.classList.remove("hidden"); // Show error message
+        } finally {
+          console.log(
+            "[fetchProducts] Inside finally block. Hiding loading indicator."
+          );
+          // Ensure loadingIndicator reference is still valid before hiding
+          if (loadingIndicator) {
+            loadingIndicator.style.display = "none";
+          } else {
+            console.warn(
+              "[fetchProducts] FINALLY: loadingIndicator was null, cannot hide."
+            );
+          }
+          updateCartCount();
+          console.log("[fetchProducts] Function finished.");
+        }
+      } // End of fetchProducts function
+
+      // --- Cart Management ---
+      function addToCart(
+        productId,
+        productName,
+        productPrice,
+        productImage,
+        productDescription
+      ) {
+        console.log(
+          `[addToCart] Called for: ${productName} (ID: ${productId})`
+        );
+        const imageUrl =
+          productImage &&
+          typeof productImage === "string" &&
+          productImage.startsWith("https://res.cloudinary.com")
+            ? productImage
+            : placeholderImage;
+        const price = parseFloat(productPrice);
+        if (isNaN(price)) {
+          console.error("[addToCart] Invalid product price:", productPrice);
+          alert("Error: Product price is invalid.");
+          return;
+        }
+        const product = {
+          id: productId,
+          name: productName,
+          price: price,
+          image: imageUrl,
+          description: productDescription || "",
+          quantity: 1,
+        };
+
+        try {
+          console.log(
+            "[addToCart] Saving to selectedProduct:",
+            JSON.stringify(product, null, 2)
+          );
+          localStorage.setItem("selectedProduct", JSON.stringify(product));
+          // Optional: Update main cart (uncomment if needed)
+          /* let cart = JSON.parse(localStorage.getItem("cart")) || []; const existingIndex = cart.findIndex(item => item.id === productId); if (existingIndex > -1) { cart[existingIndex].quantity = (cart[existingIndex].quantity || 0) + 1; } else { cart.push(product); } localStorage.setItem("cart", JSON.stringify(cart)); updateCartCount(); */
+          console.log("[addToCart] Redirecting to product-details.html...");
+          window.location.href = "/product-details.html"; // Ensure path is correct
+        } catch (e) {
+          console.error(
+            "[addToCart] Error saving to localStorage or redirecting:",
+            e
+          );
+          alert("An error occurred. Could not proceed to product details.");
+        }
+      } // End of addToCart
+
+      // --- Cart UI Update ---
+      function updateCartCount() {
+        console.log("[updateCartCount] Updating cart display...");
+        try {
+          const cart = JSON.parse(localStorage.getItem("cart")) || [];
+          const totalItems = cart.reduce(
+            (sum, item) => sum + (item.quantity || 1),
+            0
+          );
+          if (headerCartCount) headerCartCount.textContent = totalItems;
+          if (floatingCartCount) floatingCartCount.textContent = totalItems;
+          if (cartPreview && cartTotalElement && checkoutButton) {
+            cartPreview.innerHTML = "";
+            let totalPrice = 0;
+            if (cart.length === 0) {
+              cartPreview.innerHTML =
+                "<p class='text-gray-400 text-sm'>Your cart is empty</p>";
+              checkoutButton.classList.add("opacity-50", "cursor-not-allowed");
+              checkoutButton.href = "#";
+            } else {
+              checkoutButton.classList.remove(
+                "opacity-50",
+                "cursor-not-allowed"
+              );
+              checkoutButton.href = "/cart.html"; // Ensure path is correct
+              cart.forEach((item) => {
+                if (!item || item.price == null || item.quantity == null)
+                  return;
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+                const imageUrl =
+                  item.image &&
+                  typeof item.image === "string" &&
+                  item.image.startsWith("https://res.cloudinary.com")
+                    ? item.image
+                    : placeholderImage;
+                cartPreview.innerHTML += `<div class="flex items-center gap-2 border-b border-gray-700 pb-1 mb-1 last:border-b-0 last:pb-0 last:mb-0"><img src="${imageUrl}" alt="${
+                  item.name || "Product"
+                }" class="w-8 h-8 object-contain rounded bg-white p-px flex-shrink-0" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}'" /><div class="flex-1 overflow-hidden mr-2"><p class="text-white text-sm truncate" title="${
+                  item.name || "Unnamed Product"
+                }">${
+                  item.name || "Unnamed Product"
+                }</p><p class="text-gray-400 text-xs">Qty: ${
+                  item.quantity
+                }</p></div><p class="text-[#FBB610] text-sm whitespace-nowrap font-medium">₦${itemTotal.toLocaleString()}</p></div>`;
+              });
+            }
+            cartTotalElement.textContent = `₦${totalPrice.toLocaleString()}`;
+          }
+          console.log("[updateCartCount] Cart display update finished.");
+        } catch (e) {
+          console.error("[updateCartCount] Error updating cart display:", e);
+        }
+      } // End of updateCartCount
+
+      // --- Floating Cart Toggle ---
+      const cartToggleButton = document.getElementById("cart-toggle");
+      const cartDropdown = document.getElementById("cart-dropdown");
+      if (cartToggleButton && cartDropdown) {
+        cartToggleButton.addEventListener("click", (event) => {
+          event.stopPropagation();
+          const isHidden = cartDropdown.classList.toggle("hidden");
+          if (!isHidden) {
+            updateCartCount();
+          }
+        });
+        document.addEventListener("click", (event) => {
+          if (
+            !cartDropdown.classList.contains("hidden") &&
+            !cartDropdown.contains(event.target) &&
+            !cartToggleButton.contains(event.target)
+          ) {
+            cartDropdown.classList.add("hidden");
+          }
+        });
+      }
+
+      // --- Initial Setup ---
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log(
+          "[DOMContentLoaded] DOM fully loaded. Calling fetchProducts and initial updateCartCount."
+        );
+        fetchProducts(); // Fetch products on page load
+        updateCartCount(); // Also update cart display initially
+      });
+    </script>
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("menu-mobile");
+      const closeMenu = document.getElementById("close-menu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        menuToggle.setAttribute(
+          "aria-expanded",
+          mobileMenu.classList.contains("hidden") ? "false" : "true"
+        );
+      });
+
+      closeMenu.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    </script>
+  </body>
+</html>

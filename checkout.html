@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./assets/css/input.css" rel="stylesheet" />
+    <link href="./assets/css/output.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Checkout - SOLAR PRODUCT SALES</title>
+    <style>
+      /* Custom scrollbar for cart items (optional) */
+      #cart-items::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      #cart-items::-webkit-scrollbar-track {
+        background: #011b36;
+      }
+
+      #cart-items::-webkit-scrollbar-thumb {
+        background-color: #fbb610;
+        border-radius: 3px;
+      }
+
+      /* Ensure loading overlay covers everything */
+      #loading {
+        z-index: 9999;
+      }
+
+      /* Style for disabled button */
+      button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      /* Ensure high z-index for notification */
+      #form-notification {
+        z-index: 10000;
+      }
+
+      /* Mobile menu transition */
+      #menu-mobile {
+        transition: transform 0.3s ease-in-out;
+      }
+
+      /* Font */
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Add fallback font */
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+    </style>
+  </head>
+
+  <body class="max-w-[1280px] mx-auto bg-[#002347] text-gray-200 font-sans">
+    <header
+      class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
+    >
+      <a href="/">
+        <img src="./assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
+      </a>
+
+      <!-- Hamburger menu button -->
+      <button
+        id="menu-toggle"
+        class="text-white md:hidden focus:outline-none focus:ring-2 focus:ring-orange-500"
+        aria-expanded="false"
+        aria-controls="menu-mobile"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
+      </button>
+
+      <!-- Desktop Menu -->
+      <nav id="menu" class="hidden md:flex">
+        <ul class="text-white flex flex-row gap-8">
+          <li>
+            <a href="/" class="text-orange text-sm font-normal">Home</a>
+          </li>
+          <li>
+            <a href="/about.html" class="text-[12px] font-normal">About us</a>
+          </li>
+          <li>
+            <a href="#service" class="text-[12px] font-normal">Service</a>
+          </li>
+          <li>
+            <a href="#contact" class="text-[12px] font-normal">Contact</a>
+          </li>
+          <li>
+            <a
+              href="/cart.html"
+              class="relative text-[#ffffff]"
+              aria-label="View Cart"
+            >
+              <i class="bx bxs-cart text-3xl"></i>
+              <span
+                id="cart-count"
+                class="absolute -top-2 -right-3 bg-[#FBB610] text-[#ffffff] rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold border-2 border-[#002347]"
+                >0</span
+              >
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <nav
+        id="menu-mobile"
+        class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50 flex flex-col items-center justify-center"
+      >
+        <ul class="text-white justify-center items-center flex flex-col gap-6">
+          <li>
+            <a href="#" class="text-orange text-lg font-medium">Home</a>
+          </li>
+          <li>
+            <a href="/about.html" class="text-lg font-medium">About us</a>
+          </li>
+          <li><a href="#service" class="text-lg font-medium">Service</a></li>
+          <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
+          <li>
+            <a
+              href="/cart.html"
+              class="text-lg font-medium inline-flex items-center gap-2 bg-[#e0a009] text-[#002347] px-4 py-2 rounded-lg shadow-lg hover:bg-[#e0a009]"
+              onclick="closeMobileMenu()"
+            >
+              <i class="bx bxs-cart text-lg"></i> View Cart (<span
+                id="mobile-cart-count"
+                >0</span
+              >)
+            </a>
+          </li>
+        </ul>
+        <button
+          id="close-menu"
+          class="absolute top-6 right-6 text-white text-2xl focus:outline-none"
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
+      </nav>
+    </header>
+    
+    <section class="padding-inline py-12 md:py-16 min-h-[60vh]">
+      <h2 class="text-white text-3xl lg:text-4xl font-bold mb-10 text-center">
+        Checkout
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 lg:gap-12">
+        <div
+          class="md:col-span-2 text-white bg-[#011B36] p-6 lg:p-8 rounded-lg shadow-xl h-fit md:sticky md:top-24"
+        >
+          <div
+            class="flex justify-between items-center mb-6 border-b border-blue-900 pb-4"
+          >
+            <h3 class="text-xl lg:text-2xl font-semibold text-gray-100">
+              Order Summary
+            </h3>
+            <a
+              href="/cart.html"
+              class="text-sm text-[#FBB610] hover:text-orange transition-colors font-medium inline-flex items-center gap-1 group"
+            >
+              <i class="bx bx-edit-alt group-hover:text-orange"></i> Edit Cart
+            </a>
+          </div>
+          <div
+            id="cart-items"
+            class="flex flex-col gap-4 max-h-72 overflow-y-auto pr-2 mb-5"
+          >
+            <p class="text-gray-400 italic py-4">Loading summary...</p>
+          </div>
+          <div class="border-t-2 border-blue-900 mt-5 pt-5 space-y-3">
+            <div class="flex justify-between items-center text-base">
+              <span class="text-gray-300">Subtotal:</span>
+              <span id="subtotal-price" class="font-medium text-gray-100"
+                >₦0</span
+              >
+            </div>
+            <div class="flex justify-between items-center text-base">
+              <span class="text-gray-300">Shipping:</span>
+              <span id="shipping-price" class="font-medium text-gray-100"
+                >FREE</span
+              >
+            </div>
+            <div
+              class="flex justify-between items-center text-xl font-bold mt-3"
+            >
+              <span class="text-white">Total:</span>
+              <span id="total-price" class="text-orange text-2xl">₦0</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="md:col-span-3 text-white bg-[#011B36] p-6 lg:p-8 rounded-lg shadow-xl"
+        >
+          <h3
+            class="text-xl lg:text-2xl font-semibold mb-6 border-b border-blue-900 pb-4 text-gray-100"
+          >
+            Shipping Information
+          </h3>
+          <form id="checkout-form" class="flex flex-col gap-5">
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-300 mb-1.5"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out placeholder-gray-500"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-300 mb-1.5"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out placeholder-gray-500"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="phone"
+                class="block text-sm font-medium text-gray-300 mb-1.5"
+                >Phone Number</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="tel"
+                placeholder="e.g., 08012345678"
+                autocomplete="tel"
+                class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out placeholder-gray-500"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="address"
+                class="block text-sm font-medium text-gray-300 mb-1.5"
+                >Full Delivery Address</label
+              >
+              <textarea
+                id="address"
+                name="address"
+                autocomplete="street-address"
+                rows="4"
+                placeholder="Street address, City, State"
+                class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out placeholder-gray-500"
+                required
+              ></textarea>
+            </div>
+            <div class="border-t border-blue-900 pt-6 mt-3">
+              <h4 class="text-lg font-semibold mb-3 text-gray-100">
+                Payment Method
+              </h4>
+              <div
+                class="bg-[#002347] border border-[#2b4764] rounded-md p-4 text-center text-gray-400"
+              >
+                <p class="text-sm">
+                  Secure payment processing is handled externally.
+                </p>
+                <p class="text-xs mt-1">
+                  (Currently, only order placement is implemented)
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              id="place-order-button"
+              class="w-full p-4 mt-4 rounded-md bg-[#FBB610] text-[#002347] text-lg font-bold hover:bg-[#e0a009] transition-colors duration-200 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#011B36] focus:ring-[#FBB610]"
+            >
+              Place Order
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div
+      id="loading"
+      class="hidden fixed inset-0 bg-[#002347] bg-opacity-80 flex items-center justify-center z-[9999]"
+    >
+      <div
+        class="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-[#FBB610]"
+      ></div>
+      <p class="text-white text-lg ml-4" id="loading-text">
+        Processing Order...
+      </p>
+    </div>
+
+    <footer
+      id="contact"
+      class="padding-inline flex flex-col gap-8 md:gap-12 pt-16 mb-8 mt-12 border-t border-blue-900"
+    >
+      <img
+        src="./assets/images/logo.png"
+        class="w-24 md:w-32"
+        alt="PFOS Logo Footer"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+        <div class="text-white gap-5 flex flex-col">
+          <div class="flex flex-col gap-4">
+            <h4 class="font-semibold text-lg md:text-xl">Contact Info</h4>
+            <p class="font-normal text-sm md:text-base text-gray-300">
+              Get in touch via any of these platforms:
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <a
+              href="#"
+              class="flex gap-3 items-center text-sm md:text-base hover:text-[#FBB610] transition-colors"
+              ><i class="text-[#B0CFEF] text-xl bx bxl-facebook-square"></i
+              ><span>Facebook: Power from the other side</span></a
+            >
+            <a
+              href="#"
+              class="flex gap-3 items-center text-sm md:text-base hover:text-[#FBB610] transition-colors"
+              ><i class="text-[#B0CFEF] text-xl bx bxl-instagram-alt"></i
+              ><span>Instagram: @pfos_Solar</span></a
+            >
+            <a
+              href="#"
+              class="flex gap-3 items-center text-sm md:text-base hover:text-[#FBB610] transition-colors"
+              ><i class="text-[#B0CFEF] text-xl bx bxl-whatsapp-square"></i
+              ><span>WhatsApp: +234 903 276 9065</span></a
+            >
+          </div>
+        </div>
+        <div class="text-white gap-4 flex flex-col">
+          <h4 class="font-semibold text-lg md:text-xl">Send Quick Message</h4>
+          <form
+            id="quickMessageFormFooter"
+            method="post"
+            class="flex flex-col gap-4"
+          >
+            <div class="flex flex-col md:flex-row gap-4">
+              <div class="flex-1">
+                <input
+                  type="text"
+                  name="name_footer"
+                  id="name-footer"
+                  placeholder="Name"
+                  required
+                  class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out"
+                />
+              </div>
+              <div class="flex-1">
+                <input
+                  type="email"
+                  name="email_footer"
+                  id="email-footer"
+                  placeholder="Email"
+                  required
+                  class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out"
+                />
+              </div>
+            </div>
+            <div>
+              <textarea
+                name="message_footer"
+                id="message-footer"
+                placeholder="Message"
+                required
+                rows="4"
+                class="w-full py-3 px-4 rounded-md bg-[#002347] text-white border border-[#2b4764] focus:border-[#FBB610] focus:ring-1 focus:ring-[#FBB610] outline-none transition duration-150 ease-in-out"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full p-3 rounded-md bg-[#B0CFEF] text-[#002347] font-semibold hover:bg-[#9cb7d5] transition-colors"
+            >
+              SEND
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
+    <section
+      class="bg-[#011B36] w-full py-6 padding-inline flex justify-center md:justify-end mt-8"
+    >
+      <p class="text-gray-400 text-xs md:text-sm">
+        PFDOS Enterprise RC: 3334515 © 2024. All Rights Reserved
+      </p>
+    </section>
+
+    <div
+      id="form-notification"
+      class="fixed top-5 right-5 px-5 py-3 rounded-lg shadow-xl hidden z-[10000] text-sm font-medium"
+    ></div>
+
+    <script type="module">
+  import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights';
+  injectSpeedInsights();
+
+
+      // --- Global Constants & Variables ---
+      const API_BASE_URL = "https://pfos-backend.vercel.app";
+      const placeholderImage = "./assets/images/placeholder.jpg"; // Adjust path if needed
+
+      // --- DOM Elements ---
+      const cartItemsDiv = document.getElementById("cart-items");
+      const subtotalPriceElement = document.getElementById("subtotal-price");
+      const shippingPriceElement = document.getElementById("shipping-price");
+      const totalPriceElement = document.getElementById("total-price");
+      const headerCartCountElement = document.getElementById("cart-count");
+      const mobileCartCountElement =
+        document.getElementById("mobile-cart-count");
+      const checkoutForm = document.getElementById("checkout-form");
+      const placeOrderButton = document.getElementById("place-order-button");
+      const loadingOverlay = document.getElementById("loading");
+      const notificationElement = document.getElementById("form-notification");
+      const menuToggle = document.getElementById("menu-toggle");
+      const closeMenuButton = document.getElementById("close-menu");
+      const mobileMenu = document.getElementById("menu-mobile");
+
+      // --- Utility Functions ---
+      function formatPrice(price) {
+        const numPrice = parseFloat(price);
+        return isNaN(numPrice) ? "N/A" : `₦${numPrice.toLocaleString()}`;
+      }
+
+      function showNotification(message, type = "info") {
+        if (!notificationElement) return;
+        notificationElement.textContent = message;
+        notificationElement.className =
+          "fixed top-5 right-5 px-5 py-3 rounded-lg shadow-xl text-sm font-medium z-[10000]"; // Base classes
+        if (type === "success")
+          notificationElement.classList.add("bg-green-600", "text-white");
+        else if (type === "error")
+          notificationElement.classList.add("bg-red-600", "text-white");
+        else notificationElement.classList.add("bg-blue-600", "text-white");
+        notificationElement.classList.remove("hidden");
+        setTimeout(() => {
+          notificationElement.classList.add("hidden");
+        }, 4000);
+      }
+
+      // --- Cart Functions ---
+      function getCart() {
+        try {
+          return JSON.parse(localStorage.getItem("cart")) || [];
+        } catch (e) {
+          console.error("Error parsing cart:", e);
+          return [];
+        }
+      }
+
+      function updateHeaderCartCount() {
+        const cart = getCart();
+        const totalItems = cart.reduce(
+          (sum, item) => sum + (item.quantity || 1),
+          0
+        );
+        if (headerCartCountElement)
+          headerCartCountElement.textContent = totalItems;
+        if (mobileCartCountElement)
+          mobileCartCountElement.textContent = totalItems;
+      }
+
+      // Display Read-Only Cart Summary
+      function displayCheckoutSummary() {
+        console.log("Displaying checkout summary...");
+        if (
+          !cartItemsDiv ||
+          !totalPriceElement ||
+          !subtotalPriceElement ||
+          !shippingPriceElement
+        ) {
+          console.error("Checkout summary display elements not found!");
+          return;
+        }
+        try {
+          const cart = getCart();
+          let currentSubtotal = 0;
+          let shippingCost = 0; // Replace with actual calculation if needed
+
+          cartItemsDiv.innerHTML = ""; // Clear previous items
+
+          if (cart.length === 0) {
+            cartItemsDiv.innerHTML =
+              "<p class='text-gray-400 italic py-4'>No items in cart to checkout.</p>";
+            if (placeOrderButton) placeOrderButton.disabled = true;
+          } else {
+            cart.forEach((item) => {
+              if (
+                !item ||
+                item.price == null ||
+                item.quantity == null ||
+                !item.name
+              ) {
+                console.warn("Skipping invalid item in summary:", item);
+                return;
+              }
+              const itemTotal = item.price * item.quantity;
+              currentSubtotal += itemTotal;
+              const imageUrl =
+                item.image &&
+                item.image.startsWith("https://res.cloudinary.com")
+                  ? item.image
+                  : placeholderImage;
+
+              const itemElement = document.createElement("div");
+              itemElement.className =
+                "flex items-center justify-between gap-3 py-3 border-b border-blue-900 last:border-b-0";
+              itemElement.innerHTML = `
+                    <div class="flex items-center gap-3 flex-grow min-w-0">
+                        <img src="${imageUrl}" alt="${
+                item.name
+              }" class="w-12 h-12 object-contain rounded-md bg-white p-px flex-shrink-0" onerror="this.onerror=null; this.src='${placeholderImage}'">
+                        <div class="flex-grow min-w-0">
+                            <p class="text-sm font-medium truncate text-gray-100" title="${
+                              item.name
+                            }">${item.name}</p>
+                            <p class="text-xs text-gray-400">Qty: ${
+                              item.quantity
+                            }</p>
+                        </div>
+                    </div>
+                    <p class="text-sm font-medium whitespace-nowrap text-gray-100 flex-shrink-0">${formatPrice(
+                      itemTotal
+                    )}</p>
+                `;
+              cartItemsDiv.appendChild(itemElement);
+            });
+            if (placeOrderButton) placeOrderButton.disabled = false;
+          }
+
+          // Update totals display
+          subtotalPriceElement.textContent = formatPrice(currentSubtotal);
+          shippingPriceElement.textContent =
+            shippingCost === 0 ? "FREE" : formatPrice(shippingCost);
+          totalPriceElement.textContent = formatPrice(
+            currentSubtotal + shippingCost
+          );
+        } catch (e) {
+          console.error("Error displaying checkout summary:", e);
+          cartItemsDiv.innerHTML =
+            "<p class='text-red-500'>Error loading summary.</p>";
+        }
+      }
+
+      // --- Form Validation ---
+      function validateForm(name, email, phone, address) {
+        name = name.trim();
+        email = email.trim();
+        phone = phone.trim();
+        address = address.trim();
+        if (!name || !email || !phone || !address) {
+          showNotification("Please fill in all shipping fields.", "error");
+          return false;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          showNotification("Please enter a valid email address.", "error");
+          return false;
+        }
+        const phoneRegex = /^(0[789][01]\d{8}|(\+234)[789][01]\d{8})$/;
+        if (!phoneRegex.test(phone)) {
+          showNotification(
+            "Please enter a valid Nigerian phone number (e.g., 080..., +234...).",
+            "error"
+          );
+          return false;
+        }
+        return true;
+      }
+
+      // --- Order Submission ---
+      async function submitOrder(orderData) {
+        console.log("Submitting order...", orderData);
+        if (loadingOverlay) loadingOverlay.classList.remove("hidden");
+        if (placeOrderButton) placeOrderButton.disabled = true;
+
+        try {
+          const response = await fetch(`${API_BASE_URL}/api/order`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orderData),
+          });
+          const responseText = await response.text();
+          console.log("Order API Raw Response:", responseText);
+          let result;
+          try {
+            result = JSON.parse(responseText);
+          } catch (jsonError) {
+            if (!response.ok) {
+              throw new Error(
+                `Server error (${response.status}): ${responseText.substring(
+                  0,
+                  150
+                )}`
+              );
+            } else {
+              console.warn("Response OK but not valid JSON:", responseText);
+              result = {
+                message: "Order submitted, but unexpected server response.",
+              };
+            }
+          }
+          console.log("Parsed server response:", result);
+
+          if (response.ok) {
+            showNotification(
+              result.message || "Order placed successfully!",
+              "success"
+            );
+            localStorage.removeItem("cart"); // Clear cart
+            updateHeaderCartCount();
+            displayCheckoutSummary(); // Update summary to show empty state
+            if (checkoutForm) checkoutForm.reset(); // Clear the form
+            if (checkoutForm)
+              checkoutForm
+                .querySelectorAll("input, textarea, button")
+                .forEach((el) => (el.disabled = true)); // Disable form
+            // Add a slight delay before redirecting
+            setTimeout(() => {
+              window.location.href = "/?order=success";
+            }, 3000);
+          } else {
+            throw new Error(
+              result.error ||
+                result.message ||
+                `Failed to place order (${response.status})`
+            );
+          }
+        } catch (error) {
+          console.error("Order submission error:", error);
+          showNotification(`Error: ${error.message}`, "error");
+          if (placeOrderButton) placeOrderButton.disabled = false; // Re-enable button
+        } finally {
+          if (loadingOverlay) loadingOverlay.classList.add("hidden");
+        }
+      }
+
+      // --- Mobile Menu Toggle ---
+      function openMobileMenu() {
+        if (mobileMenu) {
+          mobileMenu.classList.remove("hidden");
+          requestAnimationFrame(() => {
+            mobileMenu.classList.remove("-translate-x-full");
+          });
+        }
+      }
+
+      function closeMobileMenu() {
+        if (mobileMenu) {
+          mobileMenu.classList.add("-translate-x-full");
+          mobileMenu.addEventListener(
+            "transitionend",
+            () => {
+              mobileMenu.classList.add("hidden");
+            },
+            {
+              once: true,
+            }
+          );
+        }
+      }
+      if (menuToggle && mobileMenu)
+        menuToggle.addEventListener("click", openMobileMenu);
+      if (closeMenuButton && mobileMenu)
+        closeMenuButton.addEventListener("click", closeMobileMenu);
+
+      // --- Initialization ---
+      window.addEventListener("load", () => {
+        console.log("Checkout page loaded.");
+        const cart = getCart();
+        if (cart.length === 0) {
+          console.log("Cart is empty, redirecting to cart page.");
+          showNotification("Your cart is empty. Redirecting...", "info");
+          setTimeout(() => {
+            window.location.href = "/cart.html";
+          }, 1500); // Redirect to cart page if empty
+          return;
+        }
+        updateHeaderCartCount();
+        displayCheckoutSummary(); // Display the cart summary
+        if (loadingOverlay) loadingOverlay.classList.add("hidden"); // Ensure loader is hidden initially
+      });
+
+      // --- Event Listeners ---
+      if (checkoutForm) {
+        checkoutForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const nameInput = document.getElementById("name");
+          const emailInput = document.getElementById("email");
+          const phoneInput = document.getElementById("phone");
+          const addressInput = document.getElementById("address");
+          if (!nameInput || !emailInput || !phoneInput || !addressInput) {
+            showNotification("Form error. Please refresh.", "error");
+            return;
+          }
+          const name = nameInput.value;
+          const email = emailInput.value;
+          const phone = phoneInput.value;
+          const address = addressInput.value;
+
+          if (!validateForm(name, email, phone, address)) {
+            return;
+          }
+
+          let cart = [];
+          let currentSubtotal = 0;
+          try {
+            cart = getCart();
+            if (cart.length === 0) {
+              showNotification("Cart is empty.", "error");
+              return;
+            }
+            currentSubtotal = cart.reduce((sum, item) => {
+              const price = parseFloat(item.price);
+              const quantity = parseInt(item.quantity || 1, 10);
+              return isNaN(price) || isNaN(quantity)
+                ? sum
+                : sum + price * quantity;
+            }, 0);
+          } catch (e) {
+            showNotification("Error processing cart.", "error");
+            return;
+          }
+
+          let shippingCost = 0; // Replace with actual calculation if needed
+          let finalTotal = currentSubtotal + shippingCost;
+
+          // Prepare only necessary data for the order API
+          const orderData = {
+            name,
+            email,
+            phone,
+            address,
+            cart: cart.map((item) => ({
+              productId: item.id,
+              name: item.name,
+              quantity: item.quantity || 1,
+              price: item.price,
+            })),
+            totalPrice: finalTotal, // Send the final calculated total
+          };
+          submitOrder(orderData);
+        });
+      } else {
+        console.error("Checkout form element not found!");
+      }
+    </script>
+  </body>
+</html>
