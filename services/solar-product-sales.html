@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -136,7 +136,7 @@
     <main
       class="padding-inline py-20 hero-section"
       style="
-        background-image: url('../assets/images/HEROSECTION.svg');
+        background-image: url(&quot;../assets/images/HEROSECTION.svg&quot;);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -404,8 +404,8 @@
 
     <script>
       // --- Global Constants ---
-      const API_BASE_URL = "https://pfos-backend.vercel.app";
-      const placeholderImage = "../assets/images/placeholder.jpg"; // Define placeholder path
+      const API_BASE_URL = "https://pfossolar.com";
+      const placeholderImage = "/assets/images/logo.png"; // Define placeholder path
 
       // --- DOM Elements (defined globally for access) ---
       const loadingIndicator = document.getElementById("loading");
@@ -417,50 +417,45 @@
       const checkoutButton = document.getElementById("checkout-button");
 
       // --- fetchProducts Function (with detailed logging and checks) ---
-      async function fetchProducts() {
-        console.log("[fetchProducts] FUNCTION HAS STARTED EXECUTION."); // <-- VERY FIRST LOG
+      let currentPage = 1;
+
+      async function fetchProducts(page = 1) {
+        console.log(
+          `[fetchProducts] FUNCTION HAS STARTED EXECUTION. Fetching page ${page}.`,
+        );
 
         // Check if critical elements exist RIGHT AWAY
         if (!loadingIndicator) {
           console.error(
-            "[fetchProducts] CRITICAL ERROR: HTML element with id='loading' not found!"
+            "[fetchProducts] CRITICAL ERROR: HTML element with id='loading' not found!",
           );
           alert(
-            "Page Error: Loading indicator element is missing. Cannot proceed."
+            "Page Error: Loading indicator element is missing. Cannot proceed.",
           );
           return; // Stop execution
         }
         if (!productContainer) {
           console.error(
-            "[fetchProducts] CRITICAL ERROR: HTML element with id='product-container' not found!"
+            "[fetchProducts] CRITICAL ERROR: HTML element with id='product-container' not found!",
           );
           loadingIndicator.style.display = "none"; // Hide loader if possible
           alert(
-            "Page Error: Product container element is missing. Cannot display products."
+            "Page Error: Product container element is missing. Cannot display products.",
           );
           return; // Stop execution
         }
-        console.log(
-          "[fetchProducts] DOM elements ('loading' and 'product-container') obtained successfully."
-        );
 
         // Set initial state: Show loader, hide/clear container
         loadingIndicator.style.display = "flex";
-        productContainer.classList.add("hidden");
         productContainer.innerHTML = "";
-        console.log(
-          "[fetchProducts] Initial state set (loader visible, container hidden/cleared)."
-        );
+
+        // Remove existing pagination controls
+        const existingControls = document.getElementById("pagination-controls");
+        if (existingControls) existingControls.remove();
 
         try {
-          console.log(
-            "[fetchProducts] Inside try block, checking for order success param..."
-          );
           const urlParams = new URLSearchParams(window.location.search);
           if (urlParams.get("order") === "success") {
-            console.log(
-              "[fetchProducts] Order success parameter found. Displaying success message."
-            );
             productContainer.innerHTML = `
             <div class="text-center py-16 col-span-full text-[#002347]">
               <h2 class="text-3xl md:text-4xl font-bold mb-4">Order Received!</h2>
@@ -469,160 +464,158 @@
             </div>`;
             productContainer.classList.remove("hidden");
             history.replaceState(null, "", window.location.pathname);
-            console.log(
-              "[fetchProducts] Success message displayed, returning."
-            );
-            // Still need to hide loader in this case
             loadingIndicator.style.display = "none";
             return;
           }
 
-          console.log(
-            `[fetchProducts] Before fetch to: ${API_BASE_URL}/api/products`
-          );
-          const response = await fetch(`${API_BASE_URL}/api/products`, {
+          const fetchUrl = `${API_BASE_URL}/api/products?page=${page}&limit=20`;
+          console.log(`[fetchProducts] Fetching URL: ${fetchUrl}`);
+
+          const response = await fetch(fetchUrl, {
             cache: "no-store",
           });
-          console.log(
-            `[fetchProducts] Fetch response received. Status: ${response.status}`
-          );
 
           if (!response.ok) {
-            console.error(
-              `[fetchProducts] Response not OK. Status: ${response.status}`
-            );
-            // Try to read error text from response if possible
             let errorText = `HTTP error! status: ${response.status}`;
             try {
               const text = await response.text();
-              console.error("[fetchProducts] Error response body:", text);
-              // You might want to display a more user-friendly message based on 'text'
-              errorText = `API Error (${response.status}): ${text.substring(
-                0,
-                100
-              )}`; // Show first 100 chars
-            } catch (textError) {
-              console.error(
-                "[fetchProducts] Could not read error response body:",
-                textError
-              );
+              errorText = `API Error (${response.status}): ${text.substring(0, 100)}`;
+            } catch (e) {
+              console.error("Error reading response text", e);
             }
             throw new Error(errorText);
           }
 
-          console.log("[fetchProducts] Before response.json()...");
-          const products = await response.json();
-          console.log(
-            "[fetchProducts] After response.json(). Products received (first 5):",
-            products ? products.slice(0, 5) : "NULL/UNDEFINED"
-          );
+          const responseData = await response.json();
+          console.log("[fetchProducts] Raw API response:", responseData);
 
-          if (!Array.isArray(products)) {
-            console.error(
-              "[fetchProducts] API did not return an array:",
-              products
-            );
-            throw new Error("Invalid data format received from API.");
+          let products = [];
+          let paginationData = null;
+
+          // Parse response structure
+          if (responseData) {
+            if (Array.isArray(responseData)) {
+              products = responseData;
+            } else if (
+              responseData.products &&
+              Array.isArray(responseData.products)
+            ) {
+              products = responseData.products;
+              paginationData = responseData.pagination;
+            }
           }
 
-          if (products.length === 0) {
-            console.log(
-              "[fetchProducts] No products found. Displaying message."
-            );
+          if (!products || !Array.isArray(products) || products.length === 0) {
+            console.log("[fetchProducts] No products found.");
             productContainer.innerHTML =
               "<p class='text-blue text-center col-span-full'>No products found at the moment.</p>";
             productContainer.classList.remove("hidden");
-            // Hide loader when no products are found
             loadingIndicator.style.display = "none";
             return;
           }
 
           console.log(
-            `[fetchProducts] Starting product loop for ${products.length} products...`
+            `[fetchProducts] Rendering ${products.length} products...`,
           );
           let productHTML = "";
+
           products.forEach((product, index) => {
-            console.log(
-              `[fetchProducts] Processing product index ${index}: ${
-                product ? product.name : "INVALID PRODUCT"
-              }`
-            );
+            if (!product) return;
+
+            let imageUrl = placeholderImage;
             if (
-              !product ||
-              !product._id ||
-              !product.name ||
-              product.price == null
+              product.images &&
+              Array.isArray(product.images) &&
+              product.images.length > 0
             ) {
-              console.warn(
-                `[fetchProducts] Skipping product index ${index} due to missing essential data:`,
-                product
-              );
-              return;
+              imageUrl = product.images[0];
+            } else if (product.image && typeof product.image === "string") {
+              imageUrl = product.image;
             }
-            const imageUrl =
-              product.image &&
-              typeof product.image === "string" &&
-              product.image.startsWith("https://res.cloudinary.com")
-                ? product.image
-                : placeholderImage;
+
             const description = product.description || "";
-            const escapedName = product.name
+            const escapedName = (product.name || "")
               .replace(/'/g, "\\'")
               .replace(/"/g, "&quot;");
             const escapedImage = imageUrl.replace(/'/g, "\\'");
             const escapedDescription = description
               .replace(/'/g, "\\'")
-              .replace(/"/g, "&quot;");
+              .replace(/"/g, "&quot;")
+              .replace(/\n/g, " ")
+              .replace(/\r/g, "");
+
+            const displayName = (product.name || "").replace(/"/g, "&quot;");
+            const displayDescription = (description || "")
+              .replace(/"/g, "&quot;")
+              .replace(/'/g, "&#039;");
+
+            const priceVal = parseFloat(product.price);
+            const displayPrice = isNaN(priceVal)
+              ? "0.00"
+              : priceVal.toLocaleString();
 
             productHTML += `
                 <div class="flex flex-col items-start bg-white p-4 rounded-lg shadow-md max-w-[340px] w-full">
-                    <div class="w-full h-[290px] md:h-[300px] rounded-[10px] bg-gray-200 flex items-center justify-center overflow-hidden mb-3">
-                        <img src="${imageUrl}" alt="${escapedName}" class="w-full h-full object-contain" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}'; console.log('Failed to load image: ${imageUrl}')"/>
+                    <div class="w-full h-[200px] rounded-[10px] bg-gray-200 flex items-center justify-center overflow-hidden mb-3">
+                        <img src="${imageUrl}" alt="${displayName}" class="w-full h-full object-contain" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}'; console.log('Failed to load image: ${imageUrl}')"/>
                     </div>
-                    <h4 class="font-bold text-[20px] md:text-[22px] text-blue mt-1 mb-1 truncate w-full" title="${escapedName}">${escapedName}</h4>
-                    <p class="text-orange text-[20px] md:text-[24px] font-semibold mb-2">₦${parseFloat(
-                      product.price
-                    ).toLocaleString()}</p>
+                    <h4 class="font-bold text-[20px] md:text-[22px] text-blue mt-1 mb-1 truncate w-full" title="${displayName}">${displayName}</h4>
+                    <p class="text-sm text-gray-600 mb-2 line-clamp-2 w-full h-[40px]" title="${displayDescription}">${displayDescription}</p>
+                    <p class="text-orange text-[20px] md:text-[24px] font-semibold mb-2">₦${displayPrice}</p>
                     <button onclick="addToCart('${
-                      product._id
+                      product.id || product._id
                     }', '${escapedName}', '${
-              product.price
-            }', '${escapedImage}', '${escapedDescription}')" class="bg-orange text-[14px] md:text-[16px] font-bold text-blue w-full h-10 md:h-12 rounded-md mt-auto hover:bg-[#e0a009] transition-colors">
+                      product.price
+                    }', '${escapedImage}', '${escapedDescription}')" class="bg-orange text-[14px] md:text-[16px] font-bold text-blue w-full h-10 md:h-12 rounded-md mt-auto hover:bg-[#e0a009] transition-colors">
                         Select Product
                     </button>
                 </div>
             `;
-          }); // End of forEach loop
-          console.log("[fetchProducts] Finished product loop.");
+          });
 
-          console.log(
-            "[fetchProducts] Before setting productContainer.innerHTML..."
-          );
           productContainer.innerHTML = productHTML;
           productContainer.classList.remove("hidden");
-          console.log(
-            "[fetchProducts] After setting productContainer.innerHTML."
-          );
-        } catch (error) {
-          console.error("[fetchProducts] Error caught in try block:", error);
-          productContainer.innerHTML = `<p class='text-red-500 text-center col-span-full'>Error: ${error.message}. Failed to load products.</p>`;
-          productContainer.classList.remove("hidden"); // Show error message
-        } finally {
-          console.log(
-            "[fetchProducts] Inside finally block. Hiding loading indicator."
-          );
-          // Ensure loadingIndicator reference is still valid before hiding
-          if (loadingIndicator) {
-            loadingIndicator.style.display = "none";
-          } else {
-            console.warn(
-              "[fetchProducts] FINALLY: loadingIndicator was null, cannot hide."
-            );
+
+          if (paginationData) {
+            renderPaginationControls(paginationData);
           }
+        } catch (error) {
+          console.error("[fetchProducts] Error:", error);
+          productContainer.innerHTML = `<p class='text-red-500 text-center col-span-full'>Error: ${error.message}. Failed to load products.</p>`;
+          productContainer.classList.remove("hidden");
+        } finally {
+          if (loadingIndicator) loadingIndicator.style.display = "none";
           updateCartCount();
-          console.log("[fetchProducts] Function finished.");
         }
-      } // End of fetchProducts function
+      }
+
+      function renderPaginationControls(data) {
+        const container = document.getElementById("product-container");
+        if (!container || !data || data.totalPages <= 1) return;
+
+        const controls = document.createElement("div");
+        controls.id = "pagination-controls";
+        controls.className =
+          "w-full flex justify-center items-center gap-6 mt-8 col-span-full py-4";
+
+        controls.innerHTML = `
+            <button 
+                onclick="fetchProducts(${data.page - 1})" 
+                class="px-5 py-2 bg-[#002347] text-white rounded-md hover:bg-orange disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                ${!data.hasPrev ? "disabled" : ""}>
+                Previous
+            </button>
+            <span class="font-semibold text-[#002347]">Page ${data.page} of ${data.totalPages}</span>
+            <button 
+                onclick="fetchProducts(${data.page + 1})" 
+                class="px-5 py-2 bg-[#002347] text-white rounded-md hover:bg-orange disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                ${!data.hasNext ? "disabled" : ""}>
+                Next
+            </button>
+          `;
+
+        container.parentNode.insertBefore(controls, container.nextSibling);
+      }
 
       // --- Cart Management ---
       function addToCart(
@@ -630,15 +623,13 @@
         productName,
         productPrice,
         productImage,
-        productDescription
+        productDescription,
       ) {
         console.log(
-          `[addToCart] Called for: ${productName} (ID: ${productId})`
+          `[addToCart] Called for: ${productName} (ID: ${productId})`,
         );
         const imageUrl =
-          productImage &&
-          typeof productImage === "string" &&
-          productImage.startsWith("https://res.cloudinary.com")
+          productImage && typeof productImage === "string"
             ? productImage
             : placeholderImage;
         const price = parseFloat(productPrice);
@@ -659,7 +650,7 @@
         try {
           console.log(
             "[addToCart] Saving to selectedProduct:",
-            JSON.stringify(product, null, 2)
+            JSON.stringify(product, null, 2),
           );
           localStorage.setItem("selectedProduct", JSON.stringify(product));
           // Optional: Update main cart (uncomment if needed)
@@ -669,7 +660,7 @@
         } catch (e) {
           console.error(
             "[addToCart] Error saving to localStorage or redirecting:",
-            e
+            e,
           );
           alert("An error occurred. Could not proceed to product details.");
         }
@@ -682,7 +673,7 @@
           const cart = JSON.parse(localStorage.getItem("cart")) || [];
           const totalItems = cart.reduce(
             (sum, item) => sum + (item.quantity || 1),
-            0
+            0,
           );
           if (headerCartCount) headerCartCount.textContent = totalItems;
           if (floatingCartCount) floatingCartCount.textContent = totalItems;
@@ -697,7 +688,7 @@
             } else {
               checkoutButton.classList.remove(
                 "opacity-50",
-                "cursor-not-allowed"
+                "cursor-not-allowed",
               );
               checkoutButton.href = "/cart.html"; // Ensure path is correct
               cart.forEach((item) => {
@@ -706,9 +697,7 @@
                 const itemTotal = item.price * item.quantity;
                 totalPrice += itemTotal;
                 const imageUrl =
-                  item.image &&
-                  typeof item.image === "string" &&
-                  item.image.startsWith("https://res.cloudinary.com")
+                  item.image && typeof item.image === "string"
                     ? item.image
                     : placeholderImage;
                 cartPreview.innerHTML += `<div class="flex items-center gap-2 border-b border-gray-700 pb-1 mb-1 last:border-b-0 last:pb-0 last:mb-0"><img src="${imageUrl}" alt="${
@@ -755,7 +744,7 @@
       // --- Initial Setup ---
       document.addEventListener("DOMContentLoaded", () => {
         console.log(
-          "[DOMContentLoaded] DOM fully loaded. Calling fetchProducts and initial updateCartCount."
+          "[DOMContentLoaded] DOM fully loaded. Calling fetchProducts and initial updateCartCount.",
         );
         fetchProducts(); // Fetch products on page load
         updateCartCount(); // Also update cart display initially
@@ -770,7 +759,7 @@
         mobileMenu.classList.toggle("hidden");
         menuToggle.setAttribute(
           "aria-expanded",
-          mobileMenu.classList.contains("hidden") ? "false" : "true"
+          mobileMenu.classList.contains("hidden") ? "false" : "true",
         );
       });
 

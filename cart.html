@@ -638,7 +638,7 @@
 
     <script>
       // --- Global Constants & Variables ---
-      const placeholderImage = "./assets/images/placeholder.jpg";
+      const placeholderImage = "/assets/images/logo.png";
 
       // --- DOM Elements ---
       const menuToggle = document.getElementById("menu-toggle");
@@ -765,10 +765,7 @@
             }
             const itemTotal = item.price * item.quantity;
             currentSubtotal += itemTotal;
-            const imageUrl =
-              item.image && item.image.startsWith("https://res.cloudinary.com")
-                ? item.image
-                : placeholderImage;
+            const imageUrl = item.image ? item.image : placeholderImage;
 
             const itemRow = document.createElement("div");
             itemRow.innerHTML = `

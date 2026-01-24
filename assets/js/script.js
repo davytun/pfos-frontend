@@ -1,23 +1,23 @@
-import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights';
-
-  injectSpeedInsights();
-
 const menuToggle = document.getElementById("menu-toggle");
 const mobileMenu = document.getElementById("menu-mobile");
 const closeMenu = document.getElementById("close-menu");
 
-menuToggle.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-  menuToggle.setAttribute(
-    "aria-expanded",
-    mobileMenu.classList.contains("hidden") ? "false" : "true"
-  );
-});
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    menuToggle.setAttribute(
+      "aria-expanded",
+      mobileMenu.classList.contains("hidden") ? "false" : "true",
+    );
+  });
+}
 
-closeMenu.addEventListener("click", () => {
-  mobileMenu.classList.add("hidden");
-  menuToggle.setAttribute("aria-expanded", "false");
-});
+if (closeMenu) {
+  closeMenu.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+}
 
 /**
  * Init typed.js
@@ -26,14 +26,18 @@ const slides = document.querySelectorAll(".text-slide");
 let index = 0;
 
 function showNextSlide() {
-  slides.forEach((slide, i) => {
-    slide.style.transform = `translateY(-${index * 100}%)`;
-  });
+  if (slides.length > 0) {
+    slides.forEach((slide, i) => {
+      slide.style.transform = `translateY(-${index * 100}%)`;
+    });
 
-  index = (index + 1) % slides.length; // Loop back to first slide
+    index = (index + 1) % slides.length; // Loop back to first slide
+  }
 }
 
-setInterval(showNextSlide, 2000); // Change every 2 seconds
+if (slides.length > 0) {
+  setInterval(showNextSlide, 2000); // Change every 2 seconds
+}
 
 // (function () {
 //   emailjs.init("QxzxYdkHlSqmgwk6H"); // Initialize Email.js with your public key
@@ -84,23 +88,25 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     const targetId = this.getAttribute("href").substring(1);
     const targetElement = document.getElementById(targetId);
 
-    window.scrollTo({
-      top: targetElement.offsetTop,
-      behavior: "smooth",
-    });
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: "smooth",
+      });
+    }
   });
 });
 
 async function fetchProducts() {
+  const container = document.getElementById("product-container");
+  if (!container) return; // Exit if container doesn't exist
+
   try {
-    const response = await fetch(
-      "https://pfos-backend.vercel.app/api/products"
-    );
+    const response = await fetch("https://pfossolar.com/api/products");
     const products = await response.json();
 
     if (!Array.isArray(products) || products.length === 0) {
-      document.getElementById("product-container").innerHTML =
-        "<p>No products found</p>";
+      container.innerHTML = "<p>No products found</p>";
       return;
     }
 
@@ -121,36 +127,58 @@ async function fetchProducts() {
       `;
     });
 
-    document.getElementById("product-container").innerHTML = productHTML;
+    container.innerHTML = productHTML;
   } catch (error) {
     console.error("Error fetching products:", error);
-    document.getElementById("product-container").innerHTML =
-      "<p>Failed to load products.</p>";
+    container.innerHTML = "<p>Failed to load products.</p>";
   }
 }
 
 // Call function when the page loads
 fetchProducts();
 
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("quickMessageForm");
+function setupContactForm(formId, isFooter = false) {
+  const form = document.getElementById(formId);
 
   if (form) {
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
+      const nameId = isFooter ? "name-footer" : "name";
+      const emailId = isFooter ? "email-footer" : "email";
+      const messageId = isFooter ? "message-footer" : "message";
 
-      const showNotification = (message, isSuccess = true) => {
-        const notification = document.getElementById("form-notification");
+      const nameInput =
+        document.getElementById(nameId) ||
+        form.querySelector('input[name="name_footer"]') ||
+        form.querySelector('input[name="name"]');
+      const emailInput =
+        document.getElementById(emailId) ||
+        form.querySelector('input[name="email_footer"]') ||
+        form.querySelector('input[name="email"]');
+      const messageInput =
+        document.getElementById(messageId) ||
+        form.querySelector('textarea[name="message_footer"]') ||
+        form.querySelector('textarea[name="message"]');
+
+      const name = nameInput ? nameInput.value.trim() : "";
+      const email = emailInput ? emailInput.value.trim() : "";
+      const message = messageInput ? messageInput.value.trim() : "";
+
+      const showNotification = (msg, isSuccess = true) => {
+        // Try to find a notification element near the form or global
+        let notification =
+          document.getElementById("form-notification") ||
+          form.querySelector(".form-notification");
+
         if (!notification) {
-          console.error("Notification element not found.");
+          // Fallback if no specific notification element
+          alert(msg);
           return;
         }
-        notification.textContent = message;
-        notification.className = `fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 ${
+
+        notification.textContent = msg;
+        notification.className = `fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 z-[10000] ${
           isSuccess ? "bg-green-500 text-white" : "bg-red-500 text-white"
         }`;
         notification.classList.remove("hidden");
@@ -165,13 +193,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       try {
-        const url = "https://pfos-backend.vercel.app/api/messages";
+        const url = "https://pfossolar.com/api/messages";
         const response = await fetch(url, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name, email, message }),
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+            subject: "Inquiry from Website",
+          }),
         });
 
         const data = await response.json();
@@ -187,7 +220,35 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Error:", error);
       }
     });
-  } else {
-    console.error("Form element not found");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  setupContactForm("quickMessageForm", false);
+  setupContactForm("quickMessageFormFooter", true);
+
+  // Check for order success
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("order") === "success") {
+    // Create a temporary notification element if it doesn't exist just for this
+    let notification = document.getElementById("form-notification");
+    if (!notification) {
+      notification = document.createElement("div");
+      notification.id = "form-notification";
+      document.body.appendChild(notification);
+    }
+
+    notification.textContent =
+      "Order placed successfully! We will contact you soon.";
+    notification.className =
+      "fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 bg-green-500 text-white z-[10000]";
+    notification.classList.remove("hidden");
+
+    // Clean up URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+
+    setTimeout(() => {
+      notification.classList.add("hidden");
+    }, 5000);
   }
 });

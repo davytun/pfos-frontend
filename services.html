@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="assets/css/output.css" rel="stylesheet" />
     <link href="assets/css/input.css" rel="stylesheet" />
-    <link rel="stylesheet" href="dist/css/splide.min.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -193,7 +193,7 @@
     <main
       class="padding-inline py-20 hero-section"
       style="
-        background-image: url('assets/images/HEROSECTION.svg');
+        background-image: url(&quot;assets/images/HEROSECTION.svg&quot;);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -707,11 +707,16 @@
             }
 
             try {
-              const url = "https://pfos-backend.vercel.app/api/messages";
+              const url = "https://pfossolar.com/api/messages";
               const response = await fetch(url, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, message }),
+                body: JSON.stringify({
+                  name,
+                  email,
+                  message,
+                  subject: "Inquiry from Website",
+                }),
               });
 
               const data = await response.json();
@@ -723,7 +728,7 @@
             } catch (error) {
               showNotification(
                 "Failed to send message. Please try again.",
-                false
+                false,
               );
               console.error(error);
             }
@@ -741,7 +746,7 @@
       function renderNextBatch() {
         const nextItems = allPackages.slice(
           currentIndex,
-          currentIndex + BATCH_SIZE
+          currentIndex + BATCH_SIZE,
         );
 
         nextItems.forEach((pkg) => {
@@ -761,7 +766,7 @@
                         <span class="text-orange mr-2">✓</span>
                         <span>${f}</span>
                     </li>
-                    `
+                    `,
                       )
                       .join("")}
                 </ul>

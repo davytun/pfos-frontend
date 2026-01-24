@@ -155,7 +155,7 @@
         </button>
       </nav>
     </header>
-    
+
     <section class="padding-inline py-12 md:py-16 min-h-[60vh]">
       <h2 class="text-white text-3xl lg:text-4xl font-bold mb-10 text-center">
         Checkout
@@ -417,14 +417,14 @@
       class="fixed top-5 right-5 px-5 py-3 rounded-lg shadow-xl hidden z-[10000] text-sm font-medium"
     ></div>
 
+    <script type="module" src="./assets/js/script.js"></script>
     <script type="module">
-  import { injectSpeedInsights } from 'https://esm.sh/@vercel/speed-insights';
-  injectSpeedInsights();
-
+      import { injectSpeedInsights } from "https://esm.sh/@vercel/speed-insights";
+      injectSpeedInsights();
 
       // --- Global Constants & Variables ---
-      const API_BASE_URL = "https://pfos-backend.vercel.app";
-      const placeholderImage = "./assets/images/placeholder.jpg"; // Adjust path if needed
+      const API_BASE_URL = "https://pfossolar.com";
+      const placeholderImage = "/assets/images/logo.png"; // Adjust path if needed
 
       // --- DOM Elements ---
       const cartItemsDiv = document.getElementById("cart-items");
@@ -522,11 +522,7 @@
               }
               const itemTotal = item.price * item.quantity;
               currentSubtotal += itemTotal;
-              const imageUrl =
-                item.image &&
-                item.image.startsWith("https://res.cloudinary.com")
-                  ? item.image
-                  : placeholderImage;
+              const imageUrl = item.image ? item.image : placeholderImage;
 
               const itemElement = document.createElement("div");
               itemElement.className =
@@ -601,7 +597,7 @@
         if (placeOrderButton) placeOrderButton.disabled = true;
 
         try {
-          const response = await fetch(`${API_BASE_URL}/api/order`, {
+          const response = await fetch(`${API_BASE_URL}/api/orders`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -755,17 +751,20 @@
 
           // Prepare only necessary data for the order API
           const orderData = {
-            name,
-            email,
-            phone,
-            address,
             cart: cart.map((item) => ({
-              productId: item.id,
-              name: item.name,
-              quantity: item.quantity || 1,
-              price: item.price,
+              product_id: parseInt(item.id) || item.id,
+              quantity: parseInt(item.quantity) || 1,
             })),
-            totalPrice: finalTotal, // Send the final calculated total
+            customer: {
+              name: name,
+              email: email,
+              phone: phone,
+              address: address,
+              // Providing defaults for fields not present in the simplified checkout form
+              city: "Abeokuta",
+              country: "Nigeria",
+              zip: "110001",
+            },
           };
           submitOrder(orderData);
         });

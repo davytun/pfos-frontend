@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="assets/css/output.css" rel="stylesheet" />
     <link href="assets/css/input.css" rel="stylesheet" />
-    <link rel="stylesheet" href="dist/css/splide.min.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -446,7 +446,7 @@
     <main
       class="hero-section padding-inline py-10"
       style="
-        background-image: url('assets/images/HEROSECTION.svg');
+        background-image: url(&quot;assets/images/HEROSECTION.svg&quot;);
         background-size: cover;
         background-position: left -1px center;
         background-repeat: no-repeat;
@@ -1336,7 +1336,7 @@
       function renderNextBatch() {
         const nextItems = allPackages.slice(
           currentIndex,
-          currentIndex + BATCH_SIZE
+          currentIndex + BATCH_SIZE,
         );
 
         nextItems.forEach((pkg) => {
@@ -1356,7 +1356,7 @@
             <span class="text-orange mr-2">✓</span>
             <span>${f}</span>
           </li>
-        `
+        `,
           )
           .join("")}
       </ul>
@@ -1385,76 +1385,6 @@
         });
 
       loadMoreBtn.addEventListener("click", renderNextBatch);
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
-    <script type="text/javascript">
-      document
-        .getElementById("quickMessageForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault();
-
-          const name = document.getElementById("name").value.trim();
-          const email = document.getElementById("email").value.trim();
-          const message = document.getElementById("message").value.trim();
-
-          const showNotification = (message, isSuccess = true) => {
-            const notification = document.getElementById("form-notification");
-            if (!notification) {
-              console.error("Notification element not found.");
-              return;
-            }
-            notification.textContent = message;
-            notification.className = `fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg transition-opacity duration-300 ${
-              isSuccess ? "bg-green-500 text-white" : "bg-red-500 text-white"
-            }`;
-            notification.classList.remove("hidden");
-            notification.classList.add("show");
-            setTimeout(() => {
-              notification.classList.remove("show");
-              notification.classList.add("hidden");
-            }, 3000);
-          };
-
-          if (!name || !email || !message) {
-            showNotification("All fields are required!", false);
-            return;
-          }
-
-          try {
-            const url = "https://pfos-backend.vercel.app/api/messages";
-            console.log("Sending request to:", url);
-            console.log("Method:", "POST");
-            console.log("Body:", JSON.stringify({ name, email, message }));
-            console.log("Page URL:", window.location.href); // Log current page
-
-            const response = await fetch(url, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ name, email, message }),
-            });
-
-            console.log("Response status:", response.status);
-            console.log("Response headers:", [...response.headers.entries()]);
-            const data = await response.json();
-            console.log("Response data:", data);
-
-            if (!response.ok) {
-              throw new Error(data.error || "Failed to send message");
-            }
-
-            showNotification("Message sent successfully!");
-            document.getElementById("quickMessageForm").reset();
-          } catch (error) {
-            showNotification(
-              "Failed to send message. Please try again.",
-              false
-            );
-            console.error("Error:", error);
-          }
-        });
     </script>
 
     <script>
@@ -1667,13 +1597,13 @@
             // Restructure the DOM after Splide mounts
             splide2.on("mounted", function () {
               const controlsWrapper = document.querySelector(
-                "#splide2 .controls-wrapper"
+                "#splide2 .controls-wrapper",
               );
               const arrows = document.querySelectorAll(
-                "#splide2 .splide__arrow"
+                "#splide2 .splide__arrow",
               );
               const pagination = document.querySelector(
-                "#splide2 .splide__pagination"
+                "#splide2 .splide__pagination",
               );
 
               if (arrows.length === 2 && pagination) {
@@ -1737,13 +1667,13 @@
             // Restructure the DOM after Splide mounts (for fallback)
             splide2.on("mounted", function () {
               const controlsWrapper = document.querySelector(
-                "#splide2 .controls-wrapper"
+                "#splide2 .controls-wrapper",
               );
               const arrows = document.querySelectorAll(
-                "#splide2 .splide__arrow"
+                "#splide2 .splide__arrow",
               );
               const pagination = document.querySelector(
-                "#splide2 .splide__pagination"
+                "#splide2 .splide__pagination",
               );
 
               if (arrows.length === 2 && pagination) {
