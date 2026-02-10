@@ -1,17 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="assets/css/output.css" rel="stylesheet" />
-    <link href="assets/css/input.css" rel="stylesheet" />
+    <link href="/assets/css/output.css" rel="stylesheet" />
+    <link href="/assets/css/input.css" rel="stylesheet" />
     <link rel="stylesheet" href="dist/css/splide.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
     />
-    <title>About</title>
+    <title>About PFOS Solar - Our Mission and Team</title>
+    <meta
+      name="description"
+      content="Learn more about Power From The Other Side (PFOS), our commitment to green energy, and our expert team delivering solar solutions across Nigeria."
+    />
     <!-- <style>
       /* Trust Companies Section */
       #trust-companies {
@@ -82,13 +86,13 @@
     </style>
   </head>
 
-  <body class="max-w-[1200px] mx-auto">
+  <body class="max-w-[1440px] mx-auto overflow-x-hidden bg-[#002347]">
     <!-- Start Header -->
     <header
-      class="top-0 left-0 sticky z-50 padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
+      class="top-0 sticky z-50 padding-inline flex items-center py-3 justify-between w-full max-w-[1440px] mx-auto bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
     >
       <a href="/">
-        <img src="assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
+        <img src="/assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
       </a>
 
       <!-- Hamburger menu button -->
@@ -116,25 +120,50 @@
 
       <!-- Desktop Menu -->
       <nav id="menu" class="hidden md:flex">
-        <ul class="text-white flex flex-row gap-8">
+        <ul class="text-white flex flex-row items-center gap-4 lg:gap-8">
           <li>
-            <a href="/" class="text-sm font-normal">Home</a>
+            <a
+              href="/"
+              class="text-xs lg:text-sm font-normal hover:text-orange transition-colors"
+              >Home</a
+            >
           </li>
           <li>
-            <a href="/about.html" class="text-orange text-[12px] font-normal"
+            <a
+              href="/about.html"
+              class="text-orange text-xs lg:text-sm font-normal"
               >About us</a
             >
           </li>
           <li>
-            <a href="#competence" class="text-[12px] font-normal"
+            <a
+              href="#competence"
+              class="text-xs lg:text-sm font-normal hover:text-orange transition-colors"
               >Our Competence</a
             >
           </li>
           <li>
-            <a href="#our-team" class="text-[12px] font-normal"> Our Team </a>
+            <a
+              href="#our-team"
+              class="text-xs lg:text-sm font-normal hover:text-orange transition-colors"
+              >Our Team</a
+            >
           </li>
           <li>
-            <a href="#contact" class="text-[12px] font-normal">Contact</a>
+            <a
+              href="#contact"
+              class="text-xs lg:text-sm font-normal hover:text-orange transition-colors"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a href="#" class="text-xs lg:text-sm font-normal">
+              <button
+                class="rounded-[5px] border border-orange px-4 py-2 hover:bg-orange hover:text-blue transition-colors duration-300 whitespace-nowrap"
+              >
+                Request a Quote
+              </button>
+            </a>
           </li>
         </ul>
       </nav>
@@ -144,40 +173,41 @@
         id="menu-mobile"
         class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50 flex flex-col items-center justify-center"
       >
-        <ul class="text-white justify-center items-center flex flex-col gap-6">
+        <ul class="text-white justify-center items-center flex flex-col gap-8">
           <li>
-            <a href="/" class="text-orange text-lg font-medium">Home</a>
+            <a
+              href="/"
+              class="text-2xl font-bold hover:text-orange transition-colors"
+              >Home</a
+            >
           </li>
           <li>
-            <a href="/about.html" class="text-lg font-medium">About us</a>
+            <a href="/about.html" class="text-orange text-2xl font-bold"
+              >About us</a
+            >
           </li>
           <li>
-            <a href="/index.html#service" class="text-lg font-medium"
+            <a
+              href="/services/"
+              class="text-2xl font-bold hover:text-orange transition-colors"
               >Service</a
             >
           </li>
           <li>
-            <a href="/index.html#contact" class="text-lg font-medium"
+            <a
+              href="#contact"
+              class="text-2xl font-bold hover:text-orange transition-colors"
               >Contact</a
             >
           </li>
-          <li
-            class="text-lg font-medium w-[132px] h-[32px] py-2 px-4 gap-[14.38px] rounded-tl-[5px] opacity-0 border border-[#FBB610]"
-          >
-            <a href="#" class="border border-[#FBB610]"
-              ><a href="#" class="text-[12px] font-normal"
-                ><button
-                  style="
-                    border-radius: 5px;
-                    border: 1px solid #fbb610;
-                    padding-inline: 18px;
-                    padding-block: 8px;
-                  "
-                >
-                  Request a Quote
-                </button></a
-              ></a
-            >
+          <li class="mt-4">
+            <a href="#">
+              <button
+                class="rounded-[5px] border border-orange px-8 py-3 text-orange font-bold hover:bg-orange hover:text-blue transition-all"
+              >
+                Request a Quote
+              </button>
+            </a>
           </li>
         </ul>
         <button
@@ -193,38 +223,41 @@
 
     <!-- Hero Section -->
     <main
-      class="padding-inline py-20 hero-section"
+      class="padding-inline py-16 md:py-24 hero-section max-w-[1440px] mx-auto"
       style="
-        background-image: url('assets/images/HEROSECTION.svg');
+        background-image: url(&quot;/assets/images/HEROSECTION.svg&quot;);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
       "
     >
-      <!-- hero left -->
-      <div class="flex items-center justify-center flex-col gap-3 md:gap-20">
-        <h1 class="text-white text-4xl md:text-[75px] font-bold">About Us</h1>
+      <!-- hero content -->
+      <div
+        class="flex items-center justify-center flex-col gap-6 max-w-4xl mx-auto"
+      >
+        <h1 class="text-white text-4xl sm:text-5xl md:text-[75px] font-bold">
+          About Us
+        </h1>
         <p
-          class="text-white text-[16px] md:text-[20px] font-normal text-center"
+          class="text-white text-base md:text-xl font-normal text-center leading-relaxed"
         >
           Welcome to Power from the other side, your trusted partner for solar
-          energy solutions in <br class="hidden md:block" />
-          Abeokuta and across Nigeria. As a leading
+          energy solutions in Abeokuta and across Nigeria.
         </p>
       </div>
     </main>
     <!--End Hero Section -->
 
     <!-- About Section -->
-    <section class="mt-10 padding-inline">
+    <section class="py-12 md:py-20 padding-inline max-w-[1440px] mx-auto">
       <div
-        class="flex gap-10 items-center flex-col md:items-stretch md:flex-row"
+        class="flex gap-10 items-center flex-col lg:items-stretch lg:flex-row"
       >
         <!-- about left -->
         <img
-          src="assets/images/about.png"
+          src="/assets/images/about.png"
           alt=""
-          class="w-[527px] md:w-[627px] :h-[350px] md:h-[407px]"
+          class="w-full max-w-[500px] h-auto object-cover rounded-2xl"
         />
         <!-- about left -->
         <div class="text-white flex flex-col justify-center py-3 gap-6">
@@ -261,16 +294,16 @@
     <!-- About Section End-->
 
     <!-- OUR STRENGTH -->
-    <section class="my-10 padding-inline flex flex-col gap-9">
+    <section
+      class="py-12 md:py-20 padding-inline flex flex-col gap-9 max-w-[1440px] mx-auto"
+    >
       <div class="flex items-center gap-6">
         <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
         <span class="font-normal text-white text-sm md:text-xl"
           >OUR STRENGTH</span
         >
       </div>
-      <div
-        class="grid gap-2 px-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-      >
+      <div class="grid gap-2 px-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         <div class="flex flex-col gap-3">
           <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
             RESPONSIBILITY
@@ -313,7 +346,7 @@
 
     <!-- Our Vision -->
     <section
-      class="padding-inline flex flex-col gap-12 justify-center items-center mb-[118px]"
+      class="padding-inline flex flex-col gap-12 justify-center items-center py-12 md:py-20 max-w-[1440px] mx-auto"
     >
       <p class="w-full h-[1px] bg-white"></p>
       <div class="flex flex-col gap-3 items-center">
@@ -332,7 +365,7 @@
     <!-- COMPETENCE -->
     <section
       id="competence"
-      class="padding-inline flex flex-col justify-center items-center py-14 gap-9"
+      class="padding-inline flex flex-col justify-center items-center py-12 md:py-20 gap-9 max-w-[1440px] mx-auto"
       style="
         background: #7f7fd5; /* fallback for old browsers */
         background: -webkit-linear-gradient(
@@ -350,7 +383,9 @@
       "
     >
       <div class="flex justify-center items-center flex-col gap-1">
-        <h4 class="text-black font-semibold text-[36px] md:text-[52px]">
+        <h4
+          class="text-black font-semibold text-[32px] sm:text-[40px] md:text-[52px]"
+        >
           OUR COMPETENCE
         </h4>
         <p
@@ -362,9 +397,9 @@
         </p>
       </div>
 
-      <div class="flex gap-5 flex-col md:flex-row text-white">
+      <div class="flex gap-5 flex-col lg:flex-row text-white">
         <div
-          class="flex gap-4 items-center flex-col py-[61px] px-[47px] bg-[#204D88] rounded-[16px]"
+          class="flex gap-4 items-center flex-col py-10 px-6 bg-[#204D88] rounded-[16px] w-full"
         >
           <div class="text-white flex gap-4 items-center">
             <p class="text-[36px] md:text-[50px] font-bold text-orange">4+</p>
@@ -378,7 +413,7 @@
           </p>
         </div>
         <div
-          class="flex gap-4 items-center flex-col py-[61px] px-[47px] bg-[#204D88] rounded-[16px]"
+          class="flex gap-4 items-center flex-col py-10 px-6 bg-[#204D88] rounded-[16px] w-full"
         >
           <div class="text-white flex gap-4 items-center">
             <p class="text-[36px] md:text-[50px] font-bold text-orange">38+</p>
@@ -392,7 +427,7 @@
           </p>
         </div>
         <div
-          class="flex gap-4 items-center flex-col py-[61px] px-[47px] bg-[#204D88] rounded-[16px]"
+          class="flex gap-4 items-center flex-col py-10 px-6 bg-[#204D88] rounded-[16px] w-full"
         >
           <div class="text-white flex gap-4 items-center">
             <p class="text-[36px] md:text-[50px] font-bold text-orange">120+</p>
@@ -408,25 +443,28 @@
       </div>
     </section>
     <!--END COMPETENCE -->
-    <div class="padding-inline py-10">
+    <div class="padding-inline py-10 max-w-[1440px] mx-auto">
       <div class="logo-slider">
         <div class="logo-track">
-          <img src="assets/images/hero1.png" alt="Company 1" />
-          <img src="assets/images/hero2.png" alt="Company 2" />
-          <img src="assets/images/hero4.png" alt="Company 4" />
-          <img src="assets/images/hero5.png" alt="Company 5" />
-          <img src="assets/images/hero6.png" alt="Company 6" />
+          <img src="/assets/images/hero1.png" alt="Company 1" />
+          <img src="/assets/images/hero2.png" alt="Company 2" />
+          <img src="/assets/images/hero4.png" alt="Company 4" />
+          <img src="/assets/images/hero5.png" alt="Company 5" />
+          <img src="/assets/images/hero6.png" alt="Company 6" />
           <!-- Duplicate logos to create seamless effect -->
-          <img src="assets/images/hero1.png" alt="Company 1" />
-          <img src="assets/images/hero2.png" alt="Company 2" />
-          <img src="assets/images/hero4.png" alt="Company 4" />
-          <img src="assets/images/hero5.png" alt="Company 5" />
-          <img src="assets/images/hero6.png" alt="Company 6" />
+          <img src="/assets/images/hero1.png" alt="Company 1" />
+          <img src="/assets/images/hero2.png" alt="Company 2" />
+          <img src="/assets/images/hero4.png" alt="Company 4" />
+          <img src="/assets/images/hero5.png" alt="Company 5" />
+          <img src="/assets/images/hero6.png" alt="Company 6" />
         </div>
       </div>
     </div>
     <!-- Our Team -->
-    <section id="our-team" class="flex flex-col items-center gap-16 mb-[107px]">
+    <section
+      id="our-team"
+      class="padding-inline flex flex-col items-center gap-16 py-12 md:py-20"
+    >
       <div class="flex flex-col items-center justify-center gap-1">
         <div class="flex items-center gap-4">
           <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
@@ -446,10 +484,14 @@
         </p>
       </div>
       <div
-        class="padding-inline background-color w-full flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16"
+        class="padding-inline background-color w-full flex flex-col lg:flex-row items-center justify-center gap-10 md:gap-16"
       >
         <div class="flex flex-col items-start gap-8 mb-10 md:mb-12">
-          <img src="assets/images/team3.png" />
+          <img
+            src="/assets/images/team3.png"
+            class="w-full max-w-[400px] h-auto object-cover rounded-2xl"
+            loading="lazy"
+          />
           <div class="flex flex-col gap-1 w-30 md:w-48">
             <p
               class="text-white md:text-[#014B98] font-semibold text-[24px] md:text-[28px] text-nowrap"
@@ -466,24 +508,30 @@
     <!-- End Our Team -->
 
     <!-- Map -->
-
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d198.884231907672!2d3.3416923930056064!3d7.146135675437602!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103a4bbbe9f75657%3A0xc628ec480d6ebbb1!2sPOWER%20FROM%20THE%20OTHER%20SIDE!5e1!3m2!1sen!2sng!4v1741081612484!5m2!1sen!2sng"
-      width="100%"
-      height="400"
-      style="border: 0"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+    <section class="max-w-[1440px] mx-auto overflow-hidden">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d198.884231907672!2d3.3416923930056064!3d7.146135675437602!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103a4bbbe9f75657%3A0xc628ec480d6ebbb1!2sPOWER%20FROM%20THE%20OTHER%20SIDE!5e1!3m2!1sen!2sng!4v1741081612484!5m2!1sen!2sng"
+        width="100%"
+        height="400"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
     <!-- End Map -->
 
     <!-- Footer -->
     <footer
       id="contact"
-      class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8"
+      class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8 max-w-[1440px] mx-auto"
     >
-      <img src="assets/images/logo.png" class="w-24 md:w-32" alt="" />
+      <img
+        src="/assets/images/logo.png"
+        class="w-24 md:w-32"
+        alt="PFOS Solar Logo"
+        loading="lazy"
+      />
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div class="text-white gap-5 flex flex-col">
           <div class="flex flex-col gap-4">
@@ -519,7 +567,11 @@
           <h4 class="font-semibold text-lg md:text-xl text-white">
             Send Quick Message
           </h4>
-          <form id="quickMessageForm" method="post" class="flex flex-col gap-3">
+          <form
+            id="quickMessageFormFooter"
+            method="post"
+            class="flex flex-col gap-3"
+          >
             <div class="flex flex-col md:flex-row gap-3">
               <div class="mb-4">
                 <input
@@ -566,7 +618,7 @@
     <!-- End Footer -->
 
     <section
-      class="bg-[#011B36] w-full py-8 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between md:justify-between gap-4 text-white text-xs md:text-sm"
+      class="bg-[#011B36] w-full py-8 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between md:justify-between gap-4 text-white text-xs md:text-sm max-w-[1440px] mx-auto"
     >
       <p>PFDOS Enterprise RC: 3334515 © 2020. All Rights Reserved.</p>
       <a href="/terms.html" class="underline hover:text-orange transition"
@@ -588,6 +640,6 @@
       }).mount();
     </script>
 
-    <script type="module" src="assets/js/script.js"></script>
+    <script type="module" src="/assets/js/script.js"></script>
   </body>
 </html>

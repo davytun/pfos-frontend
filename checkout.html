@@ -1,15 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./assets/css/input.css" rel="stylesheet" />
-    <link href="./assets/css/output.css" rel="stylesheet" />
+    <link href="/assets/css/input.css" rel="stylesheet" />
+    <link href="/assets/css/output.css" rel="stylesheet" />
     <link
       href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
     <title>Checkout - SOLAR PRODUCT SALES</title>
+    <meta
+      name="description"
+      content="Complete your order with PFOS Solar. Secure checkout for high-quality solar panels, inverters, and battery systems."
+    />
     <style>
       /* Custom scrollbar for cart items (optional) */
       #cart-items::-webkit-scrollbar {
@@ -56,12 +60,14 @@
     </style>
   </head>
 
-  <body class="max-w-[1280px] mx-auto bg-[#002347] text-gray-200 font-sans">
+  <body
+    class="max-w-[1440px] mx-auto bg-[#002347] text-gray-200 font-sans shadow-2xl"
+  >
     <header
-      class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
+      class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full max-w-[1440px] mx-auto bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
     >
       <a href="/">
-        <img src="./assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
+        <img src="/assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
       </a>
 
       <!-- Hamburger menu button -->
@@ -97,7 +103,7 @@
             <a href="/about.html" class="text-[12px] font-normal">About us</a>
           </li>
           <li>
-            <a href="#service" class="text-[12px] font-normal">Service</a>
+            <a href="/services/" class="text-[12px] font-normal">Service</a>
           </li>
           <li>
             <a href="#contact" class="text-[12px] font-normal">Contact</a>
@@ -131,7 +137,7 @@
           <li>
             <a href="/about.html" class="text-lg font-medium">About us</a>
           </li>
-          <li><a href="#service" class="text-lg font-medium">Service</a></li>
+          <li><a href="/services/" class="text-lg font-medium">Service</a></li>
           <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
           <li>
             <a
@@ -156,7 +162,9 @@
       </nav>
     </header>
 
-    <section class="padding-inline py-12 md:py-16 min-h-[60vh]">
+    <section
+      class="padding-inline py-12 md:py-16 min-h-[60vh] max-w-[1440px] mx-auto"
+    >
       <h2 class="text-white text-3xl lg:text-4xl font-bold mb-10 text-center">
         Checkout
       </h2>
@@ -319,10 +327,10 @@
 
     <footer
       id="contact"
-      class="padding-inline flex flex-col gap-8 md:gap-12 pt-16 mb-8 mt-12 border-t border-blue-900"
+      class="padding-inline flex flex-col gap-8 md:gap-12 pt-16 mb-8 mt-12 border-t border-blue-900 max-w-[1440px] mx-auto"
     >
       <img
-        src="./assets/images/logo.png"
+        src="/assets/images/logo.png"
         class="w-24 md:w-32"
         alt="PFOS Logo Footer"
       />
@@ -405,7 +413,7 @@
       </div>
     </footer>
     <section
-      class="bg-[#011B36] w-full py-6 padding-inline flex justify-center md:justify-end mt-8"
+      class="bg-[#011B36] w-full py-6 padding-inline flex justify-center md:justify-end mt-8 max-w-[1440px] mx-auto"
     >
       <p class="text-gray-400 text-xs md:text-sm">
         PFDOS Enterprise RC: 3334515 © 2024. All Rights Reserved
@@ -417,7 +425,7 @@
       class="fixed top-5 right-5 px-5 py-3 rounded-lg shadow-xl hidden z-[10000] text-sm font-medium"
     ></div>
 
-    <script type="module" src="./assets/js/script.js"></script>
+    <script type="module" src="/assets/js/script.js"></script>
     <script type="module">
       import { injectSpeedInsights } from "https://esm.sh/@vercel/speed-insights";
       injectSpeedInsights();
@@ -478,7 +486,7 @@
         const cart = getCart();
         const totalItems = cart.reduce(
           (sum, item) => sum + (item.quantity || 1),
-          0
+          0,
         );
         if (headerCartCountElement)
           headerCartCountElement.textContent = totalItems;
@@ -488,7 +496,6 @@
 
       // Display Read-Only Cart Summary
       function displayCheckoutSummary() {
-        console.log("Displaying checkout summary...");
         if (
           !cartItemsDiv ||
           !totalPriceElement ||
@@ -530,8 +537,8 @@
               itemElement.innerHTML = `
                     <div class="flex items-center gap-3 flex-grow min-w-0">
                         <img src="${imageUrl}" alt="${
-                item.name
-              }" class="w-12 h-12 object-contain rounded-md bg-white p-px flex-shrink-0" onerror="this.onerror=null; this.src='${placeholderImage}'">
+                          item.name
+                        }" class="w-12 h-12 object-contain rounded-md bg-white p-px flex-shrink-0" onerror="this.onerror=null; this.src='${placeholderImage}'">
                         <div class="flex-grow min-w-0">
                             <p class="text-sm font-medium truncate text-gray-100" title="${
                               item.name
@@ -542,7 +549,7 @@
                         </div>
                     </div>
                     <p class="text-sm font-medium whitespace-nowrap text-gray-100 flex-shrink-0">${formatPrice(
-                      itemTotal
+                      itemTotal,
                     )}</p>
                 `;
               cartItemsDiv.appendChild(itemElement);
@@ -555,7 +562,7 @@
           shippingPriceElement.textContent =
             shippingCost === 0 ? "FREE" : formatPrice(shippingCost);
           totalPriceElement.textContent = formatPrice(
-            currentSubtotal + shippingCost
+            currentSubtotal + shippingCost,
           );
         } catch (e) {
           console.error("Error displaying checkout summary:", e);
@@ -583,7 +590,7 @@
         if (!phoneRegex.test(phone)) {
           showNotification(
             "Please enter a valid Nigerian phone number (e.g., 080..., +234...).",
-            "error"
+            "error",
           );
           return false;
         }
@@ -592,7 +599,6 @@
 
       // --- Order Submission ---
       async function submitOrder(orderData) {
-        console.log("Submitting order...", orderData);
         if (loadingOverlay) loadingOverlay.classList.remove("hidden");
         if (placeOrderButton) placeOrderButton.disabled = true;
 
@@ -605,7 +611,6 @@
             body: JSON.stringify(orderData),
           });
           const responseText = await response.text();
-          console.log("Order API Raw Response:", responseText);
           let result;
           try {
             result = JSON.parse(responseText);
@@ -614,8 +619,8 @@
               throw new Error(
                 `Server error (${response.status}): ${responseText.substring(
                   0,
-                  150
-                )}`
+                  150,
+                )}`,
               );
             } else {
               console.warn("Response OK but not valid JSON:", responseText);
@@ -624,12 +629,11 @@
               };
             }
           }
-          console.log("Parsed server response:", result);
 
           if (response.ok) {
             showNotification(
               result.message || "Order placed successfully!",
-              "success"
+              "success",
             );
             localStorage.removeItem("cart"); // Clear cart
             updateHeaderCartCount();
@@ -647,7 +651,7 @@
             throw new Error(
               result.error ||
                 result.message ||
-                `Failed to place order (${response.status})`
+                `Failed to place order (${response.status})`,
             );
           }
         } catch (error) {
@@ -659,50 +663,16 @@
         }
       }
 
-      // --- Mobile Menu Toggle ---
-      function openMobileMenu() {
-        if (mobileMenu) {
-          mobileMenu.classList.remove("hidden");
-          requestAnimationFrame(() => {
-            mobileMenu.classList.remove("-translate-x-full");
-          });
-        }
-      }
-
-      function closeMobileMenu() {
-        if (mobileMenu) {
-          mobileMenu.classList.add("-translate-x-full");
-          mobileMenu.addEventListener(
-            "transitionend",
-            () => {
-              mobileMenu.classList.add("hidden");
-            },
-            {
-              once: true,
-            }
-          );
-        }
-      }
-      if (menuToggle && mobileMenu)
-        menuToggle.addEventListener("click", openMobileMenu);
-      if (closeMenuButton && mobileMenu)
-        closeMenuButton.addEventListener("click", closeMobileMenu);
-
-      // --- Initialization ---
+      // Initialization
       window.addEventListener("load", () => {
-        console.log("Checkout page loaded.");
         const cart = getCart();
         if (cart.length === 0) {
-          console.log("Cart is empty, redirecting to cart page.");
-          showNotification("Your cart is empty. Redirecting...", "info");
-          setTimeout(() => {
-            window.location.href = "/cart.html";
-          }, 1500); // Redirect to cart page if empty
+          window.location.href = "/cart.html";
           return;
         }
         updateHeaderCartCount();
-        displayCheckoutSummary(); // Display the cart summary
-        if (loadingOverlay) loadingOverlay.classList.add("hidden"); // Ensure loader is hidden initially
+        displayCheckoutSummary();
+        if (loadingOverlay) loadingOverlay.classList.add("hidden");
       });
 
       // --- Event Listeners ---

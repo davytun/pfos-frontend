@@ -3,8 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="assets/css/output.css" rel="stylesheet" />
-    <link href="assets/css/input.css" rel="stylesheet" />
+    <title>
+      Power From The Other Side (PFOS) - Sustainable Solar Energy Solutions in
+      Nigeria
+    </title>
+    <meta
+      name="description"
+      content="PFOS Solar provides high-quality solar panel installations, solar products, and professional training in Abeokuta and across Nigeria. Transition to sustainable energy today."
+    />
+    <link href="/assets/css/output.css" rel="stylesheet" />
+    <link href="/assets/css/input.css" rel="stylesheet" />
+    <link rel="prefetch" href="/about.html" />
+    <link rel="prefetch" href="/services/" />
 
     <link
       rel="stylesheet"
@@ -35,7 +45,7 @@
 
       @media screen and (max-width: 768px) {
         .hero-section {
-          background-image: url("assets/images/HEROSECTION.svg");
+          background-image: url("/assets/images/HEROSECTION.svg");
           background-size: cover;
           background-position: left 40% center !important;
           background-repeat: no-repeat;
@@ -345,13 +355,13 @@
     <title>Solar</title>
   </head>
 
-  <body class="max-w-[1280px] mx-auto">
+  <body class="max-w-[1440px] mx-auto overflow-x-hidden bg-[#002347]">
     <!-- Start Header -->
     <header
-      class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
+      class="z-50 top-0 sticky padding-inline flex items-center py-3 justify-between w-full max-w-[1440px] mx-auto bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
     >
       <a href="/">
-        <img src="assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
+        <img src="/assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
       </a>
 
       <!-- Hamburger menu button -->
@@ -379,7 +389,7 @@
 
       <!-- Desktop Menu -->
       <nav id="menu" class="hidden md:flex">
-        <ul class="text-white flex flex-row gap-8">
+        <ul class="text-white flex flex-row gap-4 lg:gap-8 items-center">
           <li>
             <a href="/" class="text-orange text-sm font-normal">Home</a>
           </li>
@@ -387,10 +397,12 @@
             <a href="/about.html" class="text-[12px] font-normal">About us</a>
           </li>
           <li>
-            <a href="/services.html" class="text-[12px] font-normal">Service</a>
+            <a href="/services/" class="text-[12px] font-normal">Service</a>
           </li>
           <li>
-            <a href="#contact" class="text-[12px] font-normal">Contact</a>
+            <a href="#contact" class="text-[12px] font-normal whitespace-nowrap"
+              >Contact</a
+            >
           </li>
           <li>
             <a href="#" class="text-[12px] font-normal"
@@ -422,7 +434,7 @@
             <a href="/about.html" class="text-lg font-medium">About us</a>
           </li>
           <li>
-            <a href="/services.html" class="text-lg font-medium">Service</a>
+            <a href="/services/" class="text-lg font-medium">Service</a>
           </li>
           <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
           <li
@@ -444,11 +456,11 @@
 
     <!-- Hero Section -->
     <main
-      class="hero-section padding-inline py-10"
+      class="hero-section padding-inline py-10 max-w-[1440px] mx-auto"
       style="
-        background-image: url(&quot;assets/images/HEROSECTION.svg&quot;);
+        background-image: url(&quot;/assets/images/HEROSECTION.svg&quot;);
         background-size: cover;
-        background-position: left -1px center;
+        background-position: center;
         background-repeat: no-repeat;
       "
     >
@@ -464,17 +476,21 @@
             </span>
           </div>
           <div class="text-white flex flex-col gap-1">
-            <h2 class="text-[58px] md:text-[64px] font-bold">
+            <h1
+              class="text-[32px] sm:text-[48px] md:text-[58px] lg:text-[64px] font-bold leading-tight"
+            >
               Power with Solar
-            </h2>
-            <h4 class="text-[36px] md:text-[48px] font-bold">
+            </h1>
+            <h4
+              class="text-[20px] sm:text-[28px] md:text-[36px] lg:text-[48px] font-bold leading-tight"
+            >
               Best Electricity Source.
             </h4>
           </div>
 
           <!-- Ensure text animation aligns properly -->
           <div
-            class="relative h-[60px] md:h-[82px] overflow-hidden text-[36px] md:text-[48px] font-bold text-white flex items-center justify-center"
+            class="relative h-[48px] sm:h-[60px] md:h-[82px] overflow-hidden text-[24px] sm:text-[36px] md:text-[48px] font-bold text-white flex items-center justify-start"
           >
             <div class="text-container">
               <div class="text-slide">Clean Energy</div>
@@ -488,7 +504,7 @@
             Say goodbye to noise, fumes, and rising fuel costs—embrace reliable,
             eco-friendly solar solutions today!
           </p>
-          <a href="/services.html">
+          <a href="/services/">
             <button
               class="bg-orange hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-[14px] md:text-[16px] mt-5 font-bold text-blue w-32 h-10 md:w-44 md:h-12 rounded-md flex items-center justify-center gap-2 px-5"
             >
@@ -500,24 +516,27 @@
 
         <!-- hero right -->
         <div class="hidden md:block">
-          <img src="assets/images/bulb.png" alt="" />
+          <img
+            src="/assets/images/bulb.png"
+            alt="Illuminated light bulb representing energy"
+          />
         </div>
         <!-- end hero right -->
       </div>
 
       <div class="logo-slider">
         <div class="logo-track">
-          <img src="assets/images/hero1.png" alt="Company 1" />
-          <img src="assets/images/hero2.png" alt="Company 2" />
-          <img src="assets/images/hero4.png" alt="Company 4" />
-          <img src="assets/images/hero5.png" alt="Company 5" />
-          <img src="assets/images/hero6.png" alt="Company 6" />
+          <img src="/assets/images/hero1.png" alt="Company 1" />
+          <img src="/assets/images/hero2.png" alt="Company 2" />
+          <img src="/assets/images/hero4.png" alt="Company 4" />
+          <img src="/assets/images/hero5.png" alt="Company 5" />
+          <img src="/assets/images/hero6.png" alt="Company 6" />
           <!-- Duplicate logos to create seamless effect -->
-          <img src="assets/images/hero1.png" alt="Company 1" />
-          <img src="assets/images/hero2.png" alt="Company 2" />
-          <img src="assets/images/hero4.png" alt="Company 4" />
-          <img src="assets/images/hero5.png" alt="Company 5" />
-          <img src="assets/images/hero6.png" alt="Company 6" />
+          <img src="/assets/images/hero1.png" alt="Company 1" />
+          <img src="/assets/images/hero2.png" alt="Company 2" />
+          <img src="/assets/images/hero4.png" alt="Company 4" />
+          <img src="/assets/images/hero5.png" alt="Company 5" />
+          <img src="/assets/images/hero6.png" alt="Company 6" />
         </div>
       </div>
 
@@ -528,34 +547,38 @@
         free-mode="true"
       >
         <swiper-slide>
-          <img src="assets/images/hero1.png" alt="" />
+          <img src="/assets/images/hero1.png" alt="" />
         </swiper-slide>
         <swiper-slide>
-          <img src="assets/images/hero2.png" alt="" />
+          <img src="/assets/images/hero2.png" alt="" />
         </swiper-slide>
         <swiper-slide>
-          <img src="assets/images/hero3.png" alt="" />
+          <img src="/assets/images/hero3.png" alt="" />
         </swiper-slide>
         <swiper-slide>
-          <img src="assets/images/hero4.png" alt="" />
+          <img src="/assets/images/hero4.png" alt="" />
         </swiper-slide>
         <swiper-slide>
-          <img src="assets/images/hero5.png" alt="" />
+          <img src="/assets/images/hero5.png" alt="" />
         </swiper-slide>
         <swiper-slide>
-          <img src="assets/images/hero6.png" alt="" />
+          <img src="/assets/images/hero6.png" alt="" />
         </swiper-slide>
       </swiper-container> -->
     </main>
     <!--End Hero Section -->
 
     <!-- About Section -->
-    <section class="mt-10 padding-inline">
+    <section class="mt-10 padding-inline max-w-[1440px] mx-auto">
       <div
-        class="flex gap-10 items-center flex-col md:items-stretch md:flex-row"
+        class="flex gap-10 items-center flex-col lg:items-stretch lg:flex-row"
       >
         <!-- about left -->
-        <img src="assets/images/about.png" alt="" class="w-[570px] h-full" />
+        <img
+          src="/assets/images/about.png"
+          alt="PFOS Solar team members at work"
+          class="w-full max-w-[500px] h-auto object-cover rounded-2xl"
+        />
         <!-- about left -->
         <div class="text-white flex flex-col justify-center py-3 gap-6">
           <div class="flex items-center gap-6">
@@ -595,24 +618,50 @@
               installation to our able Nigerian youths.
             </li>
           </ul>
-          <div class="gap-5 hidden md:flex">
-            <div class="flex gap-2">
-              <p class="text-[30.34px] md:text-[2rem]">4+</p>
-              <p class="text-[14px] md:text-[16.63px]">
-                Years of <br />
+          <div class="grid grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
+            <div
+              class="flex flex-col sm:flex-row gap-2 items-start sm:items-center"
+            >
+              <p
+                class="text-[24px] sm:text-[30.34px] md:text-[2rem] font-bold text-orange"
+              >
+                4+
+              </p>
+              <p
+                class="text-[12px] sm:text-[14px] md:text-[16.63px] leading-tight"
+              >
+                Years of <br class="hidden sm:block" />
                 Experience
               </p>
             </div>
-            <div class="flex gap-2">
-              <p class="text-[30.34px] md:text-[2rem]">100+</p>
-              <p class="text-[14px] md:text-[16.63px]">
-                Complete <br />Projects
+            <div
+              class="flex flex-col sm:flex-row gap-2 items-start sm:items-center"
+            >
+              <p
+                class="text-[24px] sm:text-[30.34px] md:text-[2rem] font-bold text-orange"
+              >
+                100+
+              </p>
+              <p
+                class="text-[12px] sm:text-[14px] md:text-[16.63px] leading-tight"
+              >
+                Complete <br class="hidden sm:block" />
+                Projects
               </p>
             </div>
-            <div class="flex gap-2">
-              <p class="text-[30.34px] md:text-[2rem]">1000+</p>
-              <p class="text-[14px] md:text-[16.63px]">
-                Happy <br />Beneficiaries
+            <div
+              class="flex flex-col sm:flex-row gap-2 items-start sm:items-center"
+            >
+              <p
+                class="text-[24px] sm:text-[30.34px] md:text-[2rem] font-bold text-orange"
+              >
+                1000+
+              </p>
+              <p
+                class="text-[12px] sm:text-[14px] md:text-[16.63px] leading-tight"
+              >
+                Happy <br class="hidden sm:block" />
+                Beneficiaries
               </p>
             </div>
           </div>
@@ -633,10 +682,10 @@
 
     <!-- Successful Solar Installations Section -->
     <section
-      class="relative bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-16 px-4 sm:px-8"
+      class="relative bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-12 md:py-20 padding-inline max-w-[1440px] mx-auto"
     >
       <div class="max-w-5xl mx-auto text-center">
-        <h2 class="text-5xl font-extrabold mb-4">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
           <span id="counter" class="text-orange">0</span>+ Successful Solar
           Installations
         </h2>
@@ -712,8 +761,10 @@
     <!-- End Successful Solar Installations Section -->
 
     <!-- Solar Installation Packages Section -->
-    <section class="py-16 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      class="py-12 md:py-20 padding-inline bg-[#f3f4f6] max-w-[1440px] mx-auto"
+    >
+      <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
           <h2 class="text-4xl font-bold text-gray-900">
             Our Solar Installation Packages
@@ -755,7 +806,9 @@
     <!-- End Solar Installation Packages -->
 
     <!-- OUR STRENGTH -->
-    <section class="my-10 padding-inline flex flex-col gap-9">
+    <section
+      class="py-12 md:py-20 padding-inline flex flex-col gap-9 max-w-[1440px] mx-auto"
+    >
       <div class="flex items-center gap-6">
         <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
         <span class="font-normal text-white text-sm md:text-xl"
@@ -763,7 +816,7 @@
         >
       </div>
       <div
-        class="grid gap-2 px-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        class="grid gap-6 sm:gap-4 px-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
       >
         <div class="flex flex-col gap-3">
           <h4 class="text-orange font-bold text-[18px] md:text-[28px]">
@@ -806,7 +859,10 @@
     <!-- End OUR STRENGTH -->
 
     <!-- Our Service -->
-    <section id="service" class="my-10 padding-inline flex flex-col gap-16">
+    <section
+      id="service"
+      class="py-12 md:py-20 padding-inline flex flex-col gap-16 max-w-[1440px] mx-auto"
+    >
       <div class="flex flex-col items-center justify-center gap-2">
         <div class="flex items-center gap-4">
           <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
@@ -823,17 +879,17 @@
       <!-- our service child -->
       <div class="flex flex-col items-center gap-1">
         <hr class="w-full border-t border-[#B0CFEF]" />
-        <div class="flex flex-col md:flex-row items-center gap-6">
+        <div class="flex flex-col lg:flex-row items-center gap-6">
           <img
-            src="assets/images/projects3.png"
-            class="w-[400px] md:w-[500px]"
+            src="/assets/images/projects3.png"
+            class="w-full max-w-[500px]"
             alt=""
           />
           <div>
             <div class="flex gap-4 flex-row items-center">
-              <h1 class="text-[100px] font-bold text-transparent stroke-text">
+              <span class="text-[100px] font-bold text-transparent stroke-text">
                 01
-              </h1>
+              </span>
 
               <div>
                 <p
@@ -870,12 +926,12 @@
       <!-- our service child -->
       <div class="flex flex-col items-center gap-1">
         <hr class="w-full border-t border-[#B0CFEF]" />
-        <div class="flex flex-col-reverse md:flex-row items-center gap-6">
+        <div class="flex flex-col-reverse lg:flex-row items-center gap-6">
           <div>
             <div class="flex gap-4 flex-row items-center">
-              <h1 class="text-[100px] font-bold text-transparent stroke-text">
+              <span class="text-[100px] font-bold text-transparent stroke-text">
                 02
-              </h1>
+              </span>
               <div>
                 <p
                   class="font-normal text-[16px] md:text-[20px] leading-[24px] md:leading-[24px] text-white"
@@ -906,8 +962,8 @@
             >
           </div>
           <img
-            src="assets/images/projects4.png"
-            class="w-[400px] md:w-[500px]"
+            src="/assets/images/projects4.png"
+            class="w-full max-w-[500px]"
             alt=""
           />
         </div>
@@ -919,17 +975,17 @@
       <div class="flex flex-col items-center gap-1">
         <hr class="w-full border-t border-[#B0CFEF]" />
 
-        <div class="flex flex-col md:flex-row items-center gap-6">
+        <div class="flex flex-col lg:flex-row items-center gap-6">
           <img
-            src="assets/images/our_service3.png"
-            class="w-[400px] md:w-[500px]"
+            src="/assets/images/our_service3.png"
+            class="w-full max-w-[500px]"
             alt=""
           />
           <div>
             <div class="flex gap-4 flex-row items-center">
-              <h1 class="text-[100px] font-bold text-transparent stroke-text">
+              <span class="text-[100px] font-bold text-transparent stroke-text">
                 03
-              </h1>
+              </span>
               <div>
                 <p
                   class="font-normal text-[16px] md:text-[20px] leading-[24px] md:leading-[24px] text-white"
@@ -968,12 +1024,12 @@
       <!-- our service child -->
       <div class="flex flex-col items-center gap-1">
         <hr class="w-full border-t border-[#B0CFEF]" />
-        <div class="flex flex-col-reverse md:flex-row items-center gap-6">
+        <div class="flex flex-col-reverse lg:flex-row items-center gap-6">
           <div>
             <div class="flex gap-4 flex-row items-center">
-              <h1 class="text-[100px] font-bold text-transparent stroke-text">
+              <span class="text-[100px] font-bold text-transparent stroke-text">
                 04
-              </h1>
+              </span>
               <div>
                 <p
                   class="font-normal text-[16px] md:text-[20px] leading-[24px] md:leading-[24px] text-white"
@@ -1005,8 +1061,8 @@
           </div>
 
           <img
-            src="assets/images/our_service4.png"
-            class="w-[400px] md:w-[500px]"
+            src="/assets/images/our_service4.png"
+            class="w-full max-w-[500px]"
             alt=""
           />
         </div>
@@ -1018,7 +1074,7 @@
 
     <!-- Our Projects -->
     <section
-      class="bg-[#E4E9F0] top-10 flex flex-col gap-10 pt-5 px-20"
+      class="bg-[#E4E9F0] py-12 md:py-20 padding-inline flex flex-col gap-10 max-w-[1440px] mx-auto"
       style="border-top: 0.3px solid #ffffff"
     >
       <div class="text-blue text-center flex flex-col gap-1">
@@ -1039,7 +1095,9 @@
     <!-- Our Projects -->
 
     <!-- Testimonials -->
-    <section class="padding-inline flex flex-col items-center gap-16 py-8">
+    <section
+      class="padding-inline flex flex-col items-center gap-16 py-12 md:py-20 max-w-[1440px] mx-auto"
+    >
       <div class="flex flex-col items-center justify-center gap-1">
         <div class="flex items-center gap-4">
           <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
@@ -1076,7 +1134,7 @@
     <!-- End Testimonials -->
 
     <!-- Indemnity Clause on Solar Installation -->
-    <section class="mt-20 px-4 sm:px-6 lg:px-8">
+    <section class="py-12 md:py-20 padding-inline max-w-[1440px] mx-auto">
       <div
         class="max-w-5xl mx-auto bg-gradient-to-br from-yellow-50 to-white border-l-4 border-yellow-400 shadow-lg rounded-xl p-6 sm:p-10"
       >
@@ -1129,7 +1187,10 @@
     <!-- End Indemnity Clause on Solar Installation -->
 
     <!-- Our Team -->
-    <section class="flex flex-col items-center gap-16 pt-10">
+    <section
+      id="our-team"
+      class="flex flex-col items-center gap-16 py-12 md:py-20 padding-inline max-w-[1440px] mx-auto"
+    >
       <div class="flex flex-col items-center justify-center gap-1">
         <div class="flex items-center gap-4">
           <p class="bg-orange h-[2px] w-[70px] md:w-[90px]"></p>
@@ -1149,10 +1210,14 @@
         </p>
       </div>
       <div
-        class="padding-inline background-color w-full flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16"
+        class="background-color w-full flex flex-col lg:flex-row items-center justify-center gap-10 md:gap-16"
       >
         <div class="flex flex-col items-start gap-8 mb-10 md:mb-12">
-          <img src="assets/images/team3.png" />
+          <img
+            src="/assets/images/team3.png"
+            class="w-full max-w-[400px] h-auto object-cover rounded-2xl"
+            loading="lazy"
+          />
           <div class="flex flex-col gap-1 w-30 md:w-48">
             <p
               class="text-white md:text-[#014B98] font-semibold text-[24px] md:text-[28px]"
@@ -1171,7 +1236,7 @@
     <!-- CONTACT US -->
     <section
       id="contact"
-      class="padding-inline py-40 flex flex-col md:flex-row gap-24"
+      class="padding-inline py-12 md:py-20 flex flex-col md:flex-row gap-24 max-w-[1440px] mx-auto"
     >
       <div class="flex flex-col gap-5 md:w-[50%]">
         <div class="flex items-center gap-6">
@@ -1216,20 +1281,29 @@
     <!-- END CONTACT US -->
 
     <!-- Map -->
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d198.884231907672!2d3.3416923930056064!3d7.146135675437602!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103a4bbbe9f75657%3A0xc628ec480d6ebbb1!2sPOWER%20FROM%20THE%20OTHER%20SIDE!5e1!3m2!1sen!2sng!4v1741081612484!5m2!1sen!2sng"
-      width="100%"
-      height="400"
-      style="border: 0"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+    <section class="max-w-[1440px] mx-auto overflow-hidden">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d198.884231907672!2d3.3416923930056064!3d7.146135675437602!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103a4bbbe9f75657%3A0xc628ec480d6ebbb1!2sPOWER%20FROM%20THE%20OTHER%20SIDE!5e1!3m2!1sen!2sng!4v1741081612484!5m2!1sen!2sng"
+        width="100%"
+        height="400"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
     <!-- End Map -->
 
     <!-- Footer -->
-    <footer class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8">
-      <img src="assets/images/logo.png" class="w-24 md:w-32" alt="" />
+    <footer
+      class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8 max-w-[1440px] mx-auto"
+    >
+      <img
+        src="/assets/images/logo.png"
+        class="w-24 md:w-32"
+        alt="PFOS Solar Logo"
+        loading="lazy"
+      />
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div class="text-white gap-5 flex flex-col">
           <div class="flex flex-col gap-4">
@@ -1265,7 +1339,11 @@
           <h4 class="font-semibold text-lg md:text-xl text-white">
             Send Quick Message
           </h4>
-          <form action="" id="quickMessageForm" class="flex flex-col gap-3">
+          <form
+            action=""
+            id="quickMessageFormFooter"
+            class="flex flex-col gap-3"
+          >
             <div class="flex flex-col md:flex-row gap-3">
               <div class="mb-4">
                 <input
@@ -1310,7 +1388,7 @@
     <!-- End Footer -->
 
     <section
-      class="bg-[#011B36] w-full py-8 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between md:justify-between gap-4 text-white text-xs md:text-sm"
+      class="bg-[#011B36] w-full py-8 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between md:justify-between gap-4 text-white text-xs md:text-sm max-w-[1440px] mx-auto"
     >
       <p>PFDOS Enterprise RC: 3334515 © 2020. All Rights Reserved.</p>
       <a href="/terms.html" class="underline hover:text-orange transition"
@@ -1319,7 +1397,7 @@
     </section>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="assets/typed.js/typed.umd.js"></script>
+    <script src="/assets/typed.js/typed.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script type="module">
       import swiper from "https://cdn.jsdelivr.net/npm/swiper@11.2.0/+esm";
@@ -1377,7 +1455,7 @@
       }
 
       // Load packages from JSON file
-      fetch("assets/js/installation-packages.json")
+      fetch("/assets/js/installation-packages.json")
         .then((res) => res.json())
         .then((data) => {
           allPackages = data;
@@ -1405,7 +1483,7 @@
 
     <script>
       // Load projects data from JSON and initialize Splide 1
-      fetch("assets/js/projects-data.json")
+      fetch("/assets/js/projects-data.json")
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -1444,6 +1522,10 @@
             drag: false,
             gap: "1rem",
             breakpoints: {
+              1024: {
+                perPage: 2,
+                gap: "1rem",
+              },
               640: {
                 perPage: 1,
                 gap: "0.5rem",
@@ -1505,6 +1587,10 @@
             drag: false,
             gap: "1rem",
             breakpoints: {
+              1024: {
+                perPage: 2,
+                gap: "1rem",
+              },
               640: {
                 perPage: 1,
                 gap: "0.5rem",
@@ -1536,7 +1622,7 @@
         });
 
       document.addEventListener("DOMContentLoaded", function () {
-        fetch("assets/js/testimonials-data.json")
+        fetch("/assets/js/testimonials-data.json")
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -1692,6 +1778,6 @@
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script type="module" src="assets/js/script.js"></script>
+    <script type="module" src="/assets/js/script.js"></script>
   </body>
 </html>

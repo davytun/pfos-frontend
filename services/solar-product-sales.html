@@ -3,13 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../assets/css/output.css" rel="stylesheet" />
-    <link href="../assets/css/input.css" rel="stylesheet" />
+    <link href="/assets/css/output.css" rel="stylesheet" />
+    <link href="/assets/css/input.css" rel="stylesheet" />
     <link
       href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <title>SOLAR PRODUCT SALES - Services</title>
+    <title>Buy Affordable Solar Products - PFOS Solar Nigeria</title>
+    <meta
+      name="description"
+      content="Purchase high-quality solar panels, inverters, and complete solar kits directly from PFOS Solar. Secure payments and fast delivery across Nigeria."
+    />
     <style>
       #loading-container {
         min-height: 300px;
@@ -37,15 +41,15 @@
     </style>
   </head>
 
-  <body class="max-w-[1280px] mx-auto bg-[#002347]">
+  <body class="max-w-[1440px] mx-auto bg-[#002347] shadow-2xl">
     <header
-      class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
+      class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full max-w-[1440px] mx-auto bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
     >
       <a href="/">
         <img
-          src="./../assets/images/logo.png"
+          src="/assets/images/logo.png"
           class="w-[126px] h-12"
-          alt="logo"
+          alt="PFOS Solar Logo"
         />
       </a>
 
@@ -142,7 +146,7 @@
     </header>
 
     <main
-      class="padding-inline py-20 hero-section"
+      class="padding-inline py-20 hero-section max-w-[1440px] mx-auto"
       style="
         background-image: url(&quot;../assets/images/HEROSECTION.svg&quot;);
         background-size: cover;
@@ -151,7 +155,9 @@
       "
     >
       <div class="flex items-center justify-center flex-col gap-4">
-        <h1 class="text-white text-4xl md:text-[75px] font-bold text-center">
+        <h1
+          class="text-white text-4xl sm:text-5xl md:text-[75px] font-bold text-center"
+        >
           SERVICES
         </h1>
         <p
@@ -161,13 +167,15 @@
         </p>
       </div>
     </main>
-    <section class="mt-10 padding-inline pt-[58px] pb-[82px]">
+    <section
+      class="mt-10 padding-inline pt-[58px] pb-[82px] max-w-[1440px] mx-auto"
+    >
       <div
         class="flex gap-10 items-center flex-col md:items-stretch md:flex-row w-full"
       >
         <div class="md:w-[50%] flex justify-center items-center">
           <img
-            src="../assets/images/solor.png"
+            src="/assets/images/solor.png"
             alt="Solar Panel Setup"
             class="w-[300px] md:w-[500px] h-auto md:max-h-[372px] object-contain"
           />
@@ -276,10 +284,11 @@
 
     <footer
       id="contact"
-      class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8"
+      class="padding-inline flex flex-col gap-6 md:gap-12 pt-10 mb-8 max-w-[1440px] mx-auto"
     >
+      >
       <img
-        src="../assets/images/logo.png"
+        src="/assets/images/logo.png"
         class="w-24 md:w-32"
         alt="PFOS Logo Footer"
       />
@@ -318,7 +327,11 @@
           <h4 class="font-semibold text-lg md:text-xl text-white">
             Send Quick Message
           </h4>
-          <form id="quickMessageForm" method="post" class="flex flex-col gap-3">
+          <form
+            id="quickMessageFormFooter"
+            method="post"
+            class="flex flex-col gap-3"
+          >
             <div class="flex flex-col md:flex-row gap-3">
               <div class="mb-4 md:flex-1">
                 <input
@@ -362,7 +375,7 @@
       </div>
     </footer>
     <section
-      class="bg-[#011B36] w-full py-8 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between md:justify-between gap-4 text-white text-xs md:text-sm"
+      class="bg-[#011B36] w-full py-8 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between md:justify-between gap-4 text-white text-xs md:text-sm max-w-[1440px] mx-auto"
     >
       <p>PFDOS Enterprise RC: 3334515 © 2020. All Rights Reserved.</p>
       <a href="/terms.html" class="underline hover:text-orange transition"
@@ -428,10 +441,6 @@
       let currentPage = 1;
 
       async function fetchProducts(page = 1) {
-        console.log(
-          `[fetchProducts] FUNCTION HAS STARTED EXECUTION. Fetching page ${page}.`,
-        );
-
         // Check if critical elements exist RIGHT AWAY
         if (!loadingIndicator) {
           console.error(
@@ -477,7 +486,6 @@
           }
 
           const fetchUrl = `${API_BASE_URL}/api/products?page=${page}&limit=20`;
-          console.log(`[fetchProducts] Fetching URL: ${fetchUrl}`);
 
           const response = await fetch(fetchUrl, {
             cache: "no-store",
@@ -495,7 +503,6 @@
           }
 
           const responseData = await response.json();
-          console.log("[fetchProducts] Raw API response:", responseData);
 
           let products = [];
           let paginationData = null;
@@ -514,7 +521,6 @@
           }
 
           if (!products || !Array.isArray(products) || products.length === 0) {
-            console.log("[fetchProducts] No products found.");
             productContainer.innerHTML =
               "<p class='text-blue text-center col-span-full'>No products found at the moment.</p>";
             productContainer.classList.remove("hidden");
@@ -522,9 +528,6 @@
             return;
           }
 
-          console.log(
-            `[fetchProducts] Rendering ${products.length} products...`,
-          );
           let productHTML = "";
 
           products.forEach((product, index) => {
@@ -565,7 +568,7 @@
             productHTML += `
                 <div class="flex flex-col items-start bg-white p-4 rounded-lg shadow-md max-w-[340px] w-full">
                     <div class="w-full h-[200px] rounded-[10px] bg-gray-200 flex items-center justify-center overflow-hidden mb-3">
-                        <img src="${imageUrl}" alt="${displayName}" class="w-full h-full object-contain" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}'; console.log('Failed to load image: ${imageUrl}')"/>
+                        <img src="${imageUrl}" alt="${displayName}" class="w-full h-full object-contain" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}'; "/>
                     </div>
                     <h4 class="font-bold text-[20px] md:text-[22px] text-blue mt-1 mb-1 truncate w-full" title="${displayName}">${displayName}</h4>
                     <p class="text-sm text-gray-600 mb-2 line-clamp-2 w-full h-[40px]" title="${displayDescription}">${displayDescription}</p>
@@ -625,108 +628,6 @@
         container.parentNode.insertBefore(controls, container.nextSibling);
       }
 
-      // --- Cart Management ---
-      function addToCart(
-        productId,
-        productName,
-        productPrice,
-        productImage,
-        productDescription,
-      ) {
-        console.log(
-          `[addToCart] Called for: ${productName} (ID: ${productId})`,
-        );
-        const imageUrl =
-          productImage && typeof productImage === "string"
-            ? productImage
-            : placeholderImage;
-        const price = parseFloat(productPrice);
-        if (isNaN(price)) {
-          console.error("[addToCart] Invalid product price:", productPrice);
-          alert("Error: Product price is invalid.");
-          return;
-        }
-        const product = {
-          id: productId,
-          name: productName,
-          price: price,
-          image: imageUrl,
-          description: productDescription || "",
-          quantity: 1,
-        };
-
-        try {
-          console.log(
-            "[addToCart] Saving to selectedProduct:",
-            JSON.stringify(product, null, 2),
-          );
-          localStorage.setItem("selectedProduct", JSON.stringify(product));
-          // Optional: Update main cart (uncomment if needed)
-          /* let cart = JSON.parse(localStorage.getItem("cart")) || []; const existingIndex = cart.findIndex(item => item.id === productId); if (existingIndex > -1) { cart[existingIndex].quantity = (cart[existingIndex].quantity || 0) + 1; } else { cart.push(product); } localStorage.setItem("cart", JSON.stringify(cart)); updateCartCount(); */
-          console.log("[addToCart] Redirecting to product-details.html...");
-          window.location.href = "/product-details.html"; // Ensure path is correct
-        } catch (e) {
-          console.error(
-            "[addToCart] Error saving to localStorage or redirecting:",
-            e,
-          );
-          alert("An error occurred. Could not proceed to product details.");
-        }
-      } // End of addToCart
-
-      // --- Cart UI Update ---
-      function updateCartCount() {
-        console.log("[updateCartCount] Updating cart display...");
-        try {
-          const cart = JSON.parse(localStorage.getItem("cart")) || [];
-          const totalItems = cart.reduce(
-            (sum, item) => sum + (item.quantity || 1),
-            0,
-          );
-          if (headerCartCount) headerCartCount.textContent = totalItems;
-          if (floatingCartCount) floatingCartCount.textContent = totalItems;
-          if (cartPreview && cartTotalElement && checkoutButton) {
-            cartPreview.innerHTML = "";
-            let totalPrice = 0;
-            if (cart.length === 0) {
-              cartPreview.innerHTML =
-                "<p class='text-gray-400 text-sm'>Your cart is empty</p>";
-              checkoutButton.classList.add("opacity-50", "cursor-not-allowed");
-              checkoutButton.href = "#";
-            } else {
-              checkoutButton.classList.remove(
-                "opacity-50",
-                "cursor-not-allowed",
-              );
-              checkoutButton.href = "/cart.html"; // Ensure path is correct
-              cart.forEach((item) => {
-                if (!item || item.price == null || item.quantity == null)
-                  return;
-                const itemTotal = item.price * item.quantity;
-                totalPrice += itemTotal;
-                const imageUrl =
-                  item.image && typeof item.image === "string"
-                    ? item.image
-                    : placeholderImage;
-                cartPreview.innerHTML += `<div class="flex items-center gap-2 border-b border-gray-700 pb-1 mb-1 last:border-b-0 last:pb-0 last:mb-0"><img src="${imageUrl}" alt="${
-                  item.name || "Product"
-                }" class="w-8 h-8 object-contain rounded bg-white p-px flex-shrink-0" loading="lazy" onerror="this.onerror=null; this.src='${placeholderImage}'" /><div class="flex-1 overflow-hidden mr-2"><p class="text-white text-sm truncate" title="${
-                  item.name || "Unnamed Product"
-                }">${
-                  item.name || "Unnamed Product"
-                }</p><p class="text-gray-400 text-xs">Qty: ${
-                  item.quantity
-                }</p></div><p class="text-[#FBB610] text-sm whitespace-nowrap font-medium">₦${itemTotal.toLocaleString()}</p></div>`;
-              });
-            }
-            cartTotalElement.textContent = `₦${totalPrice.toLocaleString()}`;
-          }
-          console.log("[updateCartCount] Cart display update finished.");
-        } catch (e) {
-          console.error("[updateCartCount] Error updating cart display:", e);
-        }
-      } // End of updateCartCount
-
       // --- Floating Cart Toggle ---
       const cartToggleButton = document.getElementById("cart-toggle");
       const cartDropdown = document.getElementById("cart-dropdown");
@@ -734,8 +635,8 @@
         cartToggleButton.addEventListener("click", (event) => {
           event.stopPropagation();
           const isHidden = cartDropdown.classList.toggle("hidden");
-          if (!isHidden) {
-            updateCartCount();
+          if (!isHidden && window.updateCartCount) {
+            window.updateCartCount();
           }
         });
         document.addEventListener("click", (event) => {
@@ -751,30 +652,10 @@
 
       // --- Initial Setup ---
       document.addEventListener("DOMContentLoaded", () => {
-        console.log(
-          "[DOMContentLoaded] DOM fully loaded. Calling fetchProducts and initial updateCartCount.",
-        );
         fetchProducts(); // Fetch products on page load
         updateCartCount(); // Also update cart display initially
       });
     </script>
-    <script>
-      const menuToggle = document.getElementById("menu-toggle");
-      const mobileMenu = document.getElementById("menu-mobile");
-      const closeMenu = document.getElementById("close-menu");
-
-      menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        menuToggle.setAttribute(
-          "aria-expanded",
-          mobileMenu.classList.contains("hidden") ? "false" : "true",
-        );
-      });
-
-      closeMenu.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-        menuToggle.setAttribute("aria-expanded", "false");
-      });
-    </script>
+    <script type="module" src="/assets/js/script.js"></script>
   </body>
 </html>

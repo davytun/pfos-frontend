@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./assets/css/input.css" rel="stylesheet" />
-    <link href="./assets/css/output.css" rel="stylesheet" />
+    <link href="/assets/css/input.css" rel="stylesheet" />
+    <link href="/assets/css/output.css" rel="stylesheet" />
     <link
       href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -96,12 +96,14 @@
     ></script>
   </head>
 
-  <body class="max-w-[1280px] mx-auto bg-[#002347] text-gray-200 font-sans">
+  <body
+    class="max-w-[1440px] mx-auto bg-[#002347] text-gray-200 font-sans overflow-x-hidden shadow-2xl"
+  >
     <header
-      class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
+      class="z-50 top-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
     >
       <a href="/">
-        <img src="./assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
+        <img src="/assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
       </a>
 
       <!-- Hamburger menu button -->
@@ -137,7 +139,7 @@
             <a href="/about.html" class="text-[12px] font-normal">About us</a>
           </li>
           <li>
-            <a href="#service" class="text-[12px] font-normal">Service</a>
+            <a href="/services/" class="text-[12px] font-normal">Service</a>
           </li>
           <li>
             <a href="#contact" class="text-[12px] font-normal">Contact</a>
@@ -171,7 +173,7 @@
           <li>
             <a href="/about.html" class="text-lg font-medium">About us</a>
           </li>
-          <li><a href="#service" class="text-lg font-medium">Service</a></li>
+          <li><a href="/services/" class="text-lg font-medium">Service</a></li>
           <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
           <li>
             <a
@@ -197,14 +199,14 @@
     </header>
 
     <section
-      class="padding-inline grid grid-cols-1 grid-template-columns gap-8 items-center py-8 md:py-12 w-full"
+      class="padding-inline py-12 md:py-20 grid grid-cols-1 grid-template-columns gap-8 items-center w-full max-w-[1440px] mx-auto"
     >
       <div
         class="product-card w-full max-w-[400px] h-[350px] md:h-[400px] rounded-2xl bg-white flex items-center justify-center mx-auto"
       >
         <img
           id="product-image"
-          src="./assets/images/solar-product1.png"
+          src="/assets/images/solar-product1.png"
           alt="Solar Product"
           class="px-4 w-full max-w-[300px] object-contain transition-transform duration-300 hover:scale-105"
         />
@@ -254,10 +256,10 @@
 
     <footer
       id="contact"
-      class="padding-inline flex flex-col gap-8 md:gap-12 pt-16 mb-8 mt-12 border-t border-blue-900"
+      class="padding-inline flex flex-col gap-8 md:gap-12 pt-16 mb-8 mt-12 border-t border-blue-900 max-w-[1440px] mx-auto"
     >
       <img
-        src="./assets/images/logo.png"
+        src="/assets/images/logo.png"
         class="w-24 md:w-32"
         alt="PFOS Logo Footer"
       />
@@ -340,7 +342,7 @@
       </div>
     </footer>
     <section
-      class="bg-[#011B36] w-full py-6 padding-inline flex justify-center md:justify-end mt-8"
+      class="bg-[#011B36] w-full py-6 padding-inline flex justify-center md:justify-end mt-8 max-w-[1440px] mx-auto"
     >
       <p class="text-gray-400 text-xs md:text-sm">
         PFDOS Enterprise RC: 3334515 © 2024. All Rights Reserved
@@ -356,7 +358,6 @@
       window.onload = function () {
         const product = JSON.parse(localStorage.getItem("selectedProduct"));
         if (product) {
-          console.log("Selected Product:", product);
           document.getElementById("product-image").src = product.image;
           document.getElementById("product-image").alt = product.name;
           document.getElementById("product-price").textContent =
@@ -432,7 +433,6 @@
         const product = JSON.parse(localStorage.getItem("selectedProduct"));
         if (product) {
           addProductToCart(product, quantity);
-          console.log(`${product.name} (x${quantity}) added to cart`);
         }
       });
 
@@ -451,6 +451,6 @@
       });
     </script>
 
-    <script type="module" src="./assets/js/script.js"></script>
+    <script type="module" src="/assets/js/script.js"></script>
   </body>
 </html>

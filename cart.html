@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,8 +10,8 @@
       href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link href="./assets/css/input.css" rel="stylesheet" />
-    <link href="./assets/css/output.css" rel="stylesheet" />
+    <link href="/assets/css/input.css" rel="stylesheet" />
+    <link href="/assets/css/output.css" rel="stylesheet" />
     <title>Your Shopping Cart - SOLAR PRODUCT SALES</title>
     <style>
       /* Font */
@@ -19,7 +19,11 @@
 
       /* Base Styles */
       body {
-        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          sans-serif;
         line-height: 1.6;
         margin: 0;
         background: #002347;
@@ -366,7 +370,9 @@
 
       #proceed-to-checkout:focus {
         outline: none;
-        box-shadow: 0 0 0 2px #011b36, 0 0 0 4px #fbb610;
+        box-shadow:
+          0 0 0 2px #011b36,
+          0 0 0 4px #fbb610;
       }
 
       #proceed-to-checkout:disabled {
@@ -393,13 +399,20 @@
         font-weight: 500;
       }
     </style>
+    <title>Your Shopping Cart - PFOS Solar</title>
+    <meta
+      name="description"
+      content="View the solar products in your cart and proceed to secure checkout with PFOS Solar."
+    />
   </head>
-  <body class="max-w-[1280px] mx-auto bg-[#002347] text-gray-200">
+  <body
+    class="max-w-[1440px] mx-auto bg-[#002347] text-gray-200 overflow-x-hidden shadow-2xl"
+  >
     <header
-      class="z-50 top-0 left-0 sticky padding-inline flex items-center py-3 justify-between w-full bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
+      class="z-50 top-0 sticky padding-inline flex items-center py-3 justify-between w-full max-w-[1440px] mx-auto bg-[#002347] md:border-b-0.5 border-custom-blue backdrop-blur-61.5"
     >
       <a href="/">
-        <img src="./assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
+        <img src="/assets/images/logo.png" class="w-[126px] h-12" alt="logo" />
       </a>
 
       <!-- Hamburger menu button -->
@@ -435,7 +448,7 @@
             <a href="/about.html" class="text-[12px] font-normal">About us</a>
           </li>
           <li>
-            <a href="#service" class="text-[12px] font-normal">Service</a>
+            <a href="/services/" class="text-[12px] font-normal">Service</a>
           </li>
           <li>
             <a href="#contact" class="text-[12px] font-normal">Contact</a>
@@ -469,7 +482,7 @@
           <li>
             <a href="/about.html" class="text-lg font-medium">About us</a>
           </li>
-          <li><a href="#service" class="text-lg font-medium">Service</a></li>
+          <li><a href="/services/" class="text-lg font-medium">Service</a></li>
           <li><a href="#contact" class="text-lg font-medium">Contact</a></li>
           <li>
             <a
@@ -494,7 +507,9 @@
       </nav>
     </header>
 
-    <section class="padding-inline py-12 md:py-16 min-h-[60vh]">
+    <section
+      class="padding-inline py-12 md:py-16 min-h-[60vh] max-w-[1440px] mx-auto"
+    >
       <h2
         class="text-white text-3xl lg:text-4xl font-bold mb-8 text-center md:text-left"
       >
@@ -541,10 +556,10 @@
 
     <footer
       id="contact"
-      class="padding-inline flex flex-col gap-8 md:gap-12 pt-16 mb-8 mt-12 border-t border-blue-900"
+      class="padding-inline flex flex-col gap-8 md:gap-12 pt-16 mb-8 mt-12 border-t border-blue-900 max-w-[1440px] mx-auto"
     >
       <img
-        src="./assets/images/logo.png"
+        src="/assets/images/logo.png"
         class="w-24 md:w-32"
         alt="PFOS Logo Footer"
       />
@@ -627,7 +642,7 @@
       </div>
     </footer>
     <section
-      class="bg-[#011B36] w-full py-6 padding-inline flex justify-center md:justify-end mt-8"
+      class="bg-[#011B36] w-full py-6 padding-inline flex justify-center md:justify-end mt-8 max-w-[1440px] mx-auto"
     >
       <p class="text-gray-400 text-xs md:text-sm">
         PFDOS Enterprise RC: 3334515 © 2024. All Rights Reserved
@@ -705,11 +720,9 @@
 
         if (itemIndex > -1 && !isNaN(newQuantity)) {
           if (newQuantity <= 0) {
-            console.log(`Removing item ${productId} via quantity update`);
             removeCartItem(productId);
           } else {
             cart[itemIndex].quantity = newQuantity;
-            console.log(`Updated quantity for ${productId} to ${newQuantity}`);
             if (saveCart(cart)) {
               renderCart();
             }
@@ -724,7 +737,6 @@
         const initialLength = cart.length;
         cart = cart.filter((item) => item.id !== productId);
         if (cart.length < initialLength) {
-          console.log(`Removed item ${productId}`);
           if (saveCart(cart)) {
             renderCart();
             showNotification("Item removed from cart.", "success");
@@ -737,7 +749,6 @@
       // --- Rendering Functions ---
       function renderCart() {
         const cart = getCart();
-        console.log("Rendering cart with items:", cart);
         if (cartLoadingMessage) cartLoadingMessage.classList.add("hidden");
         if (cartItemsListDiv) cartItemsListDiv.innerHTML = "";
 
@@ -771,8 +782,8 @@
             itemRow.innerHTML = `
             <div class="cart-item-product">
               <img src="${imageUrl}" alt="${
-              item.name
-            }" onerror="this.onerror=null; this.src='${placeholderImage}'">
+                item.name
+              }" onerror="this.onerror=null; this.src='${placeholderImage}'">
               <div class="cart-item-product-details">
                 <p title="${item.name}">${item.name}</p>
                 <button class="remove-item-btn" data-product-id="${item.id}">
@@ -781,17 +792,17 @@
               </div>
             </div>
             <div class="cart-item-price" data-label="Price">${formatPrice(
-              item.price
+              item.price,
             )}</div>
             <div class="cart-item-quantity" data-label="Quantity">
               <input type="number" value="${
                 item.quantity
               }" min="1" max="99" aria-label="Quantity for ${
-              item.name
-            }" class="quantity-input" data-product-id="${item.id}">
+                item.name
+              }" class="quantity-input" data-product-id="${item.id}">
             </div>
             <div class="cart-item-total" data-label="Total">${formatPrice(
-              itemTotal
+              itemTotal,
             )}</div>
           `;
             cartItemsListDiv.appendChild(itemRow);
@@ -834,63 +845,22 @@
         });
       }
 
-      // --- Mobile Menu Toggle ---
-      function openMobileMenu() {
-        if (mobileMenu) {
-          mobileMenu.classList.remove("hidden");
-          requestAnimationFrame(() => {
-            mobileMenu.classList.remove("-translate-x-full");
-          });
-        }
-      }
-
-      function closeMobileMenu() {
-        if (mobileMenu) {
-          mobileMenu.classList.add("-translate-x-full");
-          mobileMenu.addEventListener(
-            "transitionend",
-            () => {
-              mobileMenu.classList.add("hidden");
-            },
-            {
-              once: true,
-            }
-          );
-        }
-      }
-      if (menuToggle && mobileMenu)
-        menuToggle.addEventListener("click", openMobileMenu);
-      if (closeMenuButton && mobileMenu)
-        closeMenuButton.addEventListener("click", closeMobileMenu);
-
-      // --- Prevent Pinch Zoom ---
-      document.addEventListener(
-        "touchstart",
-        (e) => {
-          if (e.touches.length > 1) {
-            e.preventDefault();
-          }
-        },
-        { passive: false }
-      );
-
       // --- Initialization ---
       document.addEventListener("DOMContentLoaded", () => {
-        console.log("Cart page DOM loaded.");
         renderCart();
         if (checkoutButton) {
           checkoutButton.addEventListener("click", () => {
             const cart = getCart();
             if (cart.length > 0) {
-              window.location.href = "./checkout.html";
+              window.location.href = "/checkout.html";
             } else {
-              showNotification("Your cart is empty.", "error");
+              // global showSuccessModal or toast could be used, but keeping simple for now
+              alert("Your cart is empty.");
             }
           });
-        } else {
-          console.error("Checkout button not found!");
         }
       });
     </script>
+    <script type="module" src="/assets/js/script.js"></script>
   </body>
 </html>
